@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About | Eliran Kadouri" description="Learn more about Eliran Kadouri">
+  <article class="about-page">
+    <h1>About Me</h1>
+
+    <section>
+      <h2>👋 Hello!</h2>
+      <p>
+        I'm Eliran, a software developer passionate about building tools that solve real problems.
+        I love exploring new technologies, especially in the AI and automation space.
+      </p>
+    </section>
+
+    <section>
+      <h2>🛠️ What I Do</h2>
+      <p>
+        I build practical applications that combine modern web technologies with AI capabilities.
+        My focus is on creating intuitive, performant solutions that make complex tasks simpler.
+      </p>
+      <ul>
+        <li>Full-stack web development</li>
+        <li>AI integration and automation</li>
+        <li>Developer tools and workflows</li>
+        <li>Open-source contributions</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🎯 Current Projects</h2>
+      <p>
+        I'm currently working on several exciting projects:
+      </p>
+      <ul>
+        <li><strong>AI Music Generator</strong> - A Suno-like application for creating music with AI</li>
+        <li><strong>Claude Automation Toolkit</strong> - OpenClaw-inspired automation suite</li>
+        <li><strong>This Blog</strong> - Sharing knowledge and experiences in tech</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>📫 Get In Touch</h2>
+      <p>
+        Feel free to reach out if you want to collaborate, have questions, or just want to chat about tech!
+      </p>
+      <ul class="contact-links">
+        <li><a href="https://github.com/Elirank1" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="mailto:elirank512@gmail.com">Email</a></li>
+      </ul>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .about-page {
+    max-width: 720px;
+  }
+
+  .about-page h1 {
+    margin-bottom: 2rem;
+  }
+
+  section {
+    margin: 3rem 0;
+  }
+
+  section h2 {
+    margin-bottom: 1rem;
+  }
+
+  .contact-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .contact-links a {
+    font-weight: 500;
+  }
+</style>

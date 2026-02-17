@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Projects | Eliran Kadouri" description="Showcase of my projects and open-source work">
+  <div class="projects-page">
+    <h1>Projects</h1>
+    <p class="intro">Here are some of the projects I'm working on. All are open-source and available on GitHub.</p>
+
+    <section class="project" id="suno-music">
+      <div class="project-header">
+        <h2>🎵 Suno Music Generator</h2>
+        <div class="project-links">
+          <a href="https://github.com/Elirank1/monorepo/tree/main/packages/suno-music" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+      <p>
+        An AI-powered music generation application inspired by Suno. Create original songs from text descriptions,
+        customize genres, moods, and instruments.
+      </p>
+      <div class="tech-stack">
+        <span class="tech-tag">React</span>
+        <span class="tech-tag">TypeScript</span>
+        <span class="tech-tag">AI Models</span>
+        <span class="tech-tag">Web Audio API</span>
+      </div>
+    </section>
+
+    <section class="project" id="claude-toolkit">
+      <div class="project-header">
+        <h2>🤖 Claude Automation Toolkit</h2>
+        <div class="project-links">
+          <a href="https://github.com/Elirank1/monorepo/tree/main/packages/claude-toolkit" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+      <p>
+        OpenClaw-inspired automation suite that integrates Claude AI with your daily workflows.
+        Includes WhatsApp notifications, HubSpot CRM sync, Google Meet integration, and more.
+      </p>
+      <div class="tech-stack">
+        <span class="tech-tag">Node.js</span>
+        <span class="tech-tag">TypeScript</span>
+        <span class="tech-tag">Claude API</span>
+        <span class="tech-tag">WhatsApp API</span>
+        <span class="tech-tag">HubSpot API</span>
+      </div>
+    </section>
+
+    <section class="project">
+      <div class="project-header">
+        <h2>📝 This Blog</h2>
+        <div class="project-links">
+          <a href="https://github.com/Elirank1/monorepo/tree/main/packages/blog" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+      <p>
+        A modern, fast technical blog built with Astro and MDX. Features dark mode, RSS feed,
+        tag-based filtering, and a clean reading experience.
+      </p>
+      <div class="tech-stack">
+        <span class="tech-tag">Astro</span>
+        <span class="tech-tag">TypeScript</span>
+        <span class="tech-tag">MDX</span>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .projects-page {
+    max-width: 800px;
+  }
+
+  .projects-page h1 {
+    margin-bottom: 1rem;
+  }
+
+  .intro {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    margin-bottom: 3rem;
+  }
+
+  .project {
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .project-header h2 {
+    margin: 0;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .project-links a {
+    font-weight: 500;
+  }
+
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .tech-tag {
+    background: var(--color-code-bg);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+  }
+
+  @media (max-width: 640px) {
+    .project {
+      padding: 1.5rem;
+    }
+
+    .project-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

@@ -1,0 +1,109 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { formatDate } from '../utils/dateFormat';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  tags?: string[];
+}
+
+const { title, description, pubDate, tags = [] } = Astro.props;
+const formattedDate = formatDate(pubDate);
+---
+
+<BaseLayout title={`${title} | Eliran Kadouri`} description={description}>
+  <article class="blog-post">
+    <header class="post-header">
+      <h1>{title}</h1>
+      <div class="post-meta">
+        <time datetime={pubDate.toISOString()}>{formattedDate}</time>
+        {tags.length > 0 && (
+          <div class="tags">
+            {tags.map(tag => (
+              <a href={`/tags/${tag}`} class="tag">#{tag}</a>
+            ))}
+          </div>
+        )}
+      </div>
+    </header>
+
+    <div class="post-content">
+      <slot />
+    </div>
+
+    <footer class="post-footer">
+      <a href="/blog" class="back-link">← Back to all posts</a>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  .blog-post {
+    max-width: 720px;
+  }
+
+  .post-header {
+    margin-bottom: 2rem;
+  }
+
+  .post-header h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .post-meta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    color: var(--color-text);
+    opacity: 0.7;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+  }
+
+  .tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    color: var(--color-accent);
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+
+  .tag:hover {
+    opacity: 1;
+  }
+
+  .post-content {
+    margin: 3rem 0;
+  }
+
+  .post-footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .back-link {
+    color: var(--color-text);
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .back-link:hover {
+    opacity: 1;
+    text-decoration: none;
+  }
+
+  @media (max-width: 640px) {
+    .post-header h1 {
+      font-size: 2rem;
+    }
+  }
+</style>

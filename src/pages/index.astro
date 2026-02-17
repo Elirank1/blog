@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const recentPosts = await Astro.glob('./blog/*.{md,mdx}');
+const sortedPosts = recentPosts
+  .sort((a, b) => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime())
+  .slice(0, 3);
+---
+
+<BaseLayout>
+  <section class="hero">
+    <h1>Hi, I'm Eliran 👋</h1>
+    <p class="subtitle">
+      Software developer, AI enthusiast, and automation lover.
+      Building tools that make life easier.
+    </p>
+  </section>
+
+  <section class="recent-posts">
+    <h2>Recent Posts</h2>
+    {sortedPosts.length === 0 ? (
+      <p class="no-posts">No posts yet. Check back soon!</p>
+    ) : (
+      <div class="posts-list">
+        {sortedPosts.map(post => (
+          <article class="post-card">
+            <h3>
+              <a href={post.url}>{post.frontmatter.title}</a>
+            </h3>
+            <p class="post-description">{post.frontmatter.description}</p>
+            <div class="post-meta">
+              <time>{new Date(post.frontmatter.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+            </div>
+          </article>
+        ))}
+      </div>
+    )}
+    <a href="/blog" class="view-all">View all posts →</a>
+  </section>
+
+  <section class="projects-preview">
+    <h2>Featured Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>🎵 Suno Music Generator</h3>
+        <p>AI-powered music generation tool. Create songs from text descriptions.</p>
+        <a href="/projects#suno-music">Learn more →</a>
+      </div>
+      <div class="project-card">
+        <h3>🤖 Claude Automation Toolkit</h3>
+        <p>OpenClaw-inspired automation suite with WhatsApp, HubSpot, and Google Meet integrations.</p>
+        <a href="/projects#claude-toolkit">Learn more →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    margin: 0 0 1rem 0;
+  }
+
+  .subtitle {
+    font-size: 1.3rem;
+    color: var(--color-text);
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  section {
+    margin: 4rem 0;
+  }
+
+  section h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
+
+  .posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .post-card {
+    padding: 1.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .post-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .post-card h3 {
+    margin: 0 0 0.5rem 0;
+  }
+
+  .post-card h3 a {
+    color: var(--color-text);
+  }
+
+  .post-description {
+    color: var(--color-text);
+    opacity: 0.8;
+    margin: 0.5rem 0;
+  }
+
+  .post-meta {
+    font-size: 0.9rem;
+    opacity: 0.6;
+  }
+
+  .no-posts {
+    text-align: center;
+    opacity: 0.6;
+    padding: 2rem;
+  }
+
+  .view-all {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-weight: 500;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    padding: 1.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    transition: transform 0.2s;
+  }
+
+  .project-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .project-card h3 {
+    margin: 0 0 0.5rem 0;
+  }
+
+  .project-card p {
+    opacity: 0.8;
+    margin: 0.5rem 0 1rem 0;
+  }
+
+  @media (max-width: 640px) {
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+    }
+  }
+</style>
