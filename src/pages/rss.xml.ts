@@ -14,7 +14,7 @@ export const GET: APIRoute = async (context) => {
     .sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime());
 
   return rss({
-    title: 'Eliran Kadouri | Blog',
+    title: 'Eliran Keren | Blog',
     description: 'Technical articles about software development, AI, and automation',
     site: context.site || 'https://elirank1.github.io',
     items,
