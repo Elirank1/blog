@@ -10,6 +10,8 @@ const {
   title = 'Eliran Keren | Tech Blog',
   description = 'Technical blog about software development, AI, and automation'
 } = Astro.props;
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <!DOCTYPE html>
@@ -19,18 +21,18 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <title>{title}</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href={`${base}/rss.xml`} />
   </head>
   <body>
     <div class="container">
       <header class="header">
         <nav class="nav">
-          <a href="/" class="logo">Eliran Keren</a>
+          <a href={base} class="logo">Eliran Keren</a>
           <div class="nav-links">
-            <a href="/blog">Blog</a>
-            <a href="/about">About</a>
-            <a href="/projects">Projects</a>
+            <a href={`${base}/blog`}>Blog</a>
+            <a href={`${base}/about`}>About</a>
+            <a href={`${base}/projects`}>Projects</a>
             <button id="theme-toggle" aria-label="Toggle dark mode">
               <span class="sun">☀️</span>
               <span class="moon">🌙</span>
@@ -47,7 +49,7 @@ const {
         <p>© 2026 Eliran Keren. Built with <a href="https://astro.build">Astro</a></p>
         <div class="social-links">
           <a href="https://github.com/Elirank1" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="/rss.xml">RSS</a>
+          <a href={`${base}/rss.xml`}>RSS</a>
         </div>
       </footer>
     </div>
