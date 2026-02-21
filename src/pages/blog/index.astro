@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
+const base = import.meta.env.BASE_URL;
 const allPosts = await Astro.glob('./*.{md,mdx}');
 const sortedPosts = allPosts.sort(
   (a, b) => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime()
@@ -21,7 +22,7 @@ const allTags = [...new Set(sortedPosts.flatMap(post => post.frontmatter.tags ||
       <h2>Topics</h2>
       <div class="tags-list">
         {allTags.map(tag => (
-          <a href={`/tags/${tag}`} class="tag">#{tag}</a>
+          <span class="tag">#{tag}</span>
         ))}
       </div>
     </div>
@@ -35,7 +36,7 @@ const allTags = [...new Set(sortedPosts.flatMap(post => post.frontmatter.tags ||
         {sortedPosts.map(post => (
           <article class="post-card">
             <h2>
-              <a href={post.url}>{post.frontmatter.title}</a>
+              <a href={`${base}${post.url}`}>{post.frontmatter.title}</a>
             </h2>
             <p class="post-description">{post.frontmatter.description}</p>
             <div class="post-meta">
@@ -92,11 +93,6 @@ const allTags = [...new Set(sortedPosts.flatMap(post => post.frontmatter.tags ||
   .tag {
     color: var(--color-accent);
     opacity: 0.8;
-    transition: opacity 0.2s;
-  }
-
-  .tag:hover {
-    opacity: 1;
   }
 
   .posts-list {
