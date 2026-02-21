@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
+const base = import.meta.env.BASE_URL;
 const recentPosts = await Astro.glob('./blog/*.{md,mdx}');
 const sortedPosts = recentPosts
   .sort((a, b) => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime())
@@ -25,7 +26,7 @@ const sortedPosts = recentPosts
         {sortedPosts.map(post => (
           <article class="post-card">
             <h3>
-              <a href={post.url}>{post.frontmatter.title}</a>
+              <a href={`${base}${post.url}`}>{post.frontmatter.title}</a>
             </h3>
             <p class="post-description">{post.frontmatter.description}</p>
             <div class="post-meta">
@@ -35,7 +36,7 @@ const sortedPosts = recentPosts
         ))}
       </div>
     )}
-    <a href="/blog" class="view-all">View all posts →</a>
+    <a href={`${base}/blog`} class="view-all">View all posts →</a>
   </section>
 
   <section class="projects-preview">
@@ -44,12 +45,12 @@ const sortedPosts = recentPosts
       <div class="project-card">
         <h3>🎵 Suno Music Generator</h3>
         <p>AI-powered music generation tool. Create songs from text descriptions.</p>
-        <a href="/projects#suno-music">Learn more →</a>
+        <a href={`${base}/projects#suno-music`}>Learn more →</a>
       </div>
       <div class="project-card">
         <h3>🤖 Claude Automation Toolkit</h3>
         <p>OpenClaw-inspired automation suite with WhatsApp, HubSpot, and Google Meet integrations.</p>
-        <a href="/projects#claude-toolkit">Learn more →</a>
+        <a href={`${base}/projects#claude-toolkit`}>Learn more →</a>
       </div>
     </div>
   </section>
