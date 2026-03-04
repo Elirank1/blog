@@ -12,8 +12,8 @@ const sortedPosts = recentPosts
   <section class="hero">
     <h1>Hi, I'm Eliran 👋</h1>
     <p class="subtitle">
-      Software developer, AI enthusiast, and automation lover.
-      Building tools that make life easier.
+      Founder of <a href="https://deeplica.ai" target="_blank">Deeplica</a> — building the executive proxy layer
+      for founders who'd rather live than operate.
     </p>
   </section>
 
@@ -43,13 +43,13 @@ const sortedPosts = recentPosts
     <h2>Featured Projects</h2>
     <div class="projects-grid">
       <div class="project-card">
-        <h3>🎵 Suno Music Generator</h3>
-        <p>AI-powered music generation tool. Create songs from text descriptions.</p>
-        <a href={`${base}/projects#suno-music`}>Learn more →</a>
+        <h3>🧠 Deeplica</h3>
+        <p>AI-native infrastructure that handles the operational layer for founders and executives.</p>
+        <a href={`${base}/projects#deeplica`}>Learn more →</a>
       </div>
       <div class="project-card">
         <h3>🤖 Claude Automation Toolkit</h3>
-        <p>OpenClaw-inspired automation suite with WhatsApp, HubSpot, and Google Meet integrations.</p>
+        <p>Automation suite integrating Claude AI with WhatsApp, HubSpot, and Google Meet.</p>
         <a href={`${base}/projects#claude-toolkit`}>Learn more →</a>
       </div>
     </div>
@@ -73,6 +73,10 @@ const sortedPosts = recentPosts
     opacity: 0.8;
     max-width: 600px;
     margin: 0 auto;
+  }
+
+  .subtitle a {
+    font-weight: 600;
   }
 
   section {
