@@ -1,0 +1,29 @@
+backend:
+  name: github
+  repo: Elirank1/blog
+  branch: main
+
+publish_mode: editorial_workflow
+
+media_folder: "public/images/uploads"
+public_folder: "/blog/images/uploads"
+
+site_url: https://elirank1.github.io/blog
+display_url: https://elirank1.github.io/blog
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "src/pages/blog"
+    create: true
+    slug: "{{slug}}"
+    extension: "mdx"
+    format: "frontmatter"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "../../layouts/BlogPost.astro" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Publish Date", name: "pubDate", widget: "date", format: "YYYY-MM-DD" }
+      - { label: "Hero Image", name: "image", widget: "image", required: false }
+      - { label: "Tags", name: "tags", widget: "list", default: [] }
+      - { label: "Body", name: "body", widget: "markdown" }
