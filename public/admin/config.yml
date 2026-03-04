@@ -2,8 +2,7 @@ backend:
   name: github
   repo: Elirank1/blog
   branch: main
-  auth_type: pkce
-  app_id: Ov23liqS61gXNSRlKGBo
+  site_domain: zingy-chebakia-1e78fd.netlify.app
 
 publish_mode: editorial_workflow
 
@@ -25,7 +24,7 @@ collections:
       - { label: "Layout", name: "layout", widget: "hidden", default: "../../layouts/BlogPost.astro" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }
-      - { label: "Publish Date", name: "pubDate", widget: "date", format: "YYYY-MM-DD" }
+      - { label: "Publish Date", name: "pubDate", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
       - { label: "Hero Image", name: "image", widget: "image", required: false }
       - { label: "Tags", name: "tags", widget: "list", default: [] }
       - { label: "Body", name: "body", widget: "markdown" }
