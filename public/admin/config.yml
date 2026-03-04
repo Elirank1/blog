@@ -2,6 +2,8 @@ backend:
   name: github
   repo: Elirank1/blog
   branch: main
+  auth_type: pkce
+  app_id: Ov23liqS61gXNSRlKGBo
 
 publish_mode: editorial_workflow
 
