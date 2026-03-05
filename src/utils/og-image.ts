@@ -19,7 +19,7 @@ export async function generateOgImage(title: string, description: string, date: 
           flexDirection: 'column',
           justifyContent: 'space-between',
           padding: '60px',
-          background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%)',
+          background: 'linear-gradient(135deg, #0F0F13 0%, #1a1028 50%, #0F0F13 100%)',
           fontFamily: 'Inter',
         },
         children: [
@@ -30,7 +30,7 @@ export async function generateOgImage(title: string, description: string, date: 
               style: {
                 width: '80px',
                 height: '4px',
-                background: 'linear-gradient(90deg, #0066cc, #4da3ff)',
+                background: 'linear-gradient(90deg, #7C5CFC, #A78BFA)',
                 borderRadius: '2px',
               },
             },
@@ -122,7 +122,7 @@ export async function generateOgImage(title: string, description: string, date: 
                         props: {
                           style: {
                             fontSize: '18px',
-                            color: '#4da3ff',
+                            color: '#A78BFA',
                           },
                           children: 'Deeplica',
                         },

@@ -12,11 +12,11 @@ const sortedPosts = recentPosts
 <BaseLayout>
   <!-- Hero -->
   <section class="py-12 text-center">
-    <div class="w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-3xl mx-auto mb-6">
+    <div class="w-20 h-20 rounded-full bg-gradient-to-br from-violet-500 to-purple-700 flex items-center justify-center text-white font-bold text-3xl mx-auto mb-6">
       E
     </div>
-    <h1 class="text-4xl font-bold mb-3 text-gray-900" id="hero-title">Eliran Keren</h1>
-    <p class="text-lg text-gray-600 max-w-lg mx-auto leading-relaxed" id="hero-sub">
+    <h1 class="text-4xl font-bold mb-3" id="hero-title">Eliran Keren</h1>
+    <p class="text-lg max-w-lg mx-auto leading-relaxed" id="hero-sub">
       Founder of <a href="https://deeplica.ai" target="_blank" class="font-semibold">Deeplica</a> — building the coordination layer that runs the operational side of your life.
     </p>
     <div class="flex justify-center gap-4 mt-5">
@@ -34,7 +34,7 @@ const sortedPosts = recentPosts
 
   <!-- Recent Posts -->
   <section class="py-8">
-    <h2 class="text-2xl font-bold mb-6 text-gray-900" id="recent-heading">Recent Posts</h2>
+    <h2 class="text-2xl font-bold mb-6" id="recent-heading">Recent Posts</h2>
     <div class="flex flex-col gap-1">
       {sortedPosts.map(post => {
         const readTime = post.rawContent ? getReadingTime(typeof post.rawContent === 'function' ? post.rawContent() : post.rawContent) : '';
@@ -42,10 +42,10 @@ const sortedPosts = recentPosts
           <a href={post.url} class="group block py-4 hover:no-underline border-b border-gray-100 last:border-b-0 post-row">
             <div class="flex justify-between items-start gap-4">
               <div>
-                <h3 class="font-semibold text-gray-900 group-hover:text-[--color-accent] transition-colors post-title">
+                <h3 class="font-semibold group-hover:text-[--color-accent] transition-colors post-title">
                   {post.frontmatter.title}
                 </h3>
-                <p class="text-gray-500 text-sm mt-1 line-clamp-1 post-desc">{post.frontmatter.description}</p>
+                <p class="text-sm mt-1 line-clamp-1 post-desc">{post.frontmatter.description}</p>
               </div>
               <div class="text-sm text-gray-400 whitespace-nowrap flex-shrink-0 mt-0.5 post-date">
                 {new Date(post.frontmatter.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
@@ -63,12 +63,21 @@ const sortedPosts = recentPosts
 </BaseLayout>
 
 <style>
-  [data-theme="dark"] #hero-title { color: #f9fafb; }
+  /* Light mode */
+  #hero-title { color: #111827; }
+  #hero-sub { color: #6b7280; }
+  #recent-heading { color: #111827; }
+  .post-title { color: #111827; }
+  .post-desc { color: #6b7280; }
+  .post-date { color: #9ca3af; }
+  .post-row { border-color: #f3f4f6; }
+
+  /* Dark mode */
+  [data-theme="dark"] #hero-title { color: #f3f4f6; }
   [data-theme="dark"] #hero-sub { color: #9ca3af; }
-  [data-theme="dark"] #recent-heading { color: #f9fafb; }
-  [data-theme="dark"] .post-row { border-color: #1f2937; }
-  [data-theme="dark"] .post-title { color: #f3f4f6; }
-  [data-theme="dark"] .post-title:hover { color: var(--color-accent-dark); }
+  [data-theme="dark"] #recent-heading { color: #f3f4f6; }
+  [data-theme="dark"] .post-row { border-color: #1f1f2e; }
+  [data-theme="dark"] .post-title { color: #e5e7eb; }
   [data-theme="dark"] .post-desc { color: #6b7280; }
-  [data-theme="dark"] .post-date { color: #6b7280; }
+  [data-theme="dark"] .post-date { color: #4b5563; }
 </style>

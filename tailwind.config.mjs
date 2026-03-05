@@ -6,12 +6,22 @@ export default {
     extend: {
       colors: {
         accent: {
-          DEFAULT: '#0066cc',
-          dark: '#4da3ff',
+          DEFAULT: '#7C5CFC',
+          hover: '#6A4AEA',
+          light: '#EDE9FE',
+          dark: '#A78BFA',
+        },
+        deeplica: {
+          purple: '#7C5CFC',
+          lavender: '#A78BFA',
+          sand: '#E8DCC8',
+          'pale-blue': '#B8D4E3',
+          'fog-gray': '#9CA3AF',
+          beige: '#F5F0E8',
         },
         surface: {
           light: '#ffffff',
-          dark: '#111111',
+          dark: '#0F0F13',
         },
       },
       fontFamily: {
@@ -23,15 +33,17 @@ export default {
           css: {
             '--tw-prose-body': '#374151',
             '--tw-prose-headings': '#111827',
-            '--tw-prose-links': '#0066cc',
+            '--tw-prose-links': '#7C5CFC',
             '--tw-prose-code': '#111827',
             '--tw-prose-pre-bg': '#f8f9fa',
             maxWidth: '720px',
             lineHeight: '1.8',
             fontSize: '1.1rem',
             a: {
+              color: '#7C5CFC',
               textDecoration: 'none',
               '&:hover': {
+                color: '#6A4AEA',
                 textDecoration: 'underline',
               },
             },
@@ -44,7 +56,7 @@ export default {
               borderRadius: '4px',
             },
             blockquote: {
-              borderLeftColor: '#0066cc',
+              borderLeftColor: '#7C5CFC',
               fontStyle: 'normal',
             },
             img: {
@@ -55,15 +67,23 @@ export default {
         invert: {
           css: {
             '--tw-prose-body': '#d1d5db',
-            '--tw-prose-headings': '#f9fafb',
-            '--tw-prose-links': '#4da3ff',
-            '--tw-prose-code': '#f9fafb',
-            '--tw-prose-pre-bg': '#1e1e1e',
+            '--tw-prose-headings': '#f3f4f6',
+            '--tw-prose-links': '#A78BFA',
+            '--tw-prose-code': '#f3f4f6',
+            '--tw-prose-pre-bg': '#1a1a24',
+            a: {
+              color: '#A78BFA',
+              '&:hover': {
+                color: '#C4B5FD',
+              },
+            },
             code: {
-              backgroundColor: '#1f2937',
+              backgroundColor: '#1a1a24',
+              color: '#d1d5db',
             },
             blockquote: {
-              borderLeftColor: '#4da3ff',
+              borderLeftColor: '#A78BFA',
+              color: '#9ca3af',
             },
           },
         },

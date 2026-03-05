@@ -4,26 +4,31 @@ const base = import.meta.env.BASE_URL;
 
 <div class="border-t border-gray-200 dark:border-gray-800 mt-16 pt-8">
   <div class="flex items-start gap-4">
-    <div class="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
+    <div class="w-14 h-14 rounded-full bg-gradient-to-br from-violet-500 to-purple-700 flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
       E
     </div>
     <div>
-      <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">Eliran Keren</p>
-      <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-3">
-        Founder & CEO of <a href="https://deeplica.ai" target="_blank" class="text-[--color-accent] dark:text-[--color-accent-dark] hover:underline">Deeplica</a> — building the coordination layer that runs the operational side of your life. I write about AI systems, founder workflows, and what happens when you let AI handle the work you shouldn't be doing.
+      <p class="font-semibold mb-1 author-name">Eliran Keren</p>
+      <p class="text-sm leading-relaxed mb-3 author-desc">
+        Founder & CEO of <a href="https://deeplica.ai" target="_blank" class="hover:underline">Deeplica</a> — building the coordination layer that runs the operational side of your life. I write about AI systems, founder workflows, and what happens when you let AI handle the work you shouldn't be doing.
       </p>
       <div class="flex gap-4 text-sm">
-        <a href="https://www.linkedin.com/in/elirankeren" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors">LinkedIn</a>
-        <a href="https://github.com/Elirank1" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors">GitHub</a>
-        <a href="mailto:eliran@deeplica.ai" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors">Email</a>
+        <a href="https://www.linkedin.com/in/elirankeren" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn</a>
+        <a href="https://github.com/Elirank1" target="_blank" rel="noopener noreferrer" class="social-link">GitHub</a>
+        <a href="mailto:eliran@deeplica.ai" class="social-link">Email</a>
       </div>
     </div>
   </div>
 </div>
 
 <style>
-  [data-theme="dark"] .dark\:border-gray-800 { border-color: #1f2937; }
-  [data-theme="dark"] .dark\:text-gray-100 { color: #f3f4f6; }
-  [data-theme="dark"] .dark\:text-gray-400 { color: #9ca3af; }
-  [data-theme="dark"] .dark\:hover\:text-gray-200:hover { color: #e5e7eb; }
+  .author-name { color: #111827; }
+  .author-desc { color: #6b7280; }
+  .social-link { color: #9ca3af; transition: color 0.2s ease; text-decoration: none; }
+  .social-link:hover { color: #6b7280; text-decoration: none; }
+
+  [data-theme="dark"] .author-name { color: #f3f4f6; }
+  [data-theme="dark"] .author-desc { color: #9ca3af; }
+  [data-theme="dark"] .social-link { color: #6b7280; }
+  [data-theme="dark"] .social-link:hover { color: #9ca3af; }
 </style>

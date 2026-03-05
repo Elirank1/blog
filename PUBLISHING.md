@@ -79,9 +79,9 @@ cd /path/to/blog
 GEMINI_API_KEY=your-key npx tsx src/utils/generate-hero.ts "Post Title" "Short description" "slug-name"
 ```
 
-Output: `public/images/heroes/{slug}.png` (16:9, 2K resolution)
+Output: `public/images/heroes/{slug}.jpg` (16:9, optimized JPEG)
 
-Then add to frontmatter: `heroImage: /blog/images/heroes/{slug}.png`
+Then add to frontmatter: `heroImage: /blog/images/heroes/{slug}.jpg`
 
 ### Visual style
 - Architectural watercolor illustration
@@ -93,10 +93,10 @@ Then add to frontmatter: `heroImage: /blog/images/heroes/{slug}.png`
 ### Push hero image to GitHub
 
 ```bash
-gh api repos/Elirank1/blog/contents/public/images/heroes/{slug}.png \
+gh api repos/Elirank1/blog/contents/public/images/heroes/{slug}.jpg \
   -X PUT \
   -f message="Add hero: {slug}" \
-  -f content="$(base64 < 'public/images/heroes/{slug}.png')" \
+  -f content="$(base64 < 'public/images/heroes/{slug}.jpg')" \
   -f encoding="base64"
 ```
 

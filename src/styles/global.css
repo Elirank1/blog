@@ -6,8 +6,15 @@
 
 @layer base {
   :root {
-    --color-accent: #0066cc;
-    --color-accent-dark: #4da3ff;
+    --color-accent: #7C5CFC;
+    --color-accent-hover: #6A4AEA;
+    --color-accent-light: #EDE9FE;
+  }
+
+  [data-theme="dark"] {
+    --color-accent: #A78BFA;
+    --color-accent-hover: #C4B5FD;
+    --color-accent-light: #1E1538;
   }
 
   html {
@@ -22,7 +29,7 @@
   }
 
   [data-theme="dark"] body {
-    @apply bg-[#111111] text-gray-100;
+    @apply bg-[#0F0F13] text-gray-200;
   }
 
   a {
@@ -31,11 +38,8 @@
   }
 
   a:hover {
+    color: var(--color-accent-hover);
     text-decoration: underline;
-  }
-
-  [data-theme="dark"] a {
-    color: var(--color-accent-dark);
   }
 
   /* Shiki dual theme support */
@@ -52,7 +56,7 @@
   [data-theme="dark"] .astro-code,
   [data-theme="dark"] .shiki,
   [data-theme="dark"] pre {
-    background-color: #1e1e1e !important;
+    background-color: #1a1a24 !important;
   }
 
   code {
@@ -61,7 +65,7 @@
   }
 
   [data-theme="dark"] code {
-    @apply bg-gray-800;
+    @apply bg-[#1a1a24] text-gray-300;
   }
 
   pre code {

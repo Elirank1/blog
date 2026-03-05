@@ -11,6 +11,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import sharp from 'sharp';
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY || 'AIzaSyDckOv4NtmIjOu3udN4KNGQ-l8SZwx0MJQ';
 const GEMINI_MODEL = 'gemini-3-pro-image-preview';
@@ -174,12 +175,17 @@ async function main() {
     process.exit(1);
   }
 
-  // Save image
-  const outputPath = path.join(OUTPUT_DIR, `${slug}.png`);
-  fs.writeFileSync(outputPath, imageData);
-  console.log(`✅ Hero image saved: ${outputPath}`);
+  // Optimize and save as JPEG (much smaller than PNG)
+  const outputPath = path.join(OUTPUT_DIR, `${slug}.jpg`);
+  const optimized = await sharp(imageData)
+    .resize(1600, 900, { fit: 'cover' })
+    .jpeg({ quality: 82, mozjpeg: true })
+    .toBuffer();
+  fs.writeFileSync(outputPath, optimized);
+  const sizeKB = (optimized.length / 1024).toFixed(0);
+  console.log(`✅ Hero image saved: ${outputPath} (${sizeKB}KB)`);
   console.log(`\n📋 Add to your post frontmatter:`);
-  console.log(`   heroImage: /blog/images/heroes/${slug}.png`);
+  console.log(`   heroImage: /blog/images/heroes/${slug}.jpg`);
 }
 
 main().catch(console.error);

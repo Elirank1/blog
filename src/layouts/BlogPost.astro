@@ -44,10 +44,10 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', 
 
     <!-- Post header -->
     <header class="mb-10">
-      <h1 class="text-4xl font-bold leading-tight tracking-tight mb-4 text-gray-900" id="post-title">
+      <h1 class="text-4xl font-bold leading-tight tracking-tight mb-4" id="post-title">
         {frontmatter.title}
       </h1>
-      <div class="flex items-center gap-3 flex-wrap text-sm text-gray-500" id="post-meta">
+      <div class="flex items-center gap-3 flex-wrap text-sm" id="post-meta">
         <time datetime={frontmatter.pubDate}>{formattedDate}</time>
         {readTime && (
           <>
@@ -62,7 +62,7 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', 
               {frontmatter.tags.map((tag: string) => (
                 <a
                   href={`${base}/tags/${tag}`}
-                  class="text-[--color-accent] hover:underline text-sm"
+                  class="tag-link"
                 >#{tag}</a>
               ))}
             </div>
@@ -84,7 +84,7 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', 
 
     <!-- Back link -->
     <div class="mt-10">
-      <a href={`${base}/blog`} class="text-sm font-medium text-gray-500 hover:text-gray-700 transition-colors">
+      <a href={`${base}/blog`} class="back-link">
         ← Back to all posts
       </a>
     </div>
@@ -92,38 +92,52 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', 
 </BaseLayout>
 
 <style>
-  [data-theme="dark"] #post-title {
-    color: #f9fafb;
+  /* Light mode defaults */
+  #post-title { color: #111827; }
+  #post-meta { color: #6b7280; }
+  .tag-link {
+    color: var(--color-accent);
+    font-size: 0.875rem;
+    text-decoration: none;
   }
-  [data-theme="dark"] #post-meta {
-    color: #9ca3af;
+  .tag-link:hover { text-decoration: underline; }
+  .back-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+    transition: color 0.2s ease;
+    text-decoration: none;
   }
-  [data-theme="dark"] #post-content {
-    color: #d1d5db;
-  }
+  .back-link:hover { color: #374151; text-decoration: none; }
+
+  /* Dark mode */
+  [data-theme="dark"] #post-title { color: #f3f4f6; }
+  [data-theme="dark"] #post-meta { color: #6b7280; }
+  [data-theme="dark"] .back-link { color: #6b7280; }
+  [data-theme="dark"] .back-link:hover { color: #9ca3af; }
+
+  [data-theme="dark"] #post-content { color: #d1d5db; }
+  [data-theme="dark"] #post-content :global(h1),
   [data-theme="dark"] #post-content :global(h2),
   [data-theme="dark"] #post-content :global(h3),
   [data-theme="dark"] #post-content :global(h4) {
-    color: #f9fafb;
-  }
-  [data-theme="dark"] #post-content :global(strong) {
     color: #f3f4f6;
   }
-  [data-theme="dark"] #post-content :global(a) {
-    color: var(--color-accent-dark);
-  }
+  [data-theme="dark"] #post-content :global(strong) { color: #e5e7eb; }
+  [data-theme="dark"] #post-content :global(a) { color: #A78BFA; }
+  [data-theme="dark"] #post-content :global(a:hover) { color: #C4B5FD; }
   [data-theme="dark"] #post-content :global(blockquote) {
-    border-color: var(--color-accent-dark);
+    border-color: #A78BFA;
     color: #9ca3af;
   }
   [data-theme="dark"] #post-content :global(code) {
-    color: #e5e7eb;
-    background-color: #1f2937;
+    color: #d1d5db;
+    background-color: #1a1a24;
   }
+  [data-theme="dark"] #post-content :global(li::marker) { color: #6b7280; }
+  [data-theme="dark"] #post-content :global(hr) { border-color: #1f1f2e; }
 
   @media (max-width: 640px) {
-    #post-title {
-      font-size: 1.875rem;
-    }
+    #post-title { font-size: 1.875rem; }
   }
 </style>
