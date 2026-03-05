@@ -13,9 +13,9 @@ if (rawContent) {
   readTime = getReadingTime(typeof rawContent === 'function' ? rawContent() : rawContent);
 }
 
-// Build OG image URL from slug
+// Use hero image as OG/share image (LinkedIn thumbnail), fallback to generated OG
 const slug = Astro.url.pathname.split('/').filter(Boolean).pop();
-const ogImageUrl = `${base}/og/${slug}.png`;
+const ogImageUrl = frontmatter.heroImage || `${base}/og/${slug}.png`;
 
 // Format date
 const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', {
@@ -93,7 +93,7 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', 
 
 <style>
   /* Light mode defaults */
-  #post-title { color: #111827; }
+  #post-title { color: var(--color-heading); font-family: 'MuseoModerno', sans-serif; }
   #post-meta { color: #6b7280; }
   .tag-link {
     color: var(--color-accent);
@@ -111,23 +111,24 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', 
   .back-link:hover { color: #374151; text-decoration: none; }
 
   /* Dark mode */
-  [data-theme="dark"] #post-title { color: #f3f4f6; }
+  [data-theme="dark"] #post-title { color: var(--color-heading); }
   [data-theme="dark"] #post-meta { color: #6b7280; }
   [data-theme="dark"] .back-link { color: #6b7280; }
   [data-theme="dark"] .back-link:hover { color: #9ca3af; }
 
-  [data-theme="dark"] #post-content { color: #d1d5db; }
+  [data-theme="dark"] #post-content { color: var(--color-body); }
   [data-theme="dark"] #post-content :global(h1),
   [data-theme="dark"] #post-content :global(h2),
   [data-theme="dark"] #post-content :global(h3),
   [data-theme="dark"] #post-content :global(h4) {
-    color: #f3f4f6;
+    color: var(--color-heading);
+    font-family: 'MuseoModerno', sans-serif;
   }
   [data-theme="dark"] #post-content :global(strong) { color: #e5e7eb; }
-  [data-theme="dark"] #post-content :global(a) { color: #A78BFA; }
-  [data-theme="dark"] #post-content :global(a:hover) { color: #C4B5FD; }
+  [data-theme="dark"] #post-content :global(a) { color: #B8A4E8; }
+  [data-theme="dark"] #post-content :global(a:hover) { color: #D0C1F0; }
   [data-theme="dark"] #post-content :global(blockquote) {
-    border-color: #A78BFA;
+    border-color: #B8A4E8;
     color: #9ca3af;
   }
   [data-theme="dark"] #post-content :global(code) {

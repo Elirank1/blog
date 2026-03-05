@@ -64,18 +64,18 @@ const sortedPosts = recentPosts
 
 <style>
   /* Light mode */
-  #hero-title { color: #111827; }
-  #hero-sub { color: #6b7280; }
-  #recent-heading { color: #111827; }
-  .post-title { color: #111827; }
+  #hero-title { color: var(--color-heading); }
+  #hero-sub { color: var(--color-body); }
+  #recent-heading { color: var(--color-heading); }
+  .post-title { color: var(--color-body); }
   .post-desc { color: #6b7280; }
   .post-date { color: #9ca3af; }
   .post-row { border-color: #f3f4f6; }
 
   /* Dark mode */
-  [data-theme="dark"] #hero-title { color: #f3f4f6; }
+  [data-theme="dark"] #hero-title { color: var(--color-heading); }
   [data-theme="dark"] #hero-sub { color: #9ca3af; }
-  [data-theme="dark"] #recent-heading { color: #f3f4f6; }
+  [data-theme="dark"] #recent-heading { color: var(--color-heading); }
   [data-theme="dark"] .post-row { border-color: #1f1f2e; }
   [data-theme="dark"] .post-title { color: #e5e7eb; }
   [data-theme="dark"] .post-desc { color: #6b7280; }

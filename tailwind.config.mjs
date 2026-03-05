@@ -6,18 +6,19 @@ export default {
     extend: {
       colors: {
         accent: {
-          DEFAULT: '#7C5CFC',
-          hover: '#6A4AEA',
+          DEFAULT: '#967FDB',
+          hover: '#7B62C9',
           light: '#EDE9FE',
-          dark: '#A78BFA',
+          dark: '#B8A4E8',
         },
         deeplica: {
-          purple: '#7C5CFC',
-          lavender: '#A78BFA',
+          purple: '#967FDB',
+          lavender: '#B8A4E8',
           sand: '#E8DCC8',
           'pale-blue': '#B8D4E3',
           'fog-gray': '#9CA3AF',
           beige: '#F5F0E8',
+          body: '#2B4150',
         },
         surface: {
           light: '#ffffff',
@@ -25,28 +26,33 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        sans: ['Source Sans 3', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        heading: ['MuseoModerno', 'sans-serif'],
         mono: ['JetBrains Mono', 'SF Mono', 'Monaco', 'Consolas', 'monospace'],
       },
       typography: ({ theme }) => ({
         DEFAULT: {
           css: {
-            '--tw-prose-body': '#374151',
-            '--tw-prose-headings': '#111827',
-            '--tw-prose-links': '#7C5CFC',
-            '--tw-prose-code': '#111827',
+            '--tw-prose-body': '#2B4150',
+            '--tw-prose-headings': '#967FDB',
+            '--tw-prose-links': '#967FDB',
+            '--tw-prose-code': '#2B4150',
             '--tw-prose-pre-bg': '#f8f9fa',
             maxWidth: '720px',
             lineHeight: '1.8',
             fontSize: '1.1rem',
             a: {
-              color: '#7C5CFC',
+              color: '#967FDB',
               textDecoration: 'none',
               '&:hover': {
-                color: '#6A4AEA',
+                color: '#7B62C9',
                 textDecoration: 'underline',
               },
             },
+            h1: { fontFamily: 'MuseoModerno, sans-serif' },
+            h2: { fontFamily: 'MuseoModerno, sans-serif' },
+            h3: { fontFamily: 'MuseoModerno, sans-serif' },
+            h4: { fontFamily: 'MuseoModerno, sans-serif' },
             'code::before': { content: '""' },
             'code::after': { content: '""' },
             code: {
@@ -56,7 +62,7 @@ export default {
               borderRadius: '4px',
             },
             blockquote: {
-              borderLeftColor: '#7C5CFC',
+              borderLeftColor: '#967FDB',
               fontStyle: 'normal',
             },
             img: {
@@ -67,14 +73,14 @@ export default {
         invert: {
           css: {
             '--tw-prose-body': '#d1d5db',
-            '--tw-prose-headings': '#f3f4f6',
-            '--tw-prose-links': '#A78BFA',
-            '--tw-prose-code': '#f3f4f6',
+            '--tw-prose-headings': '#C4B5FD',
+            '--tw-prose-links': '#B8A4E8',
+            '--tw-prose-code': '#d1d5db',
             '--tw-prose-pre-bg': '#1a1a24',
             a: {
-              color: '#A78BFA',
+              color: '#B8A4E8',
               '&:hover': {
-                color: '#C4B5FD',
+                color: '#D0C1F0',
               },
             },
             code: {
@@ -82,7 +88,7 @@ export default {
               color: '#d1d5db',
             },
             blockquote: {
-              borderLeftColor: '#A78BFA',
+              borderLeftColor: '#B8A4E8',
               color: '#9ca3af',
             },
           },

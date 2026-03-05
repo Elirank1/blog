@@ -65,18 +65,18 @@ const base = import.meta.env.BASE_URL;
 
 <style>
   /* Light mode */
-  #page-title { color: #111827; }
-  #page-sub { color: #6b7280; }
-  .tag-chip { background-color: #EDE9FE; color: #7C5CFC; }
+  #page-title { color: var(--color-heading); }
+  #page-sub { color: var(--color-body); }
+  .tag-chip { background-color: #EDE9FE; color: #967FDB; }
   .post-row { border-color: #f3f4f6; }
-  .post-title { color: #111827; }
+  .post-title { color: var(--color-body); }
   .post-desc { color: #6b7280; }
   .post-meta { color: #9ca3af; }
 
   /* Dark mode */
-  [data-theme="dark"] #page-title { color: #f3f4f6; }
+  [data-theme="dark"] #page-title { color: var(--color-heading); }
   [data-theme="dark"] #page-sub { color: #6b7280; }
-  [data-theme="dark"] .tag-chip { background-color: #1E1538; color: #A78BFA; }
+  [data-theme="dark"] .tag-chip { background-color: #1E1538; color: #B8A4E8; }
   [data-theme="dark"] .post-row { border-color: #1f1f2e; }
   [data-theme="dark"] .post-title { color: #e5e7eb; }
   [data-theme="dark"] .post-desc { color: #6b7280; }

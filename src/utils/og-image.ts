@@ -30,7 +30,7 @@ export async function generateOgImage(title: string, description: string, date: 
               style: {
                 width: '80px',
                 height: '4px',
-                background: 'linear-gradient(90deg, #7C5CFC, #A78BFA)',
+                background: 'linear-gradient(90deg, #967FDB, #B8A4E8)',
                 borderRadius: '2px',
               },
             },
@@ -122,7 +122,7 @@ export async function generateOgImage(title: string, description: string, date: 
                         props: {
                           style: {
                             fontSize: '18px',
-                            color: '#A78BFA',
+                            color: '#B8A4E8',
                           },
                           children: 'Deeplica',
                         },
