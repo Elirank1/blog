@@ -2,54 +2,54 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="About | Eliran Keren" description="Founder of Deeplica — building the executive proxy layer for founders and operators.">
-    <article class="about-page">
-        <h1>About Me</h1>
+<BaseLayout title="About | Eliran Keren" description="Founder of Deeplica — building the coordination layer for founders and operators.">
+  <article class="prose prose-lg max-w-none" id="about-content">
+    <h1>About Me</h1>
 
-        <section>
-            <h2>Hey, I'm Eliran 👋</h2>
-            <p>
-                I'm the founder and CEO of <a href="https://deeplica.ai" target="_blank">Deeplica</a>, where we're building
-                the executive proxy layer for humans who'd rather live than operate.
-            </p>
-            <p>
-                I've spent the last decade at the intersection of technology and business — leading teams,
-                shipping products, and figuring out how AI can take over the parts of work that slow us down.
-                I keep coming back to the same question: <em>how do we make complex systems feel effortless?</em>
-            </p>
-            <p>
-                Deeplica is the answer I've been working toward. We're creating AI-native infrastructure
-                that handles the operational layer for founders and executives — so they can focus on
-                the decisions that actually matter.
-            </p>
-        </section>
+    <p>
+      I'm Eliran. I'm the founder and CEO of <a href="https://deeplica.ai" target="_blank">Deeplica</a>, where we're building the coordination layer for humans who'd rather live than operate.
+    </p>
 
-        <section>
-            <h2>Life Outside Work</h2>
-            <p>
-                I live in Tel Aviv with my wife and our three kids. When I'm not building, I'm usually
-                exploring the city with the family, catching live music, or deep in a conversation
-                about where AI is headed next.
-            </p>
-        </section>
+    <p>
+      I've spent the last decade at the intersection of technology and business — leading teams, shipping products, and figuring out how AI can take over the parts of work that slow us down. I keep coming back to the same question: <em>how do we make complex systems feel effortless?</em>
+    </p>
 
-        <section>
-            <h2>What I Write About</h2>
-            <p>
-                This blog is where I share what I'm learning as a founder building with AI — the experiments,
-                the breakthroughs, and the honest takes on what actually works. If you're building AI-driven
-                workflows or rethinking how founders operate, you'll find something here.
-            </p>
-        </section>
+    <p>
+      Deeplica is the answer I've been working toward. We're creating AI-native infrastructure that handles the operational layer for founders and executives — so they can focus on the decisions that actually matter.
+    </p>
 
-        <section>
-            <h2>Get in Touch</h2>
-            <ul>
-                <li>🔗 <a href="https://deeplica.ai" target="_blank">Deeplica</a></li>
-                <li>💼 <a href="https://www.linkedin.com/in/elirankeren" target="_blank">LinkedIn</a></li>
-                <li>🐙 <a href="https://github.com/Elirank1" target="_blank">GitHub</a></li>
-                <li>📧 <a href="mailto:eliran@deeplica.ai">eliran@deeplica.ai</a></li>
-            </ul>
-        </section>
-    </article>
+    <h2>Life Outside Work</h2>
+    <p>
+      I live in Tel Aviv with my wife and our three kids. When I'm not building, I'm usually exploring the city with the family, catching live music, or deep in a conversation about where AI is headed next.
+    </p>
+
+    <h2>What I Write About</h2>
+    <p>
+      This blog is where I share what I'm learning as a founder building with AI — the experiments, the breakthroughs, and the honest takes on what actually works. If you're building AI-driven workflows or rethinking how founders operate, you'll find something here.
+    </p>
+
+    <h2>Get in Touch</h2>
+    <p>
+      <a href="https://deeplica.ai" target="_blank">Deeplica</a> ·
+      <a href="https://www.linkedin.com/in/elirankeren" target="_blank">LinkedIn</a> ·
+      <a href="https://github.com/Elirank1" target="_blank">GitHub</a> ·
+      <a href="mailto:eliran@deeplica.ai">eliran@deeplica.ai</a>
+    </p>
+  </article>
 </BaseLayout>
+
+<style>
+  [data-theme="dark"] #about-content {
+    color: #d1d5db;
+  }
+  [data-theme="dark"] #about-content h1,
+  [data-theme="dark"] #about-content h2 {
+    color: #f9fafb;
+  }
+  [data-theme="dark"] #about-content a {
+    color: var(--color-accent-dark);
+  }
+  [data-theme="dark"] #about-content em {
+    color: #e5e7eb;
+  }
+</style>
