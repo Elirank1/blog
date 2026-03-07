@@ -1,9 +1,14 @@
 ---
 layout: ../../layouts/BlogPost.astro
 title: 'Running an AI Agent in Production: What Nobody Tells You'
-description: 'A "hi" message was costing us $0.63. Here is what went wrong, what we fixed, and what anyone building a production agent should know.'
+description: A "hi" message was costing us $0.63. Here is what went wrong, what we fixed, and what anyone building a production agent should know.
 pubDate: 2026-03-07
-tags: ['ai', 'engineering', 'deeplica', 'production']
+image: /blog/images/uploads/ChatGPT Image Mar 5, 2026 at 11_04_30 PM.png
+tags:
+  - ai
+  - engineering
+  - deeplica
+  - production
 heroImage: /blog/images/heroes/running-agent-production.png
 ---
 
@@ -20,7 +25,7 @@ Most people experience AI through chat interfaces — you type, it responds, you
 This is what we learned.
 
 > **Want the full article as a PDF?** [Download it here](/blog/downloads/running-agent-production.pdf).
->
+> >
 > **Setting up OpenClaw yourself?** Read our [OpenClaw Safe Setup Guide](/blog/blog/openclaw-safe-setup-guide) — a battle-tested walkthrough based on everything we learned.
 
 ## What We Thought We Were Building
@@ -106,7 +111,7 @@ Before touching anything, we defined what couldn't break:
 
 **Killed the zombie sessions — for real.** Deleted all 48 sessions and their JSONL transcript files. Not just the metadata — the actual data. The transcripts that kept resurrecting on restart were gone.
 
-**Trimmed the system prompt.** Deleted BOOTSTRAP.md — a first-run file the agent should have removed after setup but never did. Removed a duplicate SOUL.md that was being loaded alongside the real one. Cut redundant sections from AGENTS.md that OpenClaw's built-in instructions already covered. Net savings: ~3,750 tokens per request.
+**Trimmed the system prompt.** Deleted BOOTSTRAP.md — a first-run file the agent should have removed after setup but never did. Removed a duplicate SOUL.md that was being loaded alongside the real one. Cut redundant sections from AGENTS.md that OpenClaw's built-in instructions already covered. Net savings: \~3,750 tokens per request.
 
 **Switched to Gemini 2.5 Pro.** Moved from Claude Sonnet 4.5 to Gemini 2.5 Pro. Flat input pricing, no caching surcharges. The model config had to be set as an object with a "primary" key — a plain string silently failed. No error, no warning. The agent just kept using the old model.
 
@@ -120,12 +125,12 @@ Before touching anything, we defined what couldn't break:
 ## The Numbers
 
 | Metric | Before | After |
-|---|---|---|
+| --- | --- | --- |
 | Input tokens per request | 169,000 | 14,000 |
 | Cost per message | $0.63 | $0.02 |
 | Active zombie sessions | 48 | 0 |
 | Security criticals | 1 | 0 |
-| System prompt tokens | ~35,000 | ~14,000 |
+| System prompt tokens | \~35,000 | \~14,000 |
 
 ## What This Teaches About Production Agents
 
@@ -159,8 +164,8 @@ Eva is lean now. Fourteen thousand tokens per request. Two cents per message. Ze
 
 Running AI agents is not a prompting problem. It's an architecture and economics problem. The sooner the industry internalizes that, the sooner agents will actually work for the people they're supposed to serve.
 
----
+***
 
-*If you're setting up OpenClaw yourself, don't start from scratch — read our [OpenClaw Safe Setup Guide](/blog/blog/openclaw-safe-setup-guide). It's based on everything we hit during this experiment, written so you don't have to hit it too.*
+_If you're setting up OpenClaw yourself, don't start from scratch — read our _[_OpenClaw Safe Setup Guide_](/blog/blog/openclaw-safe-setup-guide)_. It's based on everything we hit during this experiment, written so you don't have to hit it too._
 
-*— Eliran Keren, Founder of [Deeplica](https://deeplica.ai)*
+_— Eliran Keren, Founder of _[_Deeplica_](https://deeplica.ai)
