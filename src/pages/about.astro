@@ -28,6 +28,47 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       This blog is where I share what I'm learning as a founder building with AI — the experiments, the breakthroughs, and the honest takes on what actually works. If you're building AI-driven workflows or rethinking how founders operate, you'll find something here.
     </p>
 
+    <div class="read-more-section">
+      <button id="read-more-btn" class="read-more-btn" onclick="document.getElementById('extended-bio').classList.toggle('hidden'); this.textContent = document.getElementById('extended-bio').classList.contains('hidden') ? 'Read more ↓' : 'Show less ↑'">
+        Read more ↓
+      </button>
+
+      <div id="extended-bio" class="hidden">
+        <h2>The Problem I Keep Coming Back To</h2>
+        <p>
+          Somewhere along the way I became obsessed with a specific problem: why do capable people spend so much of their day just keeping things from falling apart?
+        </p>
+        <p>
+          Not the hard decisions. Not the creative work. The coordination. The open loops. The "did I reply to that?" The "what did we decide last Tuesday?" The constant context-switching that eats hours without producing anything.
+        </p>
+        <p>
+          Most AI products try to solve this by giving you a faster way to generate text or answer questions. That's useful, but it's the wrong frame. The bottleneck isn't speed. It's cognitive load. It's the invisible tax of holding too many things in your head at once.
+        </p>
+        <p>
+          Deeplica is built around a different idea: what if AI could actually take ownership of the operational noise — track commitments, close loops, maintain context across your tools — so you could focus on the work that only you can do?
+        </p>
+        <p>
+          That's what we're building. Not another chatbot. A coordination layer.
+        </p>
+
+        <h2>Background</h2>
+        <p>
+          I've been in tech for over a decade. I've built products, managed teams, closed deals, and learned (sometimes the hard way) what actually makes technology useful versus impressive-sounding. My background spans product management, business development, and technical leadership — but the thread through all of it is the same: making complex systems work for real people.
+        </p>
+        <p>
+          Before Deeplica, I worked across startups and scale-ups in Israel, building products in areas ranging from enterprise SaaS to consumer tech. I'm not a pure engineer and I'm not a pure business person — I sit at the intersection, which is where the most interesting product decisions happen.
+        </p>
+
+        <h2>What I Write About</h2>
+        <p>
+          This blog is where I think in public. I write about what I'm learning as a founder building with AI — the product thinking, the operational experiments, the decisions that shape what Deeplica becomes. No marketing fluff. If something failed, I'll say it failed.
+        </p>
+        <p>
+          If you're building AI products, thinking about founder workflows, or just curious about what it actually looks like to build a company around personal AI — this is the place.
+        </p>
+      </div>
+    </div>
+
     <h2>Get in Touch</h2>
     <p>
       <a href="https://deeplica.ai" target="_blank">Deeplica</a> ·
@@ -51,5 +92,35 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
   [data-theme="dark"] #about-content em {
     color: #e5e7eb;
+  }
+
+  .read-more-section {
+    margin-top: 2rem;
+  }
+
+  .read-more-btn {
+    background: none;
+    border: none;
+    color: var(--color-accent);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    transition: opacity 0.2s ease;
+  }
+  .read-more-btn:hover {
+    opacity: 0.8;
+  }
+
+  [data-theme="dark"] .read-more-btn {
+    color: var(--color-accent-dark);
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  #extended-bio {
+    margin-top: 1.5rem;
   }
 </style>

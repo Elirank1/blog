@@ -1,0 +1,94 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: 'Running an AI Agent in Production: What Actually Happens'
+description: 'A "hi" message was costing us $0.63. Here is what went wrong, what we fixed, and what anyone building a production agent should know.'
+pubDate: 2026-03-07
+tags: ['ai', 'engineering', 'deeplica', 'production']
+heroImage: /blog/images/heroes/running-agent-production.jpg
+---
+
+We deployed Eva — Deeplica's AI assistant — on OpenClaw, an open-source agent framework that connects LLMs to Telegram and WhatsApp. Within two weeks, our Anthropic API bill spiked to hundreds of dollars. A single "hi" message was consuming 169,000 input tokens. Every request cost roughly $0.63.
+
+This is the story of what happened, why it happened, and what we did about it.
+
+## The First Sign Something Was Wrong
+
+Eva was set up as a personal AI assistant inside a Docker container on macOS. She was connected to Telegram for direct messages and a broadcasting group, and to WhatsApp for personal and group conversations. The model was Claude Sonnet 4.5 with prompt caching enabled.
+
+Within two weeks, three things became obvious. The API bill was climbing fast — what should have been modest was heading toward hundreds of dollars. Rate limits kept getting hit, causing Eva to go silent mid-conversation. And the logs told the real story: every single request, even a one-word message, was sending 169,000 input tokens to the API. That's 85% of Claude's 200K context window, consumed before Eva even started thinking.
+
+## Five Root Causes
+
+We pulled the API logs and ran a systematic investigation. The pattern was clear: input tokens consistently between 167K and 170K across every request, with minimal output. The cost wasn't from Eva being chatty — it was from the sheer volume of context being sent with every message.
+
+We found five problems.
+
+### WhatsApp Was Wide Open
+
+WhatsApp's DM policy wasn't set to "disabled" and group policy wasn't set to "allowlist." Eva was processing messages from WhatsApp groups she had no business being in. Each message in each group triggered a full API call with the entire context window. This alone accounted for an estimated 70% of the bill.
+
+### Cache Was Constantly Invalidating
+
+Three things were killing cache effectiveness. OpenClaw injects dynamic metadata — timestamps, runtime info — into the system prompt that changes every message. One changed byte invalidates the entire cache. The cache TTL was set to 5 minutes, meaning any gap longer than 5 minutes between messages triggered a full cache write. And each tool call sends the full context again, so one message triggering 5 tool calls meant 5x the context sent.
+
+### 48 Zombie Sessions
+
+OpenClaw had accumulated 48 active sessions, mostly from WhatsApp groups. Each maintained its own context window. The session cleanup command had been run, but it only cleared metadata — the actual transcript files survived on disk and were reloaded on restart.
+
+### A 2.1MB Transcript Was the Real Culprit
+
+The main session's transcript file had grown to 2.1MB — 900 lines of conversation history being sent with every request. This single file was responsible for the bulk of the 169K tokens.
+
+### The Model Was Wrong for the Job
+
+Claude Sonnet 4.5 charges separately for prompt cache writes ($3.75/M tokens) on top of input tokens ($3/M tokens). For an agent that sends a large system prompt with every message, this pricing model is punishing.
+
+## What We Fixed
+
+We locked down WhatsApp — DM policy to "disabled," group policy to "allowlist." Eva no longer processes unauthorized messages.
+
+We fixed cache settings — TTL to 1 hour, cache retention set to "long," context pruning mode to "cache-ttl." Fewer invalidations, fewer rewrites.
+
+We cleaned all 48 zombie sessions and their JSONL transcript files. The key insight: OpenClaw's session reset command only clears metadata in sessions.json. The actual transcript files persist on disk and get reloaded. A true reset requires deleting the .jsonl files directly.
+
+We trimmed the system prompt — deleted a leftover BOOTSTRAP.md, removed a duplicate SOUL.md, cut oversized sections from AGENTS.md. Net savings: ~3,750 tokens per request.
+
+We switched to Gemini 2.5 Pro. No prompt caching surcharges — just flat input pricing at $1.25/M tokens. One gotcha: the model config had to be set as an object with a "primary" key, not a plain string. Our previous switch attempts had silently failed because of this.
+
+We added a Telegram sender allowlist. Security audit went from 1 critical to 0.
+
+## The Numbers
+
+Input tokens per request dropped from 169,000 to 14,000. Cost per message fell from $0.63 to $0.02. Active sessions went from 48 zombies to 0. Security criticals went from 1 to 0. System prompt tokens went from ~35,000 to ~14,000.
+
+## What I'd Tell Anyone Building a Production Agent
+
+**Measure tokens before you measure features.** The first thing to monitor isn't response quality — it's input token count. If your agent sends 169K tokens for a "hi," nothing else matters until you fix that.
+
+**WhatsApp is a cost multiplier.** Every WhatsApp group your agent has access to is a potential firehose of API calls. Unlike Telegram, where bots only see @mentions by default, WhatsApp bridges forward everything. Lock it down before connecting.
+
+**Session cleanup isn't what you think it is.** In OpenClaw, the cleanup command clears metadata but leaves transcript files on disk. On restart, those transcripts get reloaded. Check your framework's actual cleanup behavior — don't assume.
+
+**Dynamic system prompts kill caching.** If your system prompt includes timestamps or anything that changes per-request, you're invalidating the cache every time. One changed byte means a full cache rewrite.
+
+**Config format matters more than you'd think.** Our model switch silently failed because the config expected an object and we set a string. No error was thrown — the agent just kept using the old model. Always verify config changes by checking the actual runtime.
+
+**Choose your model's pricing structure, not just its capability.** Claude's prompt caching model charges $3.75/M for cache writes. For an agent that sends a large system prompt with every message, that adds up fast. Gemini 2.5 Pro's flat rate is dramatically cheaper for this access pattern.
+
+**Your workspace files are your context budget.** Every markdown file in the agent's workspace gets injected into the system prompt on every request. A forgotten file, a duplicate, an oversized doc — they all add up. Treat workspace files like code: review them, trim them, delete what you don't need.
+
+**Security and cost are the same problem.** An open WhatsApp policy is both a security risk and a cost risk. When you harden security, you're usually also cutting costs.
+
+## The Irony
+
+I built Deeplica because I believe the digital world should serve people, not consume them. Eva is the first real test of that thesis — an AI that's supposed to return time and calm to my life, not generate anxiety about API bills.
+
+The irony wasn't lost on me. Here I was, building an "attention guardian" that was burning through hundreds of dollars because nobody was guarding the agent itself. The tool designed to reduce operational noise was generating the most expensive kind of noise: silent, invisible, and growing.
+
+What I learned is that running an AI agent in production is nothing like prompting one in a chat window. In a chat window, you pay per conversation. In production, the agent is always on — processing heartbeats, monitoring groups, loading context, maintaining sessions. The economics are completely different.
+
+The good news: once you understand the cost model, the fixes are straightforward. Lock down your channels. Choose a model whose pricing matches your access pattern. Clean up your context. Monitor your tokens. It's not glamorous work, but it's the difference between an agent you can actually live with and one that lives on your credit card.
+
+Eva is lean now. 14K tokens per request, $0.02 per message, zero security criticals. She's doing what she was always meant to do: working quietly in the background, handling the noise so I don't have to.
+
+That's the goal. That was always the goal.
