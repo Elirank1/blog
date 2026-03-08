@@ -86,4 +86,40 @@
   pre {
     @apply rounded-lg p-4 overflow-x-auto my-6;
   }
+
+  /* Dark mode — tables */
+  [data-theme="dark"] table {
+    color: #d1d5db;
+  }
+  [data-theme="dark"] th {
+    color: #e5e7eb;
+    border-color: #2a2a3a;
+  }
+  [data-theme="dark"] td {
+    border-color: #1f1f2e;
+  }
+  [data-theme="dark"] thead {
+    border-color: #2a2a3a;
+  }
+  [data-theme="dark"] tbody tr {
+    border-color: #1f1f2e;
+  }
+
+  /* Dark mode — misc prose elements that prose-invert may miss */
+  [data-theme="dark"] .prose em {
+    color: #e5e7eb;
+  }
+  [data-theme="dark"] .prose strong {
+    color: #f3f4f6;
+  }
+  [data-theme="dark"] .prose li::marker {
+    color: #6b7280;
+  }
+  [data-theme="dark"] .prose hr {
+    border-color: #1f1f2e;
+  }
+  [data-theme="dark"] .prose blockquote {
+    border-left-color: #B8A4E8;
+    color: #9ca3af;
+  }
 }

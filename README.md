@@ -1,5 +1,4 @@
 # Eliran's Technical Blog
-I’m Eliran — building systems that turn AI from an assistant into infrastructure. More at elirank1.github.io/blog.
 
 A modern, fast technical blog built with Astro and MDX.
 
