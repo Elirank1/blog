@@ -1,9 +1,14 @@
 ---
 layout: ../../layouts/BlogPost.astro
 title: 'OpenClaw Safe Setup Guide: A Battle-Tested Walkthrough'
-description: 'How to set up OpenClaw safely on macOS — based on real installation experience, real errors, and real fixes. Not theoretical documentation.'
+description: How to set up OpenClaw safely on macOS — based on real installation experience, real errors, and real fixes. Not theoretical documentation.
 pubDate: 2026-03-07
-tags: ['ai', 'openclaw', 'engineering', 'guide']
+image: /blog/images/uploads/ChatGPT Image Mar 5, 2026 at 11_04_30 PM.png
+tags:
+  - ai
+  - openclaw
+  - engineering
+  - guide
 heroImage: /blog/images/heroes/running-agent-production.png
 ---
 
@@ -15,7 +20,7 @@ It exploded in popularity in January 2026, going from 9,000 to over 140,000 GitH
 
 This is what we learned — and how you can skip the painful parts.
 
-> **Context:** This guide is a companion to our article [Running an AI Agent in Production: What Nobody Tells You](/blog/blog/running-agent-production), where we document the full cost and security investigation we ran after deploying Eva on OpenClaw. Read that first if you want to understand *why* these settings matter.
+> **Context:** This guide is a companion to our article [Running an AI Agent in Production: What Nobody Tells You](/blog/blog/running-agent-production), where we document the full cost and security investigation we ran after deploying Eva on OpenClaw. Read that first if you want to understand _why_ these settings matter.
 
 ## The Easiest Way to Get Started
 
@@ -33,7 +38,7 @@ How to do it:
 2. Open Claude and switch to Cowork mode (look for it in the mode selector)
 3. Select a folder on your computer for Claude to work in
 4. Share this guide with Claude (drag the file into the chat or paste the link)
-5. Say: *"Help me set up OpenClaw safely on my Mac, following this guide step by step."*
+5. Say: _"Help me set up OpenClaw safely on my Mac, following this guide step by step."_
 6. Claude will create the scripts, run the commands, and ask for your input only when needed (passwords, API keys, Telegram token)
 
 > **Tip:** Claude in Cowork mode can write files directly to your computer, run terminal commands, and debug errors in real time. You just need to approve each step. It's like pair-programming with someone who already read the entire guide.
@@ -53,7 +58,7 @@ We also created an automated setup script (openclaw-setup.sh) that walks you thr
 Even with Claude guiding you, there are a few things only you can do:
 
 | Action | Why |
-|---|---|
+| --- | --- |
 | Enter your Mac password | Docker and system-level changes require admin access |
 | Get an Anthropic API key | Go to console.anthropic.com, create an account, and generate a key. Costs around $5–20/month depending on usage |
 | Create a Telegram bot | Open Telegram, message @BotFather, send /newbot, pick a name. Takes 2 minutes |
@@ -67,7 +72,7 @@ Everything else — creating directories, writing configuration files, pulling D
 You don't need to understand Docker, containers, or networking to be safe. Here's what matters in plain language:
 
 | Concept | What It Means for You |
-|---|---|
+| --- | --- |
 | Docker container | OpenClaw runs in a sealed box on your computer. It cannot see your files, photos, passwords, or anything else unless you explicitly give it access |
 | Read-only filesystem | If a hacker tricks the AI, it cannot install anything permanent on your machine. Restarting the container wipes any changes |
 | Loopback-only | Nobody outside your computer can reach OpenClaw. Not your neighbor, not someone on your Wi-Fi, not anyone on the internet |
@@ -100,8 +105,8 @@ The total setup took about 45 minutes, including debugging. If you use Cowork mo
 
 > **Want the full PDF guide?** [Download the OpenClaw Safe Setup Guide](/blog/downloads/OpenClaw-Safe-Setup-Guide.pdf) — the complete document with all commands, configurations, and gotchas.
 
----
+***
 
-*This guide is a companion to [Running an AI Agent in Production: What Nobody Tells You](/blog/blog/running-agent-production). If you want to understand the economics of running an always-on AI agent — and what happens when you don't get the setup right — start there.*
+_This guide is a companion to _[_Running an AI Agent in Production: What Nobody Tells You_](/blog/blog/running-agent-production)_. If you want to understand the economics of running an always-on AI agent — and what happens when you don't get the setup right — start there._
 
-*— Eliran Keren, Founder of [Deeplica](https://deeplica.ai)*
+_— Eliran Keren, Founder of _[_Deeplica_](https://deeplica.ai)
