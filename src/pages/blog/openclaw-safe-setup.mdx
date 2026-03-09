@@ -1,0 +1,344 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: 'OpenClaw Safe Setup Guide: A Battle-Tested Walkthrough'
+description: 'How to run a personal AI agent on macOS with real isolation — Docker sandboxing, separate user accounts, hardened config, and the operational habits that actually protect you.'
+pubDate: 2026-03-09
+tags: ['ai', 'engineering', 'openclaw', 'security', 'deeplica']
+heroImage: /blog/images/heroes/openclaw-safe-setup.jpg
+---
+
+Running an AI agent on your own machine is useful. Running one carelessly is a liability.
+
+OpenClaw is powerful. It connects to Telegram, WhatsApp, your files, your APIs. That surface area is exactly why setup matters. This is the guide I wish existed before I had to learn the hard way — 169,000 tokens on a "hi" message and an API bill that surprised me.
+
+What follows is a battle-tested setup for macOS (16GB RAM), built around one principle: **the agent should be able to do its job while having the smallest possible footprint if something goes wrong.**
+
+---
+
+## The Security Model: Three Layers
+
+Before touching a terminal, understand the model:
+
+1. **macOS user isolation** — OpenClaw runs under a dedicated, non-admin, non-login OS user. Container escapes land in an empty account with nothing valuable.
+2. **Docker hardening** — Read-only root filesystem, dropped Linux capabilities, non-root container user, loopback-only network binding.
+3. **Operational config** — Manual confirmation on all writes/sends, cloud model for tool use, local model for chat-only tasks.
+
+Each layer is independently valuable. Together, they make a compromised agent a nuisance instead of a catastrophe.
+
+---
+
+## Phase 1: Prerequisites
+
+### Install Docker Desktop and Ollama
+
+```bash
+brew install --cask docker
+brew install ollama
+```
+
+Pull a model sized for 16GB RAM:
+
+```bash
+ollama pull qwen3:8b
+```
+
+Why qwen3:8b? Best quality-to-RAM ratio for 16GB. Larger models choke the machine. Models under 7B are too susceptible to prompt injection to trust with actions. Use this for read-only and low-stakes tasks only — cloud models handle anything involving messaging or file writes.
+
+### Get your API keys
+
+- **Anthropic API key** → [console.anthropic.com](https://console.anthropic.com)
+- **OpenAI API key** (optional fallback) → [platform.openai.com](https://platform.openai.com)
+
+Why cloud for important tasks? Frontier models are significantly harder to trick via prompt injection than 8B local models. Use cloud for anything that takes actions. Use local for experimentation and read-only tasks.
+
+---
+
+## Phase 2: macOS User Isolation
+
+This is the layer most people skip. Don't.
+
+Create a dedicated, hidden macOS user that will own the OpenClaw Docker process:
+
+```bash
+sudo dscl . -create /Users/openclaw
+sudo dscl . -create /Users/openclaw UserShell /bin/zsh
+sudo dscl . -create /Users/openclaw RealName "OpenClaw Agent"
+sudo dscl . -create /Users/openclaw UniqueID 550
+sudo dscl . -create /Users/openclaw PrimaryGroupID 20
+sudo dscl . -create /Users/openclaw NFSHomeDirectory /Users/openclaw
+sudo mkdir -p /Users/openclaw
+sudo chown openclaw:staff /Users/openclaw
+sudo dscl . -create /Users/openclaw IsHidden 1
+```
+
+This user: can't sudo, can't access your Keychain, can't read your home directory, doesn't appear on the login screen.
+
+| Scenario | Without separate user | With separate user |
+|----------|----------------------|-------------------|
+| Container escape | Attacker has YOUR privileges — SSH keys, Keychain, browser sessions | Attacker lands in empty `/Users/openclaw` — nothing there |
+| Prompt injection reads files | Can access `~/Documents`, `~/Desktop`, etc. | Can only reach `/Users/openclaw/openclaw-safe/workspace` |
+| Malicious skill exfiltrates data | Your emails and tokens at risk | Empty user account, nothing to steal |
+
+Switch to this user for all remaining setup:
+
+```bash
+sudo su - openclaw
+```
+
+Everything from here runs as `openclaw`, not you.
+
+---
+
+## Phase 3: Docker Isolation
+
+### Directory structure
+
+```bash
+mkdir -p ~/openclaw-safe/{config,workspace,logs}
+chmod 700 ~/openclaw-safe
+chmod 700 ~/openclaw-safe/config
+chmod 600 ~/openclaw-safe/workspace
+```
+
+### Hardened docker-compose.yml
+
+Create `~/openclaw-safe/docker-compose.yml`:
+
+```yaml
+version: "3.8"
+
+services:
+  openclaw:
+    image: openclaw/openclaw:latest
+    container_name: openclaw-safe
+    restart: unless-stopped
+    user: "1000:1000"
+
+    # Security hardening
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+
+    # Temp directories (needed since root is read-only)
+    tmpfs:
+      - /tmp:size=100M
+      - /run:size=50M
+
+    environment:
+      - NODE_ENV=production
+      - OPENCLAW_BIND=127.0.0.1
+      - OPENCLAW_LOG_LEVEL=info
+      - OPENCLAW_SANDBOX=true
+      - OPENCLAW_MANUAL_CONFIRM=true
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
+
+    # Only mount what's needed — NEVER your home directory
+    volumes:
+      - ~/openclaw-safe/config:/home/openclaw/.openclaw:rw
+      - ~/openclaw-safe/workspace:/home/openclaw/workspace:rw
+      - ~/openclaw-safe/logs:/home/openclaw/logs:rw
+
+    ports:
+      - "127.0.0.1:3200:3200"
+
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+          cpus: "2.0"
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+```
+
+What each line is doing:
+
+| Threat | Mitigation |
+|--------|-----------|
+| WebSocket RCE (CVE-2026-25253) | Gateway bound to `127.0.0.1` only |
+| Malicious skill runs shell command | `read_only` + dropped caps + non-root |
+| Prompt injection triggers file deletion | `OPENCLAW_MANUAL_CONFIRM=true` |
+| Agent escapes container | Docker isolation + `no-new-privileges` |
+| Data exfiltration via network | No access to your Mac's filesystem except `/workspace` |
+
+---
+
+## Phase 4: OpenClaw Configuration
+
+### Run onboarding
+
+```bash
+cd ~/openclaw-safe
+docker compose run --rm openclaw openclaw onboard
+```
+
+During setup: primary model → your Anthropic API key. Secondary/local → `ollama/qwen3:8b` via `http://host.docker.internal:11434`. Enable sandbox mode. Enable manual confirmation for all tool use.
+
+### Model routing config
+
+Create `~/openclaw-safe/config/models.yml`:
+
+```yaml
+primary:
+  provider: anthropic
+  model: claude-sonnet-4-5-20250929
+  api_key: ${ANTHROPIC_API_KEY}
+
+local:
+  provider: openai-compatible
+  base_url: http://host.docker.internal:11434/v1
+  model: qwen3:8b
+  api_key: ollama
+
+routing:
+  tool_use: primary
+  chat_only: local
+```
+
+### Secure your API keys
+
+Never hardcode keys in config files. Create `~/openclaw-safe/.env`:
+
+```
+ANTHROPIC_API_KEY=sk-ant-your-key-here
+```
+
+Set permissions:
+
+```bash
+chmod 600 ~/openclaw-safe/.env
+```
+
+Update docker-compose.yml to reference it with `env_file: - .env`.
+
+---
+
+## Phase 5: Telegram Setup
+
+```bash
+docker compose run --rm openclaw openclaw channels login telegram
+```
+
+Paste your bot token (get one from `@BotFather` → `/newbot`). Approve the pairing code when it arrives in Telegram.
+
+Security note: Disable group joining in BotFather (`/setjoingroups` → Disable). An agent that can be added to arbitrary groups is an agent that can be prompt-injected by anyone who controls a group.
+
+---
+
+## Phase 6: WhatsApp (Optional, Higher Risk)
+
+```bash
+docker compose run --rm openclaw openclaw channels login whatsapp
+```
+
+WhatsApp uses the Baileys library — an unofficial protocol. The agent sends messages as you. That's a different trust level than Telegram.
+
+Recommendation: Start with Telegram only. Add WhatsApp after you've run the system for a week and understand the confirmation flow. Ensure `OPENCLAW_MANUAL_CONFIRM=true` is set specifically for WhatsApp sends.
+
+---
+
+## Phase 7: Skill Hygiene
+
+The ClawHub skill registry had approximately 20% malicious skills as of February 2026, per Cisco research. Data exfiltration and prompt injection were the common vectors.
+
+Rules:
+- Only install skills from the official `openclaw/` org
+- Read the source of any third-party skill before installing
+- Never install a skill with network access unless you understand exactly why it needs it
+- Disable `web_search`, `web_fetch`, and `browser` tools for local models — too easily exploited via prompt injection
+
+Audit what's enabled:
+
+```bash
+docker compose exec openclaw openclaw skills list
+docker compose exec openclaw openclaw skills disable <skill-name>
+```
+
+---
+
+## Phase 8: Network Lockdown
+
+Verify the gateway is loopback-only (not LAN-exposed):
+
+```bash
+docker compose exec openclaw ss -tlnp | grep 3200
+```
+
+Should show `127.0.0.1:3200`. If it shows `0.0.0.0:3200`, stop the container and fix the port binding before continuing.
+
+If you ever need remote access — use Tailscale, not port forwarding:
+
+```bash
+brew install tailscale
+tailscale serve https / http://127.0.0.1:3200
+```
+
+---
+
+## Phase 9: Operational Habits
+
+A few things that will matter more than any config line:
+
+**Keep it updated.** New CVEs are being found regularly. Pull frequently:
+
+```bash
+cd ~/openclaw-safe && docker compose pull && docker compose up -d
+```
+
+**Watch the logs.** Unexpected tool calls, unusual network requests, repeated error patterns — these are signals:
+
+```bash
+docker compose logs -f openclaw
+```
+
+**Backup config, not workspace.** Config is what's hard to reconstruct:
+
+```bash
+cp -r ~/openclaw-safe/config ~/openclaw-safe/config-backup-$(date +%Y%m%d)
+```
+
+**Do not disable manual confirmation.** `OPENCLAW_MANUAL_CONFIRM=true` is your last line of defense against prompt injection attacks that try to take action. It's worth the extra tap.
+
+---
+
+## Pre-Launch Checklist
+
+Before trusting it with real tasks:
+
+- [ ] Gateway is `127.0.0.1:3200`, not `0.0.0.0:3200`
+- [ ] Container running as non-root: `docker exec openclaw-safe whoami`
+- [ ] Manual confirmation appears for file writes
+- [ ] Manual confirmation appears for message sends
+- [ ] Telegram bot responds to direct messages
+- [ ] Local Ollama model works for simple chat
+- [ ] Cloud model works for tool-using tasks
+- [ ] No third-party skills installed
+- [ ] `.env` is `chmod 600`
+- [ ] Config directory is `chmod 700`
+
+---
+
+## Risk Summary
+
+| Risk | Area | Notes |
+|------|------|-------|
+| 🟢 Low | Docker isolation | Container can't touch your Mac outside `/workspace` |
+| 🟢 Low | Telegram | Dedicated bot, no group access |
+| 🟡 Medium | WhatsApp | Unofficial protocol, agent sends as you |
+| 🟡 Medium | Local models | 8B models are more vulnerable to prompt injection |
+| 🟢 Low | Cloud models | Frontier models resist prompt injection well |
+| 🟡 Medium | Skill ecosystem | Avoid third-party skills entirely at first |
+| 🟢 Low | Network exposure | Loopback-only, no LAN/internet exposure |
+
+---
+
+The setup takes about 30–45 minutes. Most of that time is understanding what each piece does — which is worth it, because an agent with access to your messaging channels is not something you configure once and forget.
+
+If you've run into trouble after deployment — unexpected token costs, silent failures, the agent going wrong — the [production debugging post](/blog/running-agent-production) covers what the failure modes actually look like.
