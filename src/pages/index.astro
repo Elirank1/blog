@@ -3,6 +3,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getReadingTime } from '../utils/reading-time';
 
 const base = import.meta.env.BASE_URL;
+
+// WebSite JSON-LD for homepage
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Eliran Keren",
+  "description": "Founder of Deeplica — building AI-native infrastructure for founders and operators.",
+  "url": "https://elirank1.github.io/blog",
+  "author": {
+    "@type": "Person",
+    "name": "Eliran Keren",
+    "url": "https://elirank1.github.io/blog/about",
+    "sameAs": [
+      "https://www.linkedin.com/in/elirankeren",
+      "https://github.com/Elirank1"
+    ]
+  }
+};
+
 const recentPosts = await Astro.glob('./blog/*.{md,mdx}');
 const sortedPosts = recentPosts
   .sort((a, b) => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime())
@@ -10,6 +29,8 @@ const sortedPosts = recentPosts
 ---
 
 <BaseLayout>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)} />
+
   <!-- Hero -->
   <section class="py-12 text-center">
     <img src={`${base}/images/eliran-profile.jpg`} alt="Eliran Keren" class="w-20 h-20 rounded-full object-cover mx-auto mb-6" />

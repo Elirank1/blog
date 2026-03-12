@@ -31,6 +31,7 @@ const ogImage = image ? new URL(image, siteUrl).href : new URL(`${base}/og-defau
     <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
     <link rel="alternate" type="application/rss+xml" title="RSS Feed" href={`${base}/rss.xml`} />
     <link rel="canonical" href={canonicalUrl} />
+    <meta name="google-site-verification" content="22arA4m0NL_4teCzIVhM5LwV_k-ONi8T6rtSB1LT-as" />
 
     <!-- Open Graph / LinkedIn -->
     <meta property="og:type" content={article ? 'article' : 'website'} />
@@ -48,6 +49,9 @@ const ogImage = image ? new URL(image, siteUrl).href : new URL(`${base}/og-defau
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+
+    <!-- Slot for page-specific head content (JSON-LD, etc.) -->
+    <slot name="head" />
   </head>
   <body>
     <div class="max-w-3xl mx-auto px-5 min-h-screen flex flex-col">

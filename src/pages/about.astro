@@ -1,8 +1,29 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Eliran Keren",
+  "jobTitle": "Founder & CEO",
+  "url": "https://elirank1.github.io/blog/about",
+  "sameAs": [
+    "https://www.linkedin.com/in/elirankeren",
+    "https://github.com/Elirank1"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Deeplica.AI",
+    "url": "https://deeplica.ai"
+  },
+  "knowsAbout": ["AI agents", "AI infrastructure", "coordination systems", "founder operations", "product strategy"],
+  "description": "Founder of Deeplica — building AI-native coordination infrastructure for founders and operators."
+};
 ---
 
 <BaseLayout title="About | Eliran Keren" description="Founder of Deeplica — building the coordination layer for founders and operators.">
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
+
   <article class="prose prose-lg dark:prose-invert max-w-none" id="about-content">
     <h1>About Me</h1>
 

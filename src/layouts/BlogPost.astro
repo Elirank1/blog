@@ -17,6 +17,45 @@ if (rawContent) {
 const slug = Astro.url.pathname.split('/').filter(Boolean).pop();
 const ogImageUrl = frontmatter.heroImage || `${base}/og/${slug}.png`;
 
+// Build canonical URL and full image URL for JSON-LD
+const siteUrl = 'https://elirank1.github.io';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+const fullImageUrl = ogImageUrl.startsWith('http') ? ogImageUrl : new URL(ogImageUrl, siteUrl).href;
+
+// JSON-LD structured data for BlogPosting
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": frontmatter.title,
+  "description": frontmatter.description || '',
+  "datePublished": frontmatter.pubDate,
+  "dateModified": frontmatter.updatedDate || frontmatter.pubDate,
+  "author": {
+    "@type": "Person",
+    "name": "Eliran Keren",
+    "url": `${siteUrl}/blog/about`,
+    "jobTitle": "Founder & CEO",
+    "sameAs": [
+      "https://www.linkedin.com/in/elirankeren",
+      "https://github.com/Elirank1"
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Deeplica.AI"
+    }
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Eliran Keren"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": canonicalUrl
+  },
+  "image": fullImageUrl,
+  "keywords": frontmatter.tags ? frontmatter.tags.join(', ') : ''
+};
+
 // Format date
 const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', {
   year: 'numeric',
@@ -31,6 +70,8 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', 
   image={ogImageUrl}
   article={true}
 >
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
   <article class="max-w-none">
     <!-- Hero image -->
     {frontmatter.heroImage && (

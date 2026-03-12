@@ -65,6 +65,8 @@ Input tokens per request dropped from 169,000 to 14,000. Cost per message fell f
 
 **Measure tokens before you measure features.** The first thing to monitor isn't response quality — it's input token count. If your agent sends 169K tokens for a "hi," nothing else matters until you fix that.
 
+This experience shaped how I think about [building a founder operating system](/blog/founder-os/) — a system that maintains itself, catches cost problems early, and enforces discipline without adding more manual work.
+
 **WhatsApp is a cost multiplier.** Every WhatsApp group your agent has access to is a potential firehose of API calls. Unlike Telegram, where bots only see @mentions by default, WhatsApp bridges forward everything. Lock it down before connecting.
 
 **Session cleanup isn't what you think it is.** In OpenClaw, the cleanup command clears metadata but leaves transcript files on disk. On restart, those transcripts get reloaded. Check your framework's actual cleanup behavior — don't assume.
@@ -90,5 +92,7 @@ What I learned is that running an AI agent in production is nothing like prompti
 The good news: once you understand the cost model, the fixes are straightforward. Lock down your channels. Choose a model whose pricing matches your access pattern. Clean up your context. Monitor your tokens. It's not glamorous work, but it's the difference between an agent you can actually live with and one that lives on your credit card.
 
 Eva is lean now. 14K tokens per request, $0.02 per message, zero security criticals. She's doing what she was always meant to do: working quietly in the background, handling the noise so I don't have to.
+
+The deeper irony is that the more advanced your AI tooling becomes, [the more time you can end up spending](/blog/ai-productivity-trap/), not less — unless you build something that protects against that trap at the architectural level.
 
 That's the goal. That was always the goal.

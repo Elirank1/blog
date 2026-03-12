@@ -11,7 +11,13 @@ export default defineConfig({
   integrations: [
     tailwind(),
     mdx(),
-    sitemap(),
+    sitemap({
+      serialize(item) {
+        // Add lastmod to all pages — signals freshness on every deploy
+        item.lastmod = new Date().toISOString();
+        return item;
+      },
+    }),
   ],
   markdown: {
     remarkPlugins: [
