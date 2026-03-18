@@ -5,7 +5,7 @@ import ShareLinks from '../components/ShareLinks.astro';
 import { getReadingTime } from '../utils/reading-time';
 
 const { frontmatter, rawContent } = Astro.props;
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL; // '/blog/'
 
 // Calculate reading time
 let readTime = '';
@@ -13,17 +13,21 @@ if (rawContent) {
   readTime = getReadingTime(typeof rawContent === 'function' ? rawContent() : rawContent);
 }
 
-// Normalize hero image path — prepend base URL so images work with Astro's base: '/blog' config
-// base is '/blog/' (trailing slash), heroImage is '/images/heroes/...' (leading slash)
-// Result: '/blog/images/heroes/...'
+// Normalize hero image path to work with Astro's base: '/blog' config.
+// base = '/blog/' (trailing slash), so basePath = '/blog'
+// Cases handled:
+//   '/images/heroes/foo.jpg'      → '/blog/images/heroes/foo.jpg'  (missing prefix)
+//   '/blog/images/heroes/foo.jpg' → '/blog/images/heroes/foo.jpg'  (already correct, no double)
+//   'https://...'                 → unchanged (absolute URL)
+const basePath = base.replace(/\/$/, ''); // '/blog'
 const rawHeroImage = frontmatter.heroImage;
 const heroImageSrc = rawHeroImage
-  ? (rawHeroImage.startsWith('http')
+  ? (rawHeroImage.startsWith('http') || rawHeroImage.startsWith(basePath)
       ? rawHeroImage
-      : `${base.replace(/\/$/, '')}${rawHeroImage}`)
+      : `${basePath}${rawHeroImage}`)
   : null;
 
-// Use hero image as OG/share image (LinkedIn thumbnail), fallback to generated OG
+// Use hero image as OG/share image, fallback to generated OG
 const slug = Astro.url.pathname.split('/').filter(Boolean).pop();
 const ogImageUrl = heroImageSrc || `${base}og/${slug}.png`;
 
