@@ -9,6 +9,15 @@ const sortedPosts = allPosts.sort(
 
 const allTags = [...new Set(sortedPosts.flatMap(post => post.frontmatter.tags || []))];
 const base = import.meta.env.BASE_URL;
+const basePath = base.replace(/\/$/, ''); // '/blog'
+
+// Normalize a hero image path to work with Astro's base: '/blog' config
+// Same logic as BlogPost.astro — handles both '/images/...' and '/blog/images/...' without doubling
+function normalizeHeroImage(src: string | undefined): string | null {
+  if (!src) return null;
+  if (src.startsWith('http') || src.startsWith(basePath)) return src;
+  return `${basePath}${src}`;
+}
 ---
 
 <BaseLayout title="Blog | Eliran Keren" description="Thoughts on AI systems, founder workflows, and building the coordination layer.">
@@ -28,11 +37,12 @@ const base = import.meta.env.BASE_URL;
   <div class="flex flex-col">
     {sortedPosts.map(post => {
       const readTime = post.rawContent ? getReadingTime(typeof post.rawContent === 'function' ? post.rawContent() : post.rawContent) : '';
+      const heroSrc = normalizeHeroImage(post.frontmatter.heroImage);
       return (
         <a href={post.url} class="group block py-6 border-b border-gray-100 last:border-b-0 hover:no-underline post-row">
-          {post.frontmatter.heroImage && (
+          {heroSrc && (
             <img
-              src={post.frontmatter.heroImage}
+              src={heroSrc}
               alt={post.frontmatter.title}
               class="w-full h-48 object-cover rounded-lg mb-4"
               loading="lazy"
