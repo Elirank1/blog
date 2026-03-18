@@ -13,9 +13,19 @@ if (rawContent) {
   readTime = getReadingTime(typeof rawContent === 'function' ? rawContent() : rawContent);
 }
 
+// Normalize hero image path — prepend base URL so images work with Astro's base: '/blog' config
+// base is '/blog/' (trailing slash), heroImage is '/images/heroes/...' (leading slash)
+// Result: '/blog/images/heroes/...'
+const rawHeroImage = frontmatter.heroImage;
+const heroImageSrc = rawHeroImage
+  ? (rawHeroImage.startsWith('http')
+      ? rawHeroImage
+      : `${base.replace(/\/$/, '')}${rawHeroImage}`)
+  : null;
+
 // Use hero image as OG/share image (LinkedIn thumbnail), fallback to generated OG
 const slug = Astro.url.pathname.split('/').filter(Boolean).pop();
-const ogImageUrl = frontmatter.heroImage || `${base}/og/${slug}.png`;
+const ogImageUrl = heroImageSrc || `${base}og/${slug}.png`;
 
 // Build canonical URL and full image URL for JSON-LD
 const siteUrl = 'https://elirank1.github.io';
@@ -74,9 +84,9 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', 
 
   <article class="max-w-none">
     <!-- Hero image -->
-    {frontmatter.heroImage && (
+    {heroImageSrc && (
       <img
-        src={frontmatter.heroImage}
+        src={heroImageSrc}
         alt={frontmatter.title}
         class="w-full rounded-xl mb-8 shadow-sm"
         loading="eager"
