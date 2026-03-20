@@ -3,182 +3,82 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getReadingTime } from '../../utils/reading-time';
 
 const allPosts = await Astro.glob('./*.{md,mdx}');
+const sortedPosts = allPosts.sort(
+  (a, b) => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime()
+);
+
+const allTags = [...new Set(sortedPosts.flatMap(post => post.frontmatter.tags || []))];
 const base = import.meta.env.BASE_URL;
-const basePath = base.replace(/\/$/, ''); // '/blog'
-
-// Normalize hero image path (same logic as BlogPost.astro)
-function normalizeHeroImage(src: string | undefined): string | null {
-  if (!src) return null;
-  if (src.startsWith('http') || src.startsWith(basePath)) return src;
-  return `${basePath}${src}`;
-}
-
-// Split posts: AI Signals = automated daily briefings, Writing = everything else
-// Detection: filename contains 'ai-signals' or 'ai-trends'
-function isAiSignals(post: any): boolean {
-  const url = post.url || '';
-  return url.includes('ai-signals') || url.includes('ai-trends');
-}
-
-const sorted = allPosts
-  .filter(p => p.frontmatter.pubDate)
-  .sort((a, b) => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime());
-
-const writingPosts = sorted.filter(p => !isAiSignals(p));
-const signalsPosts = sorted.filter(p => isAiSignals(p));
 ---
 
 <BaseLayout title="Blog | Eliran Keren" description="Thoughts on AI systems, founder workflows, and building the coordination layer.">
-
-  <div class="mb-12">
+  <div class="mb-10">
     <h1 class="text-3xl font-bold mb-2" id="page-title">Blog</h1>
     <p class="text-lg" id="page-sub">AI systems, founder workflows, and what happens when you stop maintaining the system.</p>
   </div>
 
-  <!-- ── Writing ─────────────────────────────────────────── -->
-  {writingPosts.length > 0 && (
-    <section class="mb-14">
-      <div class="section-header mb-6">
-        <span class="section-label">Writing</span>
-      </div>
-      <div class="flex flex-col">
-        {writingPosts.map(post => {
-          const readTime = post.rawContent
-            ? getReadingTime(typeof post.rawContent === 'function' ? post.rawContent() : post.rawContent)
-            : '';
-          const heroSrc = normalizeHeroImage(post.frontmatter.heroImage);
-          return (
-            <a href={post.url} class="group block py-6 border-b border-gray-100 last:border-b-0 hover:no-underline post-row">
-              {heroSrc && (
-                <img
-                  src={heroSrc}
-                  alt={post.frontmatter.title}
-                  class="w-full h-48 object-cover rounded-lg mb-4"
-                  loading="lazy"
-                />
-              )}
-              <h2 class="text-xl font-semibold group-hover:text-[--color-accent] transition-colors mb-2 post-title">
-                {post.frontmatter.title}
-              </h2>
-              <p class="leading-relaxed mb-3 post-desc">{post.frontmatter.description}</p>
-              <div class="flex items-center gap-3 text-sm post-meta">
-                <time>{new Date(post.frontmatter.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
-                {readTime && (
-                  <>
-                    <span>·</span>
-                    <span>{readTime}</span>
-                  </>
-                )}
-                {post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
-                  <>
-                    <span>·</span>
-                    <span>{post.frontmatter.tags.map((t: string) => `#${t}`).join(' ')}</span>
-                  </>
-                )}
-              </div>
-            </a>
-          );
-        })}
-      </div>
-    </section>
+  {allTags.length > 0 && (
+    <div class="flex flex-wrap gap-2 mb-10">
+      {allTags.map(tag => (
+        <span class="text-xs px-2.5 py-1 rounded-full tag-chip">#{tag}</span>
+      ))}
+    </div>
   )}
 
-  <!-- ── AI Signals ──────────────────────────────────────── -->
-  {signalsPosts.length > 0 && (
-    <section>
-      <div class="section-header mb-1">
-        <span class="section-label">AI Signals</span>
-        <span class="section-sub">Daily intelligence briefing</span>
-      </div>
-      <div class="flex flex-col">
-        {signalsPosts.map(post => {
-          const d = new Date(post.frontmatter.pubDate);
-          const shortDate = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-          return (
-            <a href={post.url} class="group flex items-baseline gap-4 py-3 border-b border-gray-100 last:border-b-0 hover:no-underline signal-row">
-              <time class="signal-date shrink-0 tabular-nums">{shortDate}</time>
-              <span class="signal-title group-hover:text-[--color-accent] transition-colors truncate">
-                {post.frontmatter.title}
-              </span>
-              {post.frontmatter.tags && (
-                <span class="signal-tags hidden sm:flex gap-1 shrink-0 ml-auto">
-                  {post.frontmatter.tags.slice(0, 3).map((t: string) => (
-                    <span class="tag-chip">#{t}</span>
-                  ))}
-                </span>
-              )}
-            </a>
-          );
-        })}
-      </div>
-    </section>
-  )}
-
+  <div class="flex flex-col">
+    {sortedPosts.map(post => {
+      const readTime = post.rawContent ? getReadingTime(typeof post.rawContent === 'function' ? post.rawContent() : post.rawContent) : '';
+      return (
+        <a href={post.url} class="group block py-6 border-b border-gray-100 last:border-b-0 hover:no-underline post-row">
+          {post.frontmatter.heroImage && (
+            <img
+              src={post.frontmatter.heroImage}
+              alt={post.frontmatter.title}
+              class="w-full h-48 object-cover rounded-lg mb-4"
+              loading="lazy"
+            />
+          )}
+          <h2 class="text-xl font-semibold group-hover:text-[--color-accent] transition-colors mb-2 post-title">
+            {post.frontmatter.title}
+          </h2>
+          <p class="leading-relaxed mb-3 post-desc">{post.frontmatter.description}</p>
+          <div class="flex items-center gap-3 text-sm post-meta">
+            <time>{new Date(post.frontmatter.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+            {readTime && (
+              <>
+                <span>·</span>
+                <span>{readTime}</span>
+              </>
+            )}
+            {post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
+              <>
+                <span>·</span>
+                <span>{post.frontmatter.tags.map((t: string) => `#${t}`).join(' ')}</span>
+              </>
+            )}
+          </div>
+        </a>
+      );
+    })}
+  </div>
 </BaseLayout>
 
 <style>
-  /* ── Page ── */
+  /* Light mode */
   #page-title { color: var(--color-heading); }
-  #page-sub   { color: var(--color-body); }
-
-  /* ── Section headers ── */
-  .section-header {
-    display: flex;
-    align-items: baseline;
-    gap: 0.75rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #967FDB;
-  }
-  .section-label {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #967FDB;
-  }
-  .section-sub {
-    font-size: 0.75rem;
-    color: #9ca3af;
-  }
-
-  /* ── Writing cards ── */
-  .post-row   { border-color: #f3f4f6; }
+  #page-sub { color: var(--color-body); }
+  .tag-chip { background-color: #EDE9FE; color: #967FDB; }
+  .post-row { border-color: #f3f4f6; }
   .post-title { color: var(--color-body); }
-  .post-desc  { color: #6b7280; }
-  .post-meta  { color: #9ca3af; }
+  .post-desc { color: #6b7280; }
+  .post-meta { color: #9ca3af; }
 
-  /* ── Signal rows ── */
-  .signal-row  { border-color: #f3f4f6; }
-  .signal-date {
-    font-size: 0.8rem;
-    color: #9ca3af;
-    min-width: 3.5rem;
-  }
-  .signal-title {
-    font-size: 0.95rem;
-    color: var(--color-body);
-    font-weight: 500;
-  }
-  .signal-tags { display: flex; }
-  .tag-chip {
-    font-size: 0.7rem;
-    padding: 0.15rem 0.5rem;
-    border-radius: 9999px;
-    background-color: #EDE9FE;
-    color: #967FDB;
-  }
-
-  /* ── Dark mode ── */
-  [data-theme="dark"] #page-title  { color: var(--color-heading); }
-  [data-theme="dark"] #page-sub   { color: #6b7280; }
-  [data-theme="dark"] .section-header { border-color: #3d2e6e; }
-  [data-theme="dark"] .section-label  { color: #B8A4E8; }
-  [data-theme="dark"] .post-row   { border-color: #1f1f2e; }
-  [data-theme="dark"] .post-title { color: #e5e7eb; }
-  [data-theme="dark"] .post-desc  { color: #6b7280; }
-  [data-theme="dark"] .post-meta  { color: #4b5563; }
-  [data-theme="dark"] .signal-row  { border-color: #1f1f2e; }
-  [data-theme="dark"] .signal-date { color: #4b5563; }
-  [data-theme="dark"] .signal-title { color: #9ca3af; }
+  /* Dark mode */
+  [data-theme="dark"] #page-title { color: var(--color-heading); }
+  [data-theme="dark"] #page-sub { color: #6b7280; }
   [data-theme="dark"] .tag-chip { background-color: #1E1538; color: #B8A4E8; }
+  [data-theme="dark"] .post-row { border-color: #1f1f2e; }
+  [data-theme="dark"] .post-title { color: #e5e7eb; }
+  [data-theme="dark"] .post-desc { color: #6b7280; }
+  [data-theme="dark"] .post-meta { color: #4b5563; }
 </style>
