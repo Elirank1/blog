@@ -46,6 +46,7 @@ const ogImage = image ? new URL(image, siteUrl).href : new URL(`${base}/og-defau
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@eliran_keren" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
@@ -78,6 +79,7 @@ const ogImage = image ? new URL(image, siteUrl).href : new URL(`${base}/og-defau
         <p>© 2026 Eliran Keren. Built with <a href="https://astro.build">Astro</a></p>
         <div class="flex gap-4">
           <a href="https://www.linkedin.com/in/elirankeren" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+          <a href="https://x.com/eliran_keren" target="_blank" rel="noopener noreferrer" class="footer-link">X</a>
           <a href="https://github.com/Elirank1" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
           <a href={`${base}/rss.xml`} class="footer-link">RSS</a>
         </div>
