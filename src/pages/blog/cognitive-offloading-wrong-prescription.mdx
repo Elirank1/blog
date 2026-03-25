@@ -1,0 +1,100 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "Everyone Has the Diagnosis. Nobody Has the Cause."
+description: "AI is eroding critical thinking, the studies say. The prescription: use AI less, be more intentional. That's the wrong answer. The real problem is a missing coordination layer."
+pubDate: 2026-03-22
+tags: ['ai', 'cognitive-load', 'coordination', 'infrastructure', 'knowledge-work']
+heroImage: /images/heroes/cognitive-offloading-wrong-prescription.jpg
+---
+
+Everyone has the diagnosis. Very few have the cause.
+
+This week, three separate pieces landed on the same topic: AI is making us worse at thinking. The Conversation published "It's Tempting to Offload Your Thinking to AI. Cognitive Science Shows Why That's a Bad Idea." A Microsoft Research survey of 319 knowledge workers found that higher confidence in AI correlates with *less* critical thinking — and warned of cognitive faculties left "atrophied and unprepared." A BCG follow-up study tracked 244 consultants through ~5,000 AI interactions and found that 27% became what they called "Self-Automators" — people who delegated entire workflows to AI and developed neither AI skills nor domain expertise. Passive conduits.
+
+The prescription everyone offers: use AI more intentionally. Be selective. Preserve the hard thinking. Don't just accept the first answer.
+
+That's not wrong. But it's treating a symptom.
+
+## What the Studies Are Actually Measuring
+
+The Microsoft study didn't find that AI is inherently bad for cognition. It found something more specific: when workers are confident in AI and under time pressure on routine tasks, they stop applying critical judgment. They offload not just the task but the thinking that should accompany it.
+
+The BCG study is even more precise. It identified three collaboration modes. Cyborgs (60%) engaged in iterative dialogue with AI — they learned. Centaurs (14%) used AI selectively while staying in control — highest accuracy. Self-Automators (27%) handed the whole thing over and came out with nothing compounded.
+
+The difference between those three groups isn't discipline. It's not willpower or intention.
+
+It's whether they had a model — explicit or implicit — of which cognitive tasks were worth protecting.
+
+Cyborgs had it. Centaurs had it. Self-Automators didn't.
+
+And here's what nobody is asking: why don't they have it? Where would that model live? Who's responsible for maintaining it?
+
+## The Design Failure Nobody Wants to Name
+
+Every AI tool you use today is built around the same architecture: you ask, it responds.
+
+It has no model of your priorities. It has no memory of what you decided yesterday. It doesn't know whether this task is one that builds your judgment over time or one that safely runs on autopilot. It has no stake in your cognitive health.
+
+Its job is to give you the best response to what you just asked. That's it.
+
+So when you hand it a strategy memo to write, it writes the strategy memo. When you hand it a performance review, it drafts the review. When you hand it a decision, it gives you a recommendation. And if you hand it everything — your entire output stream — it will handle everything. Eagerly. Without hesitation.
+
+Not because it's malicious. Because it has no context to know the difference.
+
+This is not an AI problem. This is a coordination problem.
+
+## The Prescription Is Wrong
+
+"Use AI less" doesn't scale. That's a personal discipline play. It works until you're under pressure, overwhelmed, or just tired — which is exactly when cognitive offloading feels most necessary.
+
+"Be more intentional" is also a personal discipline play dressed up as a system. If the solution requires consistent human vigilance to override a default behavior, it will fail. Systems fail. People get tired. The workflow defaults to whatever is easiest.
+
+The actual lever is structural. The question isn't how much you use AI. The question is: who decides what gets offloaded?
+
+Right now, you do. Implicitly. Under pressure. Without a framework. And without a system that knows enough about you to push back.
+
+That's the gap.
+
+## What the Missing Layer Looks Like
+
+Imagine a layer between you and your AI tools that has actual context. Not just your current session. Your commitments from last week. The decision you made on Tuesday that should inform today's draft. The patterns in what you're good at and where you consistently lean on AI to paper over a weakness. The open loop from the client call that you haven't closed.
+
+A layer that, when you hand it a piece of thinking to do, can distinguish between:
+
+- **Delegate**: This is coordination work — scheduling, summarizing, formatting. No judgment compounding. Automate it.
+- **Augment**: This is analytical work where AI accelerates but you stay in the loop. Use it, but don't hand it over.
+- **Protect**: This is judgment work — a call that requires your read of a person, a strategy decision that requires your context, a creative call that requires your taste. Don't offload this. Ever.
+
+No current AI tool makes this distinction. Not because it's technically impossible. Because nobody has built the layer above AI that holds enough context about you to know the difference.
+
+## The Pattern the Studies Should Name
+
+The Self-Automators in the BCG study weren't lazy. They were overwhelmed and under-equipped.
+
+They were knowledge workers without a system for what deserves their full attention. So when AI offered to take everything, they said yes. Rationally. Efficiently. And at a significant long-term cost.
+
+This will scale. As AI tools get more capable, the temptation to hand over more will only grow. The gap between "what AI can do" and "what AI should do for this specific person right now" will widen — because nothing is tracking the difference.
+
+Telling workers to be more intentional is telling them to solve a systems problem with willpower. That's not architecture. That's hope.
+
+## The Real Question
+
+The studies measuring cognitive offloading are asking: "Is AI making us think less?"
+
+The more important question is: "Does the AI have any idea what you're supposed to be thinking about?"
+
+When the answer is no — when your AI tools are stateless, contextless, and optimized purely for response generation — then all offloading looks the same. Routine email formatting and high-stakes judgment calls look identical from the tool's perspective. It answers both with equal enthusiasm.
+
+The solution isn't moderation. It's architecture.
+
+Not: How many AI interactions did I have today?
+
+But: How many cognitive tasks that build my judgment did I keep? And did my system know which ones to protect?
+
+That's the metric we should be building toward. And the layer that tracks it doesn't exist yet.
+
+---
+
+*I'm Eliran — building Deeplica, a coordination layer above your tools that tracks commitments, closes loops, and knows what to take off your plate — and what not to. Thinking publicly about what happens when AI stops being a tool and starts being infrastructure.*
+
+*Sources: [Microsoft Research — GenAI & Critical Thinking](https://www.microsoft.com/en-us/research/publication/the-impact-of-generative-ai-on-critical-thinking-self-reported-reductions-in-cognitive-effort-and-confidence-effects-from-a-survey-of-knowledge-workers/) · [BCG Centaurs & Cyborgs](https://www.bcg.com/publications/2023/how-people-create-and-destroy-value-with-gen-ai) · [The Conversation — Cognitive Offloading](https://theconversation.com/its-tempting-to-offload-your-thinking-to-ai-cognitive-science-shows-why-thats-a-bad-idea-276766) · [Hidden Cost of Cognitive Offloading — Resultsense](https://www.resultsense.com/insights/2026-03-11-ai-cognitive-offloading-thinking-machines-human-cost)*
