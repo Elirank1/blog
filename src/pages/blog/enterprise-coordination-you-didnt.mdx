@@ -1,0 +1,92 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "The Enterprise Got Its Coordination Layer. You Didn't."
+description: "96% of enterprises are running AI agents. 94% report sprawl they can't govern. OpenAI just shipped the infrastructure to fix it. None of that solves the problem the person in the middle still has."
+pubDate: 2026-04-19
+tags: ['ai', 'coordination', 'enterprise-ai', 'personal-ai', 'open-loops', 'cognitive-load', 'agents']
+heroImage: /blog/images/heroes/enterprise-coordination-you-didnt.jpg
+---
+
+96% of organizations are running AI agents. 94% of them are worried. Neither number is the interesting one.
+
+The interesting number is 12. That's the percentage that have actually done something about it — built a centralized platform to understand and manage the agents they deployed. Everyone else is watching agent sprawl compound.
+
+OutSystems surveyed 1,900 IT leaders this month. The finding: 1.5 million agents are running inside enterprise systems with no oversight. Accessing data. Making decisions. Connecting to critical infrastructure. With no audit trail and no owner.
+
+That's not a governance crisis. That's what a coordination failure looks like at enterprise scale.
+
+## What agent sprawl actually is
+
+The common framing is security. Rogue agents. Shadow IT. Liability.
+
+That's real, but it's downstream of the actual problem.
+
+Agent sprawl happens because organizations deployed agents the same way they deployed every other productivity tool before them: team by team, problem by problem, without building the layer above them. Sales built a sales agent. Support built a support agent. Engineering deployed three more. Each one works. None of them have a shared understanding of what the others are doing, what's finished, or what still needs a human.
+
+The production line got built. The production schedule never did.
+
+This is a coordination problem. Not a security problem, not a technical debt problem — a coordination problem. The enterprise added output capacity without adding the layer that tracks commitments across that capacity, surfaces what's unresolved, and closes the loop.
+
+Every AI agent you deploy is an obligation. Not just compute and API calls. An obligation: something went out, something needs to come back.
+
+When there's no system managing those obligations, they accumulate. That's what 94% of IT leaders are feeling. Not a technology failure. The weight of unmanaged commitments at scale.
+
+## OpenAI's answer
+
+This week, OpenAI published their enterprise strategy. The headline: enterprise now makes up 40% of revenue and is accelerating.
+
+The product they're building toward: Frontier. A coordination layer for company-wide agents. Not another AI tool — infrastructure. The layer that sits above agents and manages them: who deployed what, what's running, what needs human input, what breaks down when agents conflict.
+
+The framing is deliberate. OpenAI isn't selling capabilities anymore. They're selling coordination. A system that knows the state of all your agents and gives the organization visibility and control.
+
+Frontier is the right product for the problem that enterprise IT has. The sprawl data created the demand. A platform that answers "what are our agents doing?" is the obvious solution.
+
+That's the enterprise coordination layer. And it's getting built fast. OpenAI, Google, Salesforce, ServiceNow — all converging on the same layer from different directions.
+
+## The layer nobody is building
+
+Here's the problem Frontier doesn't touch.
+
+The enterprise coordination layer is top-down. IT manages agents for the organization. It answers: *what are our agents doing as a company?*
+
+That is not the same question as: *what do I, the knowledge worker sitting inside this enterprise, actually need to happen next?*
+
+The person at the center of all these coordinated enterprise agents still has completely uncoordinated personal state. Still has open loops. Still has commitments made across a dozen channels that no system is tracking. Still has decisions pending that the agents finished the inputs for but never surfaced.
+
+Agent sprawl at the enterprise level is a symptom of something that exists at every level. The same coordination failure that makes IT teams anxious about unmonitored agents makes the individual knowledge worker anxious about everything they said they'd do and haven't. The enterprise problem is just more legible because it has audit requirements and dollar amounts attached.
+
+The person-level version doesn't have a budget owner. It just has weight.
+
+## Why the personal layer keeps getting missed
+
+The enterprise problem is quantifiable. 1.5 million agents. 94% concern rate. Security risk. Compliance exposure. You can write a business case for solving it.
+
+The personal coordination problem is harder to surface. You can't easily count how many commitments a person made this week that haven't been closed. You can't put a number on the cognitive overhead of maintaining a mental model of everything that's active, pending, or stalled.
+
+It registers as stress, not as infrastructure failure. Personal discipline problem, not system design problem.
+
+But the data is there. 60% of knowledge worker time disappearing into coordination and communication overhead. The compounding effect of every AI output that adds something to a person's context without being accountable for what happens next.
+
+The question isn't how many tasks AI helped complete. It's how many open loops adding more agents creates. Agents don't close loops by default. They add output. Someone — or some system — still has to decide what to do with it.
+
+Adding agents at scale, without building the coordination layer that manages the resulting obligations, doesn't reduce cognitive load. It scales it.
+
+## What the race looks like from here
+
+The enterprise coordination layer will get built. The market signal is unambiguous. 96% adoption, 94% sprawl concern, and OpenAI publicly naming "coordination" as the strategic layer they're building toward — that's a confirmed thesis, not a hypothesis.
+
+What's coming next — maybe already visible at the edges — is the second half of the same problem.
+
+Once enterprises have Frontier or its equivalent, the coordination debt shifts. The organization knows what its agents are doing. But the person operating inside that organization still doesn't have a system that knows what they're supposed to do next. What's on them. What's been waiting. What silently lapsed.
+
+Enterprise coordination tells the organization what its agents closed.
+
+Personal coordination is the system that tells the person what's still open.
+
+Those are different problems. Same root. Different layers. And the second one hasn't had its moment yet.
+
+---
+
+*Eliran Keren — Founder of [Deeplica](https://deeplica.ai), building the coordination layer for the person at the center.*
+
+*Sources: [Agentic AI Goes Mainstream in the Enterprise, but 94% Raise Concern About Sprawl — OutSystems / PR Newswire](https://www.prnewswire.com/apac/news-releases/agentic-ai-goes-mainstream-in-the-enterprise-but-94-raise-concern-about-sprawl-outsystems-research-finds-302739251.html) · [The Next Phase of Enterprise AI — OpenAI](https://openai.com/index/next-phase-of-enterprise-ai/) · [OpenAI Launches Frontier, an AI Agent Platform — Fortune](https://fortune.com/2026/02/05/openai-frontier-ai-agent-platform-enterprises-challenges-saas-salesforce-workday/) · [AI Agent Sprawl: 1.5 Million Rogue Agents & the Governance Gap — Paperclipped](https://www.paperclipped.de/en/blog/ai-agent-sprawl-governance/)*
