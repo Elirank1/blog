@@ -1,0 +1,78 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "40% of AI Projects Will Fail. The Reason Isn't What You Think."
+description: "Gartner predicts over 40% of agentic AI projects will be canceled by 2027. The cited reasons — escalating costs, unclear ROI, risk controls — are symptoms. The real cause is a design error that most teams never catch."
+pubDate: 2026-04-06
+tags: ['ai', 'agentic-ai', 'coordination', 'enterprise', 'infrastructure']
+heroImage: /blog/images/heroes/forty-percent-problem.png
+---
+
+Gartner put a number on it last year. Over 40% of agentic AI projects will be canceled by end of 2027.
+
+Escalating costs. Unclear business value. Inadequate risk controls.
+
+The analyst community nodded. The enterprise press ran the stat. The conversation moved to governance frameworks, ROI modeling, and responsible AI policies.
+
+They're naming symptoms. Not the cause.
+
+## What These Projects Actually Do
+
+Look at what gets built when organizations deploy agentic AI. Customer support automation. Approval workflow orchestration. Status reporting pipelines. Knowledge-base maintenance agents. Document processing chains. Escalation routing.
+
+Every one of these is a real workflow. Every one of them involves real work that real people currently do.
+
+Here's what they have in common: they exist because information is fragmented, context is missing, and someone has to manually stitch things together. The process was designed around the absence of a coherent system. It exists as a workaround — a human-executed patch for the fact that the tools don't talk to each other, the decisions aren't tracked, and the context lives nowhere.
+
+And the standard agentic AI project takes this workaround and tries to automate it.
+
+## Automating the Broken System
+
+An AI agent that automates a broken coordination process doesn't fix the process. It accelerates the dysfunction.
+
+The inputs are still fragmented. The context is still missing. The agent is now responsible for stitching — faster, cheaper, with less human oversight. But the fundamental design hasn't changed. You're running the old process with a new engine. And when the output is wrong — when the customer gets the wrong answer, when the approval lands in the wrong queue, when the knowledge base hallucinates a policy that doesn't exist — you don't have a human to catch it.
+
+This is why the costs escalate. Not because AI is expensive. Because debugging automated dysfunction is expensive.
+
+This is why the business value is unclear. Because you optimized something that should have been eliminated.
+
+This is why the risk controls fail. Because governance frameworks are being applied to agents that are fundamentally solving the wrong problem.
+
+## The Question Teams Don't Ask First
+
+Before any agentic deployment, there's a question that almost never gets asked:
+
+*Does this process exist because of a real business requirement — or does it exist because we've never had a system that holds context and closes loops automatically?*
+
+If the answer is the former, an agent is the right tool. Automate it.
+
+If the answer is the latter, you don't need an agent. You need coordination infrastructure. The kind that makes the process unnecessary — because the information isn't fragmented, the context isn't missing, and the loop doesn't need a human to manually close it.
+
+Most enterprise agentic projects are automating the second category. They look like the first. They're not.
+
+## What Coordination Infrastructure Actually Is
+
+This isn't an abstract distinction.
+
+When a customer support agent has to synthesize conversation history, ticket status, account context, and prior resolution attempts before generating a response — that's coordination overhead. The agent is doing the work that a shared memory layer should have already done. Every response is expensive because every response starts from scratch.
+
+When a status reporting agent pulls from eight different systems, formats the output, checks it against what was reported last week, and routes exceptions for human review — you've built an expensive robot to do something that shouldn't require a robot. The work exists because nothing tracked the status in real time. Automate the tracking, and the reporting becomes trivial.
+
+The projects that survive aren't the ones with better agents. They're the ones where someone stopped first and asked whether the workflow should exist at all.
+
+## The 40% Problem Is a Design Problem
+
+Gartner's 40% failure rate will be cited for years as evidence that agentic AI overpromised. That framing is wrong.
+
+The failures aren't about capability limits. Current models are capable enough to automate most of what enterprises are asking them to automate. The failures are about application — specifically, applying powerful AI to processes that better architecture would have made unnecessary.
+
+The projects that get canceled will be the ones where the agent worked fine and the value still didn't materialize. Where you spent six months automating a workflow and then discovered that the workflow was a symptom, not a requirement. Where the AI did exactly what it was asked and the organization still couldn't explain why it was worth the cost.
+
+The surviving 60% won't be smarter. They'll be better at asking the prior question: *What coordination failure created this process in the first place?*
+
+Answer that, and the scope of what needs to be built changes entirely. Usually, it gets smaller. And the value becomes much clearer.
+
+---
+
+*Eliran Keren — Founder of [Deeplica](https://deeplica.ai), building coordination infrastructure for knowledge workers. The goal isn't to give you better tools. It's to eliminate the overhead your current tools were designed to manage.*
+
+*Sources: [Gartner — Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027](https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027) · [VentureBeat — NVIDIA Launches Enterprise AI Agent Platform](https://venturebeat.com/technology/nvidia-launches-enterprise-ai-agent-platform-with-adobe-salesforce-sap-among) · [Cloud Wars — Enterprise AI in 2026: Scaling Agents with Autonomy and Accountability](https://cloudwars.com/ai/enterprise-ai-in-2026-scaling-ai-agents-with-autonomy-orchestration-and-accountability/)*

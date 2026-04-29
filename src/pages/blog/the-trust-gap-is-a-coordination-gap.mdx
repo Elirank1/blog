@@ -1,0 +1,124 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "You Don't Have a Trust Problem. You Have a Coordination Problem."
+description: "McKinsey's 2026 AI Trust Survey says only 1 in 3 enterprises has mature agentic governance. Everyone's calling this a security issue. It's not. It's a coordination problem — and the data makes that clear."
+pubDate: 2026-03-31
+tags: ['ai', 'coordination', 'trust', 'agentic-ai', 'enterprise', 'infrastructure', 'deeplica']
+heroImage: /blog/images/heroes/the-trust-gap-is-a-coordination-gap.jpg
+---
+
+McKinsey published their 2026 AI Trust Maturity Survey last month. They measured roughly 500 organizations across industries on how well they've built governance and risk frameworks for agentic AI.
+
+The headline number: average maturity score of 2.3 out of 5.
+
+Only one-third of organizations reached maturity level 3 or higher in strategy, governance, and agentic AI oversight.
+
+The coverage was predictable. Security. Risk management. Governance frameworks. Boards need to take AI safety seriously. CISOs need more budget. The regulatory environment is uncertain.
+
+All of that may be true. None of it is the point.
+
+---
+
+## What the data is actually measuring
+
+McKinsey's maturity model is tracking something specific: the gap between what AI agents can do and what organizations have built to manage what happens after the agent acts.
+
+Not "is the model safe?" Not "is our data protected?"
+
+Something more operational than that. Something more uncomfortable.
+
+Can your organization track what your agents committed to? Do they know which loops are open? When an agent takes an action that creates a downstream dependency — a response sent, a task delegated, a decision triggered — is there a system that catches the thread?
+
+For two-thirds of enterprises, the honest answer is no.
+
+They're not failing at safety. They're failing at follow-through.
+
+---
+
+## The frame everyone reaches for
+
+When trust in AI systems breaks down, the instinct is to reach for the security frame.
+
+64% of McKinsey respondents cite security and risk concerns as the top barrier to scaling agentic AI. 74% flag inaccuracy as a highly relevant risk. 72% flag cybersecurity.
+
+These are real concerns. But look at what's underneath them.
+
+Inaccuracy at scale is a coordination problem. When an agent acts on incomplete context — because no system told it what changed since Tuesday, what the user actually decided last week, what the other agent already committed to — the output is wrong not because the model failed. The output is wrong because the coordination infrastructure failed.
+
+Security breaches from autonomous agents aren't just technical failures. The Northeastern University researchers who found agents "easily manipulated into divulging private information" were measuring a system with no coherent layer tracking what each agent is authorized to know, do, and commit to on behalf of whom.
+
+Trust erodes when the boundaries are unclear. The boundaries are unclear because there is no coordination layer enforcing them.
+
+---
+
+## What separates the high performers
+
+Deloitte's 2026 State of AI in the Enterprise report found something that cuts through the noise.
+
+High-performing organizations are 2.8x more likely to have defined human-in-the-loop validation processes: 65% versus 23%.
+
+That sounds like a governance story. It's actually a coordination story.
+
+Human-in-the-loop isn't a safety checkpoint. It's a coordination mechanism. It's the moment where a human holds the thread — reviews what the agent did, what it committed, what's now open, what needs to close — and decides whether to let the chain continue.
+
+High performers aren't more cautious. They're more coordinated.
+
+The agents aren't more restricted. The handoffs are more deliberate.
+
+The gap between 65% and 23% isn't a compliance gap. It's a system design gap. One group built infrastructure that knows where the threads are. The other group is hoping the agents don't create too many loose ends.
+
+---
+
+## The thing scaling faster than trust
+
+Gartner reported a 1,445% surge in multi-agent system inquiries between Q1 2024 and Q2 2025.
+
+By end of 2026, 40% of enterprise applications will integrate task-specific AI agents — up from less than 5% in 2025.
+
+McKinsey's maturity score sits at 2.3. One-third mature. Two-thirds not.
+
+We are deploying agents faster than we are building the infrastructure to understand what they're doing.
+
+Every agent added to an organization creates new threads. Commitments made. Contexts held. Dependencies created. Loops opened that will need to close somewhere.
+
+If there's no system tracking that, the threads accumulate. Decisions get made without context. Actions get taken without continuity. Outputs get generated that nobody can trace back to intent.
+
+That's not a security failure. That's a coordination failure. And it looks identical to a trust failure from the outside.
+
+---
+
+## The reframe
+
+Trust is not a property of the agent.
+
+Trust is a property of the system managing the agent.
+
+You don't trust a contractor because their skills are good. You trust them because you can track what they committed to, verify what they delivered, and close the loop when something doesn't match. The skills are table stakes. The coordination is what makes the trust possible.
+
+Agentic AI is not failing the trust test because models are insufficiently safe. It's failing because the layer that would track commitments, manage context, enforce boundaries, and surface open loops doesn't exist in most organizations.
+
+The question is not "can we trust the agent?"
+
+The question is "do we have the infrastructure to know what it did and what's still unresolved?"
+
+That's the gap. It's a coordination gap. Calling it a trust gap makes it sound like a model problem. It's not. It's an infrastructure problem — the same infrastructure that's been missing since the first knowledge worker had three tools that didn't talk to each other.
+
+---
+
+## What this tells you
+
+The enterprises scaling AI fastest are not the ones that figured out security. They're the ones that figured out coordination.
+
+McKinsey's maturity model, read carefully, isn't measuring how safe your AI is. It's measuring whether you have systems in place to track, route, and close what your AI initiates.
+
+The ones at level 3+ have built something that functions as a coordination layer: human-in-the-loop validation, context persistence across actions, visibility into what's open and what's resolved.
+
+The ones at 2.3 are running agents that execute beautifully and leave a trail of open threads nobody's tracking.
+
+Trust doesn't come from capability. It comes from coordination. And right now, almost no one has built that layer.
+
+---
+
+*Eliran Keren — Founder of [Deeplica](https://deeplica.ai), building the coordination layer for humans who'd rather direct than operate.*
+
+*Sources: [McKinsey — State of AI Trust in 2026: Shifting to the Agentic Era](https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/tech-forward/state-of-ai-trust-in-2026-shifting-to-the-agentic-era) · [Deloitte — State of AI in the Enterprise 2026](https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/content/state-of-ai-in-the-enterprise.html) · [Northeastern University — Autonomous AI Agents of Chaos](https://news.northeastern.edu/2026/03/09/autonomous-ai-agents-of-chaos/) · [Joget — AI Agent Adoption 2026: What the Data Shows](https://joget.com/ai-agent-adoption-in-2026-what-the-analysts-data-shows/) · [WEF — AI Agent Autonomy & Governance](https://www.weforum.org/stories/2026/03/ai-agent-autonomy-governance/)*

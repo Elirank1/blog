@@ -1,0 +1,92 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "Brain Fry Is a Design Problem"
+description: "BCG found that 14% of AI-using workers are burning out — not from using AI, but from monitoring it. Everyone is reading this as a human cognitive problem. It isn't. It's a systems design failure. The people who are burning out became the coordination layer by default, because nobody built one."
+pubDate: 2026-04-24
+tags: ['ai', 'cognitive-load', 'knowledge-work', 'coordination', 'personal-ai', 'infrastructure']
+heroImage: /blog/images/heroes/brain-fry-design-problem.jpg
+---
+
+BCG published a study this month that's making the rounds.
+
+14% of AI-using workers are experiencing what researchers are calling "brain fry" — cognitive overload caused not by using AI, but by monitoring it. In marketing, where AI output volume is highest, the number hits 26%.
+
+33% more decision fatigue. 39% more major errors. 39% higher intent to quit.
+
+The commentary arrived on schedule. "We need better AI." "We need digital wellness programs." "We need to slow the adoption curve."
+
+All of it misses what the data is actually showing.
+
+## The 14% are not the problem
+
+They're not burning out because they can't keep up.
+
+They're burning out because they've become the monitoring infrastructure for systems that don't monitor themselves.
+
+Every AI action they initiated is sitting in a loop. Did the draft go out? Did the report get reviewed? Did the action items from that meeting get tracked? Did the analysis get verified before it was used?
+
+Nobody built a system to answer those questions. So the human does it. In their head. Across every AI-generated output they're responsible for.
+
+That's not cognitive limitation. That's what happens when you use people as architecture.
+
+## The pattern BCG named, and the one they didn't
+
+BCG identified what they call the Verification Tax — the cognitive overhead of checking AI output for accuracy and alignment with actual goals. Their framing is correct. The verification burden is real.
+
+But verification is a symptom. The structural issue underneath it is this: there is no coordination layer between the AI action and the human who initiated it.
+
+When you do the work yourself, you have native context. You know what you decided, what you cut, what you deferred. Closing the loop is automatic.
+
+When AI does it, you inherit the output with no context. The loop stays open until you deliberately close it. And in the meantime, it's sitting in the background — occupying attention, generating low-level anxiety, accumulating alongside every other open loop from every other AI action you haven't gotten back to.
+
+Multiply that across every AI tool in the stack. Every meeting summary. Every draft. Every research task. Every automated workflow.
+
+That's not a cognitive problem. That's a systems design failure.
+
+## What's happening at scale
+
+The enterprise data makes the pattern unmistakable.
+
+94% of organizations now report concern about agent sprawl — the accumulation of autonomous AI agents across teams, built on different models, running on different tools, with no shared governance and no central view of what's actually running.
+
+96% are using AI agents in some capacity. 21% have a mature governance model for them.
+
+That gap — 96% deployed, 21% governed — is where the brain fry comes from. The humans filling that gap are doing something that should be handled by infrastructure. They're running coordination manually, at the scale of enterprise agent deployment, with the cognitive resources of a single person trying to keep track.
+
+The enterprise version of brain fry looks less like individual exhaustion and more like organizational drift — decisions made without full context, commitments tracked loosely, AI outputs trusted at first pass and verified later, if at all. The 14% who are burning out are the ones who care enough to actually verify. The rest have stopped.
+
+Neither outcome is acceptable.
+
+## The Humans& signal
+
+Last week, a startup called Humans& raised $480 million in what they described as a seed round to build a "central nervous system" for the human-plus-AI economy.
+
+The founding team came from Anthropic, Meta, OpenAI, xAI, Google DeepMind. The stated mission: coordinating people with competing priorities, tracking long-running decisions, keeping teams aligned over time.
+
+That is coordination infrastructure. And the fact that it attracted $480 million — not for better models, not for better execution tools, but for the coordination layer above them — tells you something about where the market has landed.
+
+The gap is real. It's measurable. It's not going to be closed by wellness programs or slower rollouts or better prompting.
+
+## The actual problem
+
+Brain fry is not a human failing.
+
+It is what happens when humans become the coordination layer by default.
+
+The 14% who are burning out are doing the right thing. They're taking responsibility for what AI produces. They're verifying outputs, tracking commitments, closing loops. They're acting like the infrastructure they were never supposed to be.
+
+The system design failed them. Not the other way around.
+
+A coordination layer isn't a productivity feature. It's load-bearing infrastructure — the layer that knows what AI did today, what it created that needs a human decision, what it started that hasn't been closed. The layer that takes the monitoring burden off the human and routes it correctly.
+
+Without it, AI scales the execution. It doesn't scale the management. And the delta between the two gets paid in focus, in decision fatigue, in the attention of the people who are trying to hold the whole thing together in their heads.
+
+That's not brain fry.
+
+That's what it looks like when the architecture is missing.
+
+---
+
+*Eliran Keren — Founder of [Deeplica](https://deeplica.ai), building the coordination layer for the person at the center.*
+
+*Sources: [When Using AI Leads to "Brain Fry" — HBR, March 2026](https://hbr.org/2026/03/when-using-ai-leads-to-brain-fry) · [Agentic AI Goes Mainstream in the Enterprise, but 94% Raise Concern About Sprawl — OutSystems, April 2026](https://www.prnewswire.com/apac/news-releases/agentic-ai-goes-mainstream-in-the-enterprise-but-94-raise-concern-about-sprawl-outsystems-research-finds-302739251.html) · [Humans& Thinks Coordination is the Next Frontier for AI — TechCrunch, January 2026](https://techcrunch.com/2026/01/25/humans-thinks-coordination-is-the-next-frontier-for-ai-and-theyre-building-a-model-to-prove-it/)*

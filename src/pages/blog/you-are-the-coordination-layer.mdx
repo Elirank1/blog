@@ -1,0 +1,98 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "You Are the Coordination Layer"
+description: "BCG studied 1,488 workers and found that cognitive fatigue from AI use is real, measurable, and getting worse. Everyone's calling it a human problem. The study's own data says otherwise."
+pubDate: 2026-04-03
+tags: ['ai', 'coordination', 'cognitive-overload', 'infrastructure', 'knowledge-work']
+heroImage: /blog/images/heroes/you-are-the-coordination-layer.jpg
+---
+
+BCG studied 1,488 workers across large companies. The finding: 14% are experiencing measurable cognitive fatigue directly linked to AI tool use. Mental fog. Slower decision-making. Headaches. A "buzzing" sensation they couldn't name before researchers named it for them.
+
+They called it "AI brain fry."
+
+The coverage landed hard. HBR published it. Fortune ran the headline. CNN picked it up. The story spread because it named something real — something knowledge workers have been feeling but couldn't articulate.
+
+Then came the prescriptions. Take breaks. Use fewer tools. Don't let AI monitor your work, only execute it. Protect your mental energy.
+
+Every prescription treats this as a human capacity problem.
+
+That's the wrong read.
+
+## What the Data Actually Says
+
+The study found a telling pattern: workers who went from one AI tool to two saw a productivity gain. A third tool: smaller gain. A fourth, fifth, sixth? Productivity declined. Fatigue went up. Errors increased. Those overseeing four or more AI tools reported 33% more decision fatigue and 39% more major errors than those using fewer.
+
+The instinct is to say: too many tools. Use fewer.
+
+But that's not what's happening at the underlying level. The workers aren't cognitively exhausted from using AI. They're exhausted from *supervising* AI without a system that helps them do it.
+
+High oversight of AI — reading through outputs, interpreting generated text, evaluating AI decisions — increased mental effort by 14%. Mental fatigue by 12%. Information overload by 19%.
+
+BCG's own language is precise: "AI brain fry is distinct from traditional burnout. It stems from the unusually high cognitive load required to supervise AI systems and evaluate their outputs."
+
+Read that again. The load is in the supervision. The coordination. The evaluation. Not in the work itself — in the overhead of managing the tools doing the work.
+
+## The Node Nobody Named
+
+Here's the structural reality that every "use fewer tools" recommendation misses.
+
+When you use multiple AI tools — a writing assistant, a research agent, a scheduling copilot, a meeting summarizer — each one does its job in isolation. None of them knows what the others decided. None of them tracks what thread you left open in the last session. None of them knows that the email you asked one tool to draft connects to the commitment you made in the meeting another tool summarized.
+
+So you do that work. You hold the context. You're the one who remembers what was said, what was promised, what's still open, and what actually matters.
+
+You become the middleware between tools that don't share memory. The bridge between agents that don't close loops. The node that holds every thread because nothing else is holding it.
+
+That's the load. Not the AI. Not the tools. The absent coordination layer — the one that should be tracking context across all of them — and you, filling in for it.
+
+## Not a Coincidence
+
+HBR published a second piece this same quarter: *"AI Doesn't Reduce Work — It Intensifies It."* UC Berkeley research found that employees using AI tools didn't reduce their workload. They increased both the volume of work they could tackle and the variety of it — even without being forced to adopt the technology.
+
+More capability. Same human in the center.
+
+The tools expand what's possible. The human still holds what's open.
+
+These aren't separate findings. They're the same finding from two directions. AI increases throughput. AI increases oversight burden. The human remains the integration point for both.
+
+## The Industry Is Solving the Wrong Version of This
+
+Enterprise AI right now is coordinating agents with agents. NVIDIA built agent-to-agent orchestration infrastructure. Salesforce, ServiceNow, Adobe — all shipping multi-agent coordination layers. Deloitte calls it "the enterprise control plane." Investment is real. Infrastructure is being built.
+
+That is the right problem to solve for enterprise automation at scale. Agents need to hand off to agents. Governance needs to work. Audit trails need to exist.
+
+But it's not the same problem the BCG workers are experiencing.
+
+The 14% who are hitting cognitive limits aren't overwhelmed by agents talking to agents. They're overwhelmed by being the person who has to review, evaluate, track, and coordinate across tools that aren't talking to each other. They're not inside the enterprise orchestration layer. They're sitting one level up from it, still holding all the threads themselves.
+
+The enterprise is getting its coordination infrastructure.
+
+The human is getting more to manage.
+
+## What the Prescription Gets Wrong
+
+"Use fewer AI tools" is advice from the wrong model. It assumes the problem is overexposure to AI — that if you just reduce contact, the load reduces.
+
+The best writing tool is not the best research tool. The best research tool is not the best scheduler. The best scheduler is not the best project tracker. Consolidating to one mediocre general-purpose tool doesn't reduce overhead — it shifts the cost. You lose capability. You still do the coordination yourself. Just with worse inputs.
+
+The load isn't coming from the number of tools. It's coming from the absence of a layer that integrates them.
+
+This is not a complaint about AI. It's a structural observation about what's being built and what isn't.
+
+## The Intervention That Would Actually Work
+
+If the cognitive load comes from being the coordination layer — from holding context, tracking commitments, and routing information across disconnected tools — then the intervention that would actually work is building a layer that does those things instead of you.
+
+Not another tool that does more. A layer that handles the overhead of the tools you already have.
+
+One that knows which threads are open and which are resolved. One that tracks what you asked for, notices whether it happened, and surfaces the gap — without asking you to remember to check. One that understands which of your twelve active items actually requires your attention right now, and which can wait.
+
+The solution isn't restraint. It's architecture.
+
+BCG named the symptom well. The cause is an infrastructure gap. And you can't fix an infrastructure problem by telling the human to work less.
+
+---
+
+*Eliran Keren — Founder of [Deeplica](https://deeplica.ai), building the coordination layer for humans who'd rather direct than operate.*
+
+*Sources: [BCG — When Using AI Leads to Brain Fry](https://www.bcg.com/news/5march2026-when-using-ai-leads-brain-fry) · [HBR — When Using AI Leads to Brain Fry](https://hbr.org/2026/03/when-using-ai-leads-to-brain-fry) · [Fortune — AI Brain Fry Study](https://fortune.com/2026/03/10/ai-brain-fry-workplace-productivity-bcg-study/) · [The Decoder — Study warns of AI Brain Fry](https://the-decoder.com/study-warns-of-ai-brain-fry-as-workers-hit-cognitive-limits-overseeing-ai-agents/) · [HBR — AI Doesn't Reduce Work, It Intensifies It](https://hbr.org/2026/02/ai-doesnt-reduce-work-it-intensifies-it)*

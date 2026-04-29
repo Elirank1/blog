@@ -1,0 +1,108 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "They Named the Missing Layer. They Called It 'Trust.'"
+description: "McKinsey published their 2026 AI trust report this week. The word they chose — 'trust layer' — is the most informative thing in it. The enterprise AI stack is missing a layer. What they call trust, I call coordination infrastructure. That vocabulary difference will determine every intervention that follows."
+pubDate: 2026-04-22
+tags: ['ai', 'coordination', 'trust', 'infrastructure', 'enterprise', 'agents', 'knowledge-work']
+heroImage: /blog/images/heroes/the-trust-layer.jpg
+---
+
+McKinsey published their 2026 AI trust maturity survey this week.
+
+The data is useful. Average RAI maturity scores up to 2.3 from 2.0 last year. Only one-third of organizations at maturity level three or above in governance. Two-thirds citing security and risk as the top barrier to scaling agentic AI. Governance lagging behind capability across every region studied.
+
+But the most informative thing in the report isn't a number. It's a phrase.
+
+"Trust layer."
+
+As in: the enterprise AI stack is missing a trust layer.
+
+CIO published almost the same framing the same week: "The emerging enterprise AI stack is missing a trust layer." And McKinsey noted that in the agentic era, "organizations can no longer concern themselves only with AI systems saying the wrong thing; they must also contend with systems doing the wrong thing — taking unintended actions, misusing tools, or operating beyond appropriate guardrails."
+
+Two authoritative sources. Same missing layer. Same week.
+
+The name they chose will determine every intervention that follows. And I think they chose wrong.
+
+## What trust actually means in production
+
+Here's what happens when an agent fails in production.
+
+You deployed it. It worked in the pilot. In the controlled test, with defined inputs and clear success criteria, it completed the task correctly 87% of the time. You declared it ready.
+
+Then it hits an edge case at an inconvenient time — ambiguous input, conflicting instructions from two previous steps, a tool returning unexpected output. Nobody designed for this scenario because nobody simulated it. The agent does something. Maybe it escalates incorrectly. Maybe it makes an assumption and proceeds. Maybe it does nothing and the loop stays open.
+
+You find out when something downstream breaks, or doesn't happen, or happens twice.
+
+That's a trust failure. But what failed exactly? Not the model. Not the capabilities — 66% on real-world tasks this year, approaching human performance on software engineering benchmarks. What failed is the layer above the model: the part that should have held context across steps, surfaced the conflict before acting, and routed uncertainty to the right place.
+
+There is no elegant word for that. "Trust layer" is one attempt. I'd call it coordination infrastructure.
+
+## Why vocabulary determines interventions
+
+The word you use to name a gap shapes the tools you build to fill it.
+
+Call it a "trust" problem, and you build trust solutions: monitoring dashboards, audit logs, risk scoring systems, responsible AI governance frameworks, policy libraries. These are all control mechanisms. They tell you what agents are authorized to do, and whether they did it. They are useful. They are not what's missing.
+
+Call it a "coordination infrastructure" problem, and you build something different: a layer that holds context across multi-step workflows, tracks commitments made across tools and sessions, surfaces conflicts before they become failures, and closes loops that would otherwise stay open indefinitely.
+
+The difference is not semantic. It's architectural.
+
+A governance dashboard answers: did this agent behave within policy?
+
+Coordination infrastructure answers: does this agent know what it committed to in step three, and is step seven consistent with it?
+
+The first is backward-looking. The second is real-time operational. You cannot build the second by improving the first.
+
+## The production chasm makes this concrete
+
+Deloitte's 2026 enterprise AI data lands here with unusual precision: 75% of companies plan to invest in agentic AI. Only 11% have agents running in production.
+
+That gap — 89% of pilots that don't make it — is usually explained as governance friction, change management complexity, technical integration challenges. These are not wrong. But they're symptoms.
+
+The actual blocker: in production, things go wrong at times and in ways you didn't simulate. An agent that worked perfectly in the pilot encounters a real environment — data inconsistencies, timing conflicts, handoffs that weren't designed, edge cases that only appear at scale. In the pilot, a human was nearby to catch it. In production, the human isn't there. And the agent has no layer beneath the task — no context manager, no commitment tracker, no escalation protocol — to tell it what to do.
+
+The question enterprise organizations are failing to answer is not "do we trust AI?" It's "can we trust this specific agent to behave predictably when we're not watching it?" And that's a coordination infrastructure question, not a governance question.
+
+Only 19% of enterprises have a defined ROI framework for agentic AI. Only 36% have any formal supervision plan. 35% admit they couldn't immediately stop a rogue agent. These aren't trust failures at the cultural or policy level. They're operational infrastructure failures.
+
+## What McKinsey will recommend
+
+I've read enough of these reports to predict the intervention framework before seeing it.
+
+Invest in responsible AI maturity. Build clearer governance structures. Establish centralized oversight. Implement audit mechanisms. Improve data quality and documentation. Assign AI ownership to named executives.
+
+All reasonable. All necessary. None of it closes the loop.
+
+Here is what none of the governance frameworks address: who is managing the open commitments from the agent that ran last Tuesday? What happens when agent A's output conflicts with agent B's assumption? Who reconciles the context that exists across five separate tool sessions, none of which talk to each other?
+
+The answer today is: you are. The knowledge worker. You are the coordination layer.
+
+You are the one re-establishing context when switching between tools. You are the one remembering what was decided, what was delegated, what is still waiting. You are the one who notices when agent output is inconsistent with a commitment made in a different channel. You are the trust layer — the human manually performing coordination functions because there is no infrastructure to do it.
+
+That's not a trust problem. That's a design problem.
+
+## The right intervention
+
+The "trust layer" McKinsey is calling for does exist — or can exist — as infrastructure. Not governance infrastructure. Operational infrastructure.
+
+It needs to do specific things: track what was committed to across steps and sessions, surface conflicts before agents act on them, route uncertainty to the right human at the right moment, close loops that would otherwise stay open. It needs to work across the agents — not within any one of them — because the coordination failures happen in the seams, not inside any individual tool.
+
+BNY Mellon built a version of this when they deployed 20,000 AI agents across their global workforce. They called it Eliza 2.0: a multi-agent orchestration layer where agents have roles, responsibilities, and human managers. The insight wasn't "how do we trust our agents?" It was "how do we build the layer that coordinates them?"
+
+That's the right question. Most organizations are not asking it.
+
+They're asking: how do we trust our agents? And building governance dashboards in response.
+
+## The thing about naming
+
+McKinsey named the missing layer this week. That's not nothing. Naming a gap is the first step toward filling it. The industry recognizing that a layer is missing — that trust is architectural, not cultural — is genuine progress.
+
+But the name matters. Call it a "trust layer" and you build a governance framework. Call it a "coordination infrastructure layer" and you build something you can actually run agents on.
+
+The data says the production chasm is real. 89% of pilots stuck before production. Two-thirds of organizations unable to scale what works in the lab. A widening gap between agent capability and organizational readiness.
+
+The industry is staring at the right gap. The diagnosis is one vocabulary choice away from the right intervention.
+
+---
+
+*McKinsey's State of AI Trust 2026 report and CIO's "The Emerging Enterprise AI Stack Is Missing a Trust Layer" were both published this week.*
