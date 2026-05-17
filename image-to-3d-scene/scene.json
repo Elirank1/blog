@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "instances": [
+    {
+      "instanceId": "i-sofa-1",
+      "objectId": "gray-sectional-sofa",
+      "assetId": "kitchen/gray-sectional-sofa/0",
+      "physics": "rigidbody",
+      "position": [-3.0, 0, -1.0],
+      "rotation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    },
+    {
+      "instanceId": "i-table-1",
+      "objectId": "round-wooden-dining-table",
+      "assetId": "kitchen/round-wooden-dining-table/0",
+      "physics": "rigidbody",
+      "position": [-1.5, 0, -1.0],
+      "rotation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    },
+    {
+      "instanceId": "i-fridge-1",
+      "objectId": "stainless-steel-double-fridge",
+      "assetId": "kitchen/stainless-steel-double-fridge/0",
+      "physics": "rigidbody",
+      "position": [0, 0, -1.0],
+      "rotation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    },
+    {
+      "instanceId": "i-chair-1",
+      "objectId": "spindle-back-dining-chair",
+      "assetId": "kitchen/spindle-back-dining-chair/0",
+      "physics": "rigidbody",
+      "position": [1.5, 0, -1.0],
+      "rotation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    },
+    {
+      "instanceId": "i-rack-1",
+      "objectId": "cylindrical-wire-storage-rack",
+      "assetId": "kitchen/cylindrical-wire-storage-rack/0",
+      "physics": "rigidbody",
+      "position": [3.0, 0, -1.0],
+      "rotation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    },
+    {
+      "instanceId": "i-vacuum-1",
+      "objectId": "dyson-cordless-vacuum",
+      "assetId": "kitchen/dyson-cordless-vacuum/0",
+      "physics": "rigidbody",
+      "position": [4.5, 0, -1.0],
+      "rotation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    },
+    {
+      "instanceId": "i-side-table-1",
+      "objectId": "black-round-side-table",
+      "assetId": "kitchen/black-round-side-table/0",
+      "physics": "rigidbody",
+      "position": [-3.0, 0, 1.0],
+      "rotation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    },
+    {
+      "instanceId": "i-art-1",
+      "objectId": "framed-botanical-wall-art",
+      "assetId": "kitchen/framed-botanical-wall-art/0",
+      "physics": "rigidbody",
+      "position": [-1.5, 0, 1.0],
+      "rotation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    },
+    {
+      "instanceId": "i-shelf-1",
+      "objectId": "wooden-propagation-wall-shelf",
+      "assetId": "kitchen/wooden-propagation-wall-shelf/0",
+      "physics": "rigidbody",
+      "position": [0, 0, 1.0],
+      "rotation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    },
+    {
+      "instanceId": "i-palm-1",
+      "objectId": "potted-palm-in-wooden-planter",
+      "assetId": "kitchen/potted-palm-in-wooden-planter/1",
+      "physics": "rigidbody",
+      "position": [1.5, 0, 1.0],
+      "rotation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    },
+    {
+      "instanceId": "i-helmet-1",
+      "objectId": "bmw-motorcycle-helmet",
+      "assetId": "kitchen/bmw-motorcycle-helmet/0",
+      "physics": "rigidbody",
+      "position": [3.0, 0, 1.0],
+      "rotation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    },
+    {
+      "instanceId": "i-placemat-1",
+      "objectId": "woven-placemat",
+      "assetId": "kitchen/woven-placemat/0",
+      "physics": "rigidbody",
+      "position": [4.5, 0, 1.0],
+      "rotation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    }
+  ],
+  "groundPlaneColliderEnabled": true
+}
