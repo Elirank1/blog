@@ -8,7 +8,9 @@ set -euo pipefail
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BLASTER_DIR="${BLASTER_DIR:-$HERE/image-blaster}"
 SLUG="${SLUG:-kitchen}"
-SPLAT_RES="${SPLAT_RES:-500k}"   # 100k | 150k | 500k | full_res
+# image-blaster's getSplatUrl reads ONLY urls.full_res (and only if local),
+# so we must download that resolution for the splat to render.
+SPLAT_RES="${SPLAT_RES:-full_res}"   # 100k | 150k | 500k | full_res
 
 echo "==> image-blaster bootstrap (target: $BLASTER_DIR, slug: $SLUG, splat: $SPLAT_RES)"
 
