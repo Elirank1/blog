@@ -1,0 +1,124 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "85 Pilots. 5 Products."
+description: "Cisco surveyed organizations running AI agents. 85% are in pilot. 5% are in production. The headlines blame trust. The real answer is structural — and it has nothing to do with safety concerns."
+pubDate: 2026-05-03
+tags: ['ai', 'coordination', 'personal-ai', 'infrastructure', 'agentic-ai', 'open-loops', 'trust']
+heroImage: /blog/images/heroes/2026-05-03-85-pilots-5-products.jpg
+---
+
+Cisco published a survey in April.
+
+Eighty-five percent of organizations are running AI agent pilots. Only five percent have moved those agents into production.
+
+The industry interpretation: trust problem. Security concerns. Governance gap. Risk aversion. The implicit message — we need better safety frameworks and the deployments will follow.
+
+That interpretation is wrong.
+
+Not because trust doesn't matter. It matters enormously. But because the trust problem is a symptom, not the cause. The 5% production rate isn't what happens when organizations are scared of AI. It's what happens when agents are architecturally isolated from the systems that give their outputs meaning.
+
+---
+
+## What an agent actually does
+
+An AI agent can complete a task. It can draft, analyze, retrieve, summarize, route. Given a clear input and a clear scope, it can produce a useful output with high reliability.
+
+Here's what it can't do:
+
+It can't tell you whether the decision it just drafted was actually implemented. It can't tell you whether the person it just notified has acted on the notification. It can't tell you whether the loop it just opened has been closed, or whether it's now sitting in someone's inbox next to forty other loops nobody's tracking.
+
+The agent executes. It doesn't coordinate.
+
+And this is the architectural gap that produces 85 pilots and 5 products.
+
+---
+
+## The supervision math
+
+When an agent operates in isolation, every output it produces creates a new supervision obligation.
+
+Someone drafted. Did anyone review it? Someone notified. Did anyone act? Something was flagged. Did anyone follow up?
+
+In a pilot, that supervision overhead is manageable. The scope is small. A handful of workflows. A team paying close attention. The agent produces outputs and a human manually tracks what happens next.
+
+In production at scale, the math collapses.
+
+If an agent handles fifty workflows a day and each output requires a human to track its downstream fate, you haven't reduced coordination overhead. You've added a new layer of it. Now there are fifty new loops to monitor, fifty new states to verify, fifty new moments where the responsible human has to remember to check.
+
+This isn't a trust problem. This is an architecture problem. The agent does the task. The coordination of what happened as a result still lives in human heads.
+
+---
+
+## What organizations are actually discovering
+
+The McKinsey State of AI Trust report from this year asked organizations what's blocking scaled agentic deployment.
+
+Security and risk concerns ranked first. That's the headline number.
+
+But read the specifics: sixty-seven percent of executives believe their organization has already suffered a data leak from unapproved AI tools. Only twenty percent say their technology systems are fully prepared to support agentic AI for core processes. Only fifteen percent feel confident about their data readiness.
+
+These are not safety concerns. These are coordination concerns in disguise.
+
+"Unapproved AI tools" means workers are running agents outside the visible system because the visible system doesn't support what they actually need. "Not prepared to support agentic AI" means the infrastructure that tracks commitments, owns state, and closes loops doesn't exist. "Not confident about data readiness" means there's no single source of truth that an agent can reliably act on.
+
+The trust gap is real. But it's not primarily a security gap. It's a coordination gap.
+
+When you don't know what state a workflow is in, you can't trust an agent to act on it. When there's no canonical record of what was committed and by whom, you can't trust an agent to follow up. When loops live in Slack threads and calendar invites and email chains and nobody's memory, you can't trust an agent to close them — because the agent has no way to know they were open.
+
+The production barrier isn't fear of AI. It's the absence of the infrastructure that would make AI trustworthy.
+
+---
+
+## The missing layer
+
+This is the pattern across every failed enterprise AI deployment at scale:
+
+The agent does the task. Nobody built the layer that tracks what the task was connected to, what decision it feeds, who it's accountable to, and whether the outcome was absorbed.
+
+In human teams, that layer is built from habit, relationship, and proximity. People remember. People follow up. People notice when something fell through. The cognitive overhead is enormous — which is why BCG's data shows 14% of AI users experiencing cognitive overload and 26% in marketing — but it mostly works.
+
+When you add agents into this environment without adding the coordination layer, you don't reduce the overhead. You increase it. Now there's more output to track, more decisions to verify, more loops to monitor. The agent accelerates the task. The human still owns the coordination.
+
+That's the 80/20 that nobody is shipping yet. The agent does 80% of the work. The human still does 100% of the coordination.
+
+Production at scale requires the other half of the stack.
+
+---
+
+## What the 5% figured out
+
+The organizations that moved agents to production — the actual 5% — share a pattern that the coverage doesn't highlight.
+
+They didn't deploy agents into existing workflows. They redesigned the workflows first.
+
+They built canonical records of what was committed and to whom. They built state tracking that an agent could read and update. They built loops that had explicit open and closed states, not implicit ones living in human memory.
+
+Then they added agents. And the agents worked — not because the agents were more capable, but because the infrastructure gave the agents something to act on.
+
+This is the actual sequence:
+
+Coordination infrastructure → Trust → Production. Not: Better safety guardrails → Trust → Production.
+
+The production gap closes when the layer underneath the agent is built, not when the agent itself improves.
+
+---
+
+## Why this matters now
+
+The current investment thesis in AI is almost entirely focused on capability. Better models. Faster inference. More reliable agents. Larger context windows. The assumption is that as agents become more capable, adoption will follow.
+
+It won't. Not at scale. Not for the 80% of workflows that require coordination, not just execution.
+
+Because capability without coordination is a pilot. It works in a small scope with heavy supervision. It doesn't scale because the supervision overhead scales with it.
+
+The market will discover this the same way it discovered the productivity paradox: after billions of dollars of investment in the wrong layer, followed by a realization that the bottleneck was never capability.
+
+The agents are capable enough. They've been capable enough for a while.
+
+What's missing is the layer above the tools and below the humans that tracks what matters, closes what's open, and tells the agent what to act on next.
+
+85 pilots. 5 products.
+
+The gap between those numbers is not a trust problem. It's a coordination infrastructure problem.
+
+And it's exactly the problem we're building to solve.

@@ -1,0 +1,106 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "The Delegation Gap"
+description: "Anthropic published data on how engineers actually use AI: 60% of work involves AI. Only 0-20% is fully delegated. The gap between those two numbers isn't a trust problem. It's a coordination infrastructure problem."
+pubDate: 2026-05-06
+tags: ['ai', 'coordination', 'infrastructure', 'knowledge-work', 'agents', 'personal-ai']
+heroImage: /blog/images/heroes/2026-05-06-the-delegation-gap.jpg
+---
+
+Anthropic published a coding trends report last month.
+
+The headline number: engineers now use AI for roughly 60% of their work. Tasks that used to be all-human — drafting, analyzing, debugging, writing tests, reviewing PRs — are now AI-involved. Sixty percent. In twelve months.
+
+Here's the number that didn't make the headline: engineers report being able to *fully delegate* only 0-20% of tasks.
+
+Read that gap again.
+
+Sixty percent of work involves AI. Twenty percent is actually delegated.
+
+The forty points in between are not AI-assisted work. They are something else entirely.
+
+---
+
+## What lives in the gap
+
+To understand the gap, you have to understand what "AI-involved but not delegated" actually looks like in practice.
+
+The engineer opens the agent. Describes a task. The agent runs. Produces output.
+
+Then the engineer reads it. Checks whether the scope was right. Corrects an assumption the agent made about the codebase. Re-prompts. Reviews again. Decides which part of the output to use. Figures out how it connects to what was committed yesterday and what's being shipped next week.
+
+The agent executed. The engineer coordinated.
+
+That's the gap. Forty points of work where AI is present but the human is still holding the context, tracking the commitments, closing the loop between what the agent produced and what the situation actually required.
+
+---
+
+## Why this matters more than the 60%
+
+The 60% is a capability story. AI can do more of the work. True. Important. Already priced in.
+
+The gap is a structural story. And it's more revealing.
+
+The report also found that 27% of AI-assisted work consists of tasks that wouldn't have been attempted otherwise — entirely new work that only became feasible because AI reduced the effort threshold. Which means AI is not just doing existing work faster. It's expanding the total scope.
+
+More output. More tasks. More things touched, initiated, half-finished, committed to, sent.
+
+Every new thing the agent starts creates an open loop the engineer has to track. Every output that lands somewhere creates a coordination task: was this right? Does it still apply? Did the situation change since I set this up? Who needs to know?
+
+The agents are multiplying the execution. The coordination is staying constant — because the coordination still lives in the engineer's head.
+
+That's why sixty percent AI involvement and twenty percent actual delegation can coexist. The agent handles the execution. The human handles everything upstream and downstream of the execution. And that upstream/downstream work scales with every additional task the agent touches.
+
+---
+
+## The hidden cost of the gap
+
+Most of the research on AI adoption measures the wrong thing.
+
+They measure tasks per hour. Documents produced. Code merged. Response time. These metrics improve. They look good on the dashboard.
+
+What the dashboard doesn't capture: the growing weight of managing what was produced.
+
+Every delegated task that the agent can't close without you is a task that stays in your working memory. You're not just doing less work — you're tracking more work. You're holding the open loops, managing the handoffs, providing the context the agent couldn't infer and didn't ask for.
+
+The Anthropic report frames this as a trust problem. Engineers don't fully delegate because they don't fully trust the agent to do the whole job.
+
+That framing is partially right. Trust is part of it.
+
+But trust isn't the root cause. Trust is what you feel when the coordination problem hasn't been solved. You don't fully trust the agent to close the loop because there's no infrastructure ensuring the loop gets closed. There's no system that knows what context the agent needs. No system that tracks what the agent committed to. No system that notices when the output landed somewhere it shouldn't have, or didn't land at all.
+
+When those systems exist, trust follows. Not from faith. From evidence.
+
+---
+
+## What would collapse the gap
+
+Picture the same engineer. Same agent. Same tasks.
+
+Except now there's a layer between them — a coordination layer that understands the engineer's current state. What's open. What was committed to yesterday. What's changing this sprint. What the output needs to connect to.
+
+The agent gets context it couldn't infer on its own. The coordination layer checks whether the output actually closed the loop or opened a new one. The engineer sees the result without having to hold all the context themselves.
+
+The gap doesn't close because the agent got smarter. It closes because the coordination work got taken over.
+
+That's the distinction. Better models will shrink the gap at the edges — handle more complexity, make fewer errors, require less correction. But the gap at the center — the coordination gap — doesn't shrink with model capability. It shrinks when someone builds the layer that handles context, tracks commitments, and closes loops without requiring the human to hold them.
+
+Anthropic's data describes a 40-point gap between AI involvement and actual delegation. That gap has a shape. The shape is the absence of coordination infrastructure.
+
+---
+
+## The next 12 months
+
+Engineering is early. The 60% AI involvement in coding will propagate to product management, to operations, to sales, to strategy. Every knowledge worker role will arrive at the same place engineers are now: AI in the loop for most of the work, human still coordinating all of it.
+
+The tools that close the delegation gap are not better models. They're not more powerful agents. They're systems that understand what the person is tracking and take coordination off their plate entirely.
+
+Nobody has built that yet at the individual level.
+
+The gap is forty points wide.
+
+That's the opportunity.
+
+---
+
+*Deeplica is building the coordination layer — the system that holds context, tracks commitments, and closes loops so the person doesn't have to. So that delegation gap narrows to zero.*

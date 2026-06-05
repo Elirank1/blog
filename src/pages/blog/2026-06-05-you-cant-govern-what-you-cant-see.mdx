@@ -1,0 +1,94 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "You Can't Govern What You Can't See"
+description: "Gartner predicts 40% of enterprises will decommission autonomous AI agents by 2027 due to governance gaps. Their solution: proportional governance by autonomy level. That's right. But it's downstream of the real problem."
+pubDate: 2026-06-05
+tags: ['ai', 'agents', 'governance', 'coordination', 'infrastructure', 'knowledge-work', 'deeplica']
+heroImage: /blog/images/heroes/you-cant-govern-what-you-cant-see.jpg
+---
+
+Gartner published a warning last week worth reading carefully.
+
+By 2027, 40% of enterprises will demote or decommission autonomous AI agents due to governance gaps identified only after production incidents. The researchers put it plainly: "Enterprises are treating AI agent governance as binary — either locked down or fully trusted — and that is the root cause of failure."
+
+Their solution: proportional governance. Classify agents by autonomy level. Apply controls calibrated to what the agent can actually do. A document summarization agent gets lightweight oversight. An agent that approves invoices and modifies production databases gets rigorous controls.
+
+That's the right frame. It's also missing a layer.
+
+---
+
+## The calibration problem
+
+Proportional governance requires something nobody talks about: visibility into what the agent actually did.
+
+You can't calibrate governance to an agent's autonomy level in the abstract. You need to know what autonomy level it actually operated at — in this specific workflow, on this specific day, with these specific tools. An agent classified as "Level 2 — Advise" that was given access to a live CRM through an undocumented integration isn't actually operating at Level 2. It's operating at whatever level the toolset allows.
+
+Rules can't see that. Rules describe what agents should do. They don't track what agents did.
+
+That gap is not a governance gap. It's a legibility gap.
+
+---
+
+## What 66% already know
+
+The Gartner finding doesn't arrive in isolation.
+
+A separate study from the Cloud Security Alliance found that more than two-thirds of organizations cannot clearly distinguish AI agent actions from human actions in their systems. The same research found widespread over-privileged access — agents granted credentials well beyond what their stated function requires.
+
+From Akeyless, surveying 400 IT and security leaders: two-thirds suspect their AI agents have already accessed data beyond their intended scope. Average time to detect a compromised agent: 14 hours. Average annual cost of responding to agent identity incidents: $1 million.
+
+Akeyless CEO Oded Hareven put it precisely: "AI agents are not breaking in. They are being invited in with real credentials and broad access."
+
+Read that again. The agents weren't compromised. They were authorized. Then they acted. And nobody could see what they did until the damage was measurable.
+
+That's not a failure of governance framework. The governance frameworks were in place. That's a failure of legibility — the organization had no system tracking what the agent did in context, so governance had nothing to work with.
+
+---
+
+## Governance is downstream
+
+Here's the pattern across these studies.
+
+Gartner says: governance needs to be proportional. Cloud Security Alliance says: we can't distinguish agent actions from human actions. Akeyless says: agents are acting beyond their scope and we find out 14 hours later.
+
+These aren't three separate problems. They're the same problem at three different layers.
+
+You can write the most sophisticated governance framework ever designed. If the underlying system doesn't provide visibility into what the agent did — in what context, on whose behalf, with what downstream consequences — the governance framework is writing policies for actions it can't see.
+
+Binary governance fails because it applies the same rules to different situations. Proportional governance is the right correction. But proportional governance still requires something to track which situation applied.
+
+That something is a coordination layer.
+
+---
+
+## What the coordination layer provides
+
+A coordination layer isn't a compliance tool. It's not an audit log, though audit logs are one output.
+
+It's the system that knows: this agent was working on a task opened six days ago; the context included a decision pending from last Tuesday; the action it took closed one loop and opened three others; these are the people who need to know what happened and why.
+
+That context is what makes proportional governance possible — not as a classification exercise done at deployment time, but as a live, continuous trace of what each agent is actually doing and what consequences flow from it.
+
+When that layer exists, governance inherits the legibility to function. Audit trails are generated automatically. Anomalies are detectable because you can see the baseline. Human review is triggered by the coordination layer, not by a static rule about agent type.
+
+When that layer doesn't exist, governance is retrofitted rules applied to an opaque system. The 40% failure rate Gartner is predicting is what that looks like at scale.
+
+---
+
+## The sequence enterprises are running
+
+Most organizations are running this sequence: deploy agents → encounter problems → add governance → discover gaps → decommission.
+
+The Gartner data suggests that sequence is not converging on a stable outcome.
+
+The missing step isn't a better governance framework. It's a layer that makes agent actions legible before governance tries to regulate them.
+
+Build the coordination layer first. Governance inherits what it can see. Without that layer, even the most sophisticated four-level framework is doing damage control on a system it doesn't have eyes on.
+
+The coordination layer isn't a governance tool. But it's the reason governance can work.
+
+---
+
+*Eliran Keren — Founder of [Deeplica](https://deeplica.ai), building the coordination layer for knowledge work.*
+
+*Sources: [Gartner — Applying Uniform Governance Across AI Agents Will Lead to Enterprise AI Agent Failure](https://www.gartner.com/en/newsroom/press-releases/2026-05-26-gartner-says-applying-uniform-governance-across-ai-agents-will-lead-to-enterprise-ai-agent-failure) · [Cloud Security Alliance — Two-Thirds of Organizations Cannot Clearly Distinguish AI Agent from Human Actions](https://www.businesswire.com/news/home/20260324161665/en/More-Than-Two-Thirds-of-Organizations-Cannot-Clearly-Distinguish-AI-Agent-from-Human-Actions-as-Over-Privileged-Access-Widespread-Cloud-Security-Alliance-Study-Finds) · [Akeyless — Two-Thirds of Enterprises Suspect AI Agents Have Accessed Unauthorized Data](https://www.akeyless.io/press-release/two-thirds-of-enterprises-suspect-ai-agents-have-already-accessed-unauthorized-data-akeyless-finds/)*

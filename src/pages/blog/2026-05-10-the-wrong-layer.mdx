@@ -1,0 +1,86 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "The Wrong Layer"
+description: "On May 4, Google shut down Mariner. The browser agent that was going to do everything on the web for you. They replaced it with Remy — an agent that lives inside email, calendar, and your actual work environment. The market just corrected a foundational architectural mistake."
+pubDate: 2026-05-10
+tags: ['ai', 'coordination', 'agents', 'infrastructure', 'personal-ai', 'deeplica']
+heroImage: /blog/images/heroes/2026-05-10-the-wrong-layer.jpg
+---
+
+On May 4, Google shut down Mariner.
+
+If you missed it: Mariner was Google's browser agent. An AI that could navigate the open web — fill out forms, complete purchases, extract information from any site — entirely on your behalf. They'd been working on it for over a year. It was one of the flagship demos at Google I/O 2025.
+
+They discontinued it quietly. The website just says "this experiment has ended." The technology has been folded into something called Gemini Agent.
+
+Simultaneously, Google is testing an internal agent called Remy. Remy runs inside the Gemini app, connects to Google Calendar and Gmail, monitors activity proactively, and learns preferences over time. It doesn't navigate the open web. It lives where you actually work.
+
+That's not a product pivot. That's an architectural correction.
+
+---
+
+## What browser agents got wrong
+
+The browser agent thesis made intuitive sense: if an AI can see everything a human can see on the web, it can act everywhere a human can act. Forms, portals, websites, SaaS dashboards — anything with a UI becomes automatable. The interface is already there. Just add intelligence.
+
+The problem is that this solves for where AI *can* go. Not where work *actually lives*.
+
+Work doesn't live on the open web. Work lives in the places you're already committed: the email thread that contains three decisions nobody followed up on. The calendar block that was accepted but never had an agenda sent. The Slack message where someone said "I'll get back to you on that" and didn't. The document that was shared, updated, and now exists in three conflicting versions.
+
+None of that is on a website a browser agent can navigate to. All of it is in your inbox, your calendar, your tools. The environment you live in — not the environment you visit.
+
+Browser agents add a navigation layer on top of the open web. What knowledge workers needed was a coordination layer inside their actual work environment.
+
+Those are different problems. They require different architectures.
+
+---
+
+## The race that just clarified
+
+Google isn't alone in this correction. Meta is building Hatch — an autonomous personal agent that's currently training on simulated environments modeling DoorDash, Etsy, Reddit. That training is designed to teach the agent to complete tasks on behalf of users inside integrated platforms. Not to browse the web independently, but to act within the contexts where users already operate.
+
+OpenAI's Workspace Agents, which moved out of research preview this week, connect directly into Slack, Salesforce, and enterprise tools — not into browsers. Microsoft Agent 365 provides governance over agents that operate inside M365's integrated environment.
+
+The pattern is consistent. Every major platform is converging on the same architectural insight: agents need to live in the environment where work happens, not in a separate navigation layer on top of it.
+
+The browser agent era was a hypothesis. The market just returned a verdict.
+
+---
+
+## Why this matters more than the product race
+
+Here's the part that gets missed in the coverage.
+
+When Google, Meta, OpenAI, and Microsoft all converge on the same architecture, it validates the problem. But building features inside their own platforms doesn't solve the full problem. It solves *a slice* of it.
+
+Remy will be good at coordinating across Google Workspace. Hatch will be good at completing tasks inside Meta's ecosystem. Workspace Agents will close loops inside OpenAI's enterprise footprint.
+
+None of them coordinate across all of it.
+
+The knowledge worker's open loop problem is not "Gmail coordination" or "Slack coordination." It's the coordination that spans Gmail, Slack, Notion, Linear, Salesforce, and the seven other tools the average knowledge worker touches in a day. The loops that open in one tool and are supposed to close in another — and don't.
+
+That's not a platform problem. It's an infrastructure problem. And infrastructure doesn't get built by the platforms whose walled gardens benefit from keeping context local.
+
+The browser agent tried to solve this by going everywhere. It couldn't. It was solving navigation when the problem was integration.
+
+The platform agents solve this for their own environment. They will work well inside their boundaries. But the coordination failure that actually burns people out happens at the seams — between tools, between threads, between the place where a decision was made and the place where someone needs to know about it.
+
+---
+
+## The layer that still doesn't exist
+
+Five years from now, every knowledge worker will have an agent that lives in their personal work environment. That agent will know what's open, what's moving, what requires their attention, and what can resolve without them. It will close loops they would have forgotten about. It will surface the right context at the moment it's needed. It will exist below the level of tools and above the level of tasks.
+
+That's not the browser. That's coordination infrastructure.
+
+Google didn't shut down Mariner because browser agents were a bad idea. They shut it down because the architecture pointed in the wrong direction — outward, to the open web — when the actual problem lives inward, in the environment where commitments are made and work accumulates.
+
+Remy is a step toward the right answer. So is Hatch, and Workspace Agents, and everything else being built right now.
+
+But a step toward the right answer from inside one platform's walls is still a partial answer. The coordination problem is not "Google coordination." It's the problem of the person who lives and works across all of it, trying to hold together what the tools never connected in the first place.
+
+That's the layer that's still missing.
+
+---
+
+*The Mariner shutdown was reported by [The Decoder](https://the-decoder.com/google-and-meta-race-to-build-personal-ai-agents-as-anthropic-and-openai-pull-further-ahead/) on May 6, 2026.*
