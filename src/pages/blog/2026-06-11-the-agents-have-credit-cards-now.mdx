@@ -1,0 +1,90 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "The Agents Have Credit Cards Now"
+description: "Mastercard just launched AP4M — a protocol for AI agents to transact autonomously at machine speed. The same month, the industry published failure playbooks for agents that loop infinitely, burning thousands of dollars without closing a single task. We're building financial infrastructure for agents before solving the coordination problem underneath."
+pubDate: 2026-06-11
+tags: ['ai', 'coordination', 'infrastructure', 'ai-agents', 'open-loops', 'cognitive-load', 'deeplica']
+heroImage: /blog/images/heroes/2026-06-11-the-agents-have-credit-cards-now.jpg
+---
+
+On June 10, Mastercard launched something called Agent Pay for Machines.
+
+AP4M is an open protocol that lets AI agents execute financial transactions autonomously — micropayments worth fractions of a cent, at machine speed, without waiting for a human to approve each one. Agents can now buy, pay, and commit resources the same way they query an API. The press release called it "the payment infrastructure layer for the agentic economy."
+
+The same month, enterprise IT teams started sharing failure playbooks for what they're calling the "Mirror Mirror Effect" — production multi-agent systems that enter infinite loops, two agents bouncing a task back and forth indefinitely, burning thousands of dollars in API charges while appearing, from the outside, to be working.
+
+One pattern: an Editor agent with instructions to enforce "professional tone" and a Writer agent with instructions to stay "casual and relatable." Neither has the authority to resolve the conflict. Neither has a stop condition. The loop runs until someone's budget ceiling trips.
+
+Read those two things together.
+
+---
+
+## The coordination problem is older than AI
+
+Here's what's actually happening.
+
+Enterprises are deploying agents that can take real actions — query systems, coordinate with other agents, now execute financial commitments — before they've solved what agents are supposed to track, own, and close.
+
+Every agent knows what it's supposed to do next. Almost none of them know when to stop. And the ones that fail don't fail quietly. They fail expensively, at machine speed, while logging "in progress" the whole time.
+
+This is not a model capability problem. The agents in those loops aren't confused. They're executing their instructions exactly as written. The failure isn't in what they do — it's in what nobody built to coordinate what they've committed to.
+
+An infinite loop is just an open loop with a billing account attached.
+
+---
+
+## Financial autonomy doesn't solve coordination autonomy
+
+The argument for AP4M is reasonable on its face. If agents are going to operate at machine speed, making them wait for human payment approval at every step defeats the purpose. You'd build a fast system with a slow chokepoint.
+
+Fair.
+
+But granting financial autonomy to agents that can't close their own loops doesn't make them more capable. It makes the coordination failure more expensive.
+
+An agent that loops indefinitely because two agents have conflicting instructions costs you tokens. An agent that loops indefinitely with access to a payment protocol costs you tokens and dollars — and potentially commits resources to external parties in the process.
+
+JPMorgan Chase announced this month that it's deploying AI agents capable of running for hours without human intervention. The upside they're seeing: 20% increase in gross sales in private banking, individual bankers expanding client coverage by 50%. The agents are operating inside a tightly governed environment, with clear success conditions, bounded scope, and human oversight at the margin.
+
+That governance is doing a lot of work.
+
+Strip that out, give those agents credit cards, and watch what happens when two of them disagree about something they can spend money to resolve.
+
+---
+
+## The missing layer isn't financial
+
+What AP4M assumes — and what most agent deployment architectures assume — is that the hard problem is capability. Give agents the right tools, the right access, the right financial rails, and they'll be able to act effectively.
+
+The hard problem isn't capability. The hard problem is commitment tracking.
+
+An agent that can execute a payment needs something to track that it made a commitment. Not just that it fired an API call — that it promised something to someone, that the promise is now open, and that it won't be open forever.
+
+The same thing that's true of humans in organizations is true of agents. Work doesn't fail because people are incapable of doing the task. Work fails because commitments made in one context get lost when context changes. The loop opens. Nobody closes it. The person who should have followed up didn't know they were the person.
+
+Agents have this problem at higher speed and higher volume.
+
+---
+
+## What has to exist first
+
+Before you give an agent a credit card, it needs a coordination layer that can answer three questions:
+
+What has this agent committed to? What has changed since it committed? Who needs to know?
+
+Those aren't AI questions. They're coordination questions. The kind of questions that were expensive for humans to maintain and that every productivity system — task managers, project trackers, OKR frameworks — has tried and partially failed to solve.
+
+They're hard because commitments cross contexts. The agent that makes a promise in one system needs something to track that promise across every system it touches. The payment it executes needs to be associated with the outcome it was meant to produce. The loop it opens needs to know it's open.
+
+Right now, that tracking doesn't exist at the infrastructure level. It's built ad hoc, per deployment, with handcrafted guardrails that work until the edge case they didn't anticipate.
+
+The infinite loop failure isn't an edge case. It's the default when you deploy coordination-capable agents without coordination infrastructure.
+
+---
+
+The agentic economy is real. The infrastructure for it is being built in the wrong order.
+
+Payment rails before coordination rails means agents can transact faster than anyone can track what they're accountable for. That's not autonomy. That's a more expensive version of the same coordination failure that already costs the Fortune 500 over $160B annually in fragmentation tax.
+
+The coordination layer isn't the last thing you add to an agent stack.
+
+It's the first.
