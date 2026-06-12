@@ -1,0 +1,104 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "Apple Built the Router. It's Not the Coordination Layer."
+description: "Tim Cook's last WWDC gave Claude a distribution channel to 2 billion devices. You can now choose Claude, ChatGPT, or Gemini as your Siri. Apple solved the routing problem. The coordination problem is exactly where it was."
+pubDate: 2026-06-12
+tags: ['ai', 'coordination', 'infrastructure', 'apple', 'ai-agents', 'open-loops', 'personal-ai', 'deeplica']
+heroImage: /blog/images/heroes/2026-06-12-apple-built-the-router.jpg
+---
+
+Tim Cook walked off the WWDC stage for the last time on Monday.
+
+The announcement that made the most noise: iOS 27 will let you choose which AI model powers Apple Intelligence. Claude. ChatGPT. Gemini (the default). Each with its own distinct voice, its own persona, its own strengths. Every iPhone 15 Pro and newer — about 400 million devices — gets this in September. The full iOS 27 rollout covers 2.2 billion active Apple devices.
+
+The coverage has been celebratory. For Anthropic, it probably should be. This is the largest consumer distribution expansion in the company's history — more potential users in one announcement than they've accumulated across four years of building.
+
+I want to be precise about what Apple actually built. Because it matters for what comes next.
+
+---
+
+## What Apple built is a switchboard
+
+The Extensions system routes your Siri query to whichever model you selected in settings. That model receives the query, generates a response, and sends it back. Session ends. Context stays with Apple on your device — emails, photos, calendar, messages — but only as read access. The model you chose sees what Siri surfaces to it. Nothing more travels between sessions.
+
+This is a routing layer. A better switchboard than anything that existed before Monday.
+
+What it is not: a system that knows what the selected model committed to yesterday and whether that commitment was fulfilled.
+
+That distinction is not a criticism of Apple. It's a description of what the Extensions architecture is. Model selection, not model coordination.
+
+---
+
+## Personal context is not commitment tracking
+
+Apple's Siri improvements include something genuinely meaningful: on-device personal context. The rebuilt Siri can read your emails, your calendar, your messages, your photos. It can surface relevant information without you asking. This is closer to useful AI than anything Apple has shipped before.
+
+But reading context and tracking commitments are different operations.
+
+Reading that you have a meeting tomorrow is not the same as knowing you promised to send a report before the meeting — and that you haven't sent it. Reading that a thread went quiet is not the same as knowing an open loop is sitting there, aging, waiting for someone to close it.
+
+Personal context access answers the question you ask. It doesn't catch the question you forgot to ask.
+
+The open loop problem is specifically about the second kind of failure. The one that doesn't surface until after the damage is done. The meeting where you didn't send the prep. The follow-up that never happened. The decision that got made without the input that was supposed to arrive.
+
+None of the three models available through iOS 27 solve this. Gemini doesn't. Claude doesn't. GPT-5.5 doesn't. Not because they lack capability — because they don't have the infrastructure beneath them to hold what's open, persistent, across every session, across every channel.
+
+---
+
+## The model isn't the bottleneck
+
+This has been true for longer than most people have admitted.
+
+Claude Opus 4.8 is exceptional. So is GPT-5.5. So, apparently, is the rebuilt Siri with a 1.2-trillion-parameter Gemini model underneath it. The capability gap between "good AI assistance" and "no AI assistance" is enormous and widening. That part is real.
+
+But the constraint on how useful AI is in your actual life is not which model answers the question you thought to ask.
+
+It's whether the system knows what to ask before you do.
+
+Consider what a useful second brain would need to do. Not answer questions well — every model can do that now. But notice that you mentioned something in Tuesday's email that contradicts what you said in Monday's meeting. Track that you committed to delivering something by Friday without it being entered in a task manager. Surface the follow-up that got buried when two other things became urgent.
+
+None of that is a question you're asking. All of it is what makes knowledge work feel like a system that's working with you rather than one that's waiting for you.
+
+---
+
+## 2.2 billion devices with the same coordination problem
+
+Apple's Extensions system will ship to 2.2 billion active devices in September. Some percentage of those users will switch to Claude. Some will keep Gemini. Some will try GPT-5.5. All of them will have access to better answers, faster, on a device they already carry.
+
+And all of them will still have the same number of open loops they have today.
+
+That number is not zero. Deloitte's 2026 State of AI in the Enterprise report found that roughly 80% of organizations lack the governance infrastructure to track what their AI agents are committing to — no audit trails, no real-time monitoring, no clear boundaries for agent scope. That's enterprise. At the individual level, it's worse. At least enterprises have compliance requirements forcing the question. Individuals have nothing equivalent.
+
+The model got better. The coordination problem didn't move.
+
+---
+
+## What routing doesn't solve
+
+The clearest way to see the gap: imagine two people with identical iPhone 15 Pros, both running iOS 27 Beta, both selecting Claude as their Apple Intelligence provider.
+
+Person A uses AI reactively. Asks questions. Gets answers. Moves on. Has many open loops, most of which stay open.
+
+Person B has a system underneath the AI — something that tracks what they've committed to, surfaces what's aging, closes loops across channels. Uses Claude for the hard thinking. Uses the coordination layer for everything the hard thinking depends on.
+
+The model is identical. The infrastructure is completely different. The outcomes are not comparable.
+
+Apple gave Person A and Person B the same router. Person B already had what made the router valuable. Person A got a better answer to the questions they remember to ask.
+
+---
+
+The routing problem was real and Apple solved it well. Being able to choose the best model for the kind of thinking you're doing — that's a genuine improvement.
+
+But the coordination layer isn't the model. It's not the router. It's not personal context access or calendar awareness or even the best Siri in Apple's history.
+
+It's the infrastructure that holds what's open — persistently, across every session, across every channel, whether or not you remember to surface it.
+
+2 billion new potential Claude users are a distribution milestone. The infrastructure that makes those 2 billion users productive exists for almost none of them.
+
+That's the gap that didn't move on Monday.
+
+---
+
+*Eliran Keren — Founder of [Deeplica](https://deeplica.ai), building the coordination layer for knowledge work.*
+
+*Sources: [Build Fast With AI — AI News Today June 8, 2026 (WWDC, Claude iPhone, iOS 27)](https://www.buildfastwithai.com/blogs/ai-news-today-june-8-2026) · [Deloitte — AI Agents Scaling Faster Than Guardrails (2026)](https://www.deloitte.com/us/en/insights/topics/emerging-technologies/ai-agents-scaling-faster.html)*

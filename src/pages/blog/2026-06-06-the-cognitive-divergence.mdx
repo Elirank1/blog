@@ -1,0 +1,94 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "AI Can Hold 1,111 Times More Context Than You. The Gap Is Growing."
+description: "A March 2026 arXiv paper documents a structural divergence: AI context windows expanded 3,906x since 2017. Human sustained attention declined 89% over the same period. The delegation feedback loop explains why neither trend reverses on its own—and why a coordination layer is the only structural answer."
+pubDate: 2026-06-06
+tags: ['ai', 'cognition', 'coordination', 'infrastructure', 'knowledge-work', 'attention', 'delegation', 'deeplica']
+heroImage: /blog/images/heroes/2026-06-06-the-cognitive-divergence.jpg
+---
+
+In 2017, the leading language models held 512 tokens of context.
+
+Today: 2,000,000 tokens.
+
+That's a 3,906x increase in nine years.
+
+Over the same period, human Effective Context Span—a measure of how much information a knowledge worker can hold, process, and reason across simultaneously—declined from approximately 16,000 tokens to an estimated 1,800.
+
+A factor of ten. Down.
+
+The ratio between what AI can hold and what humans can hold is now somewhere between 556 and 1,111 times. Both curves are moving in opposite directions. The gap is not converging.
+
+---
+
+## This isn't just a capability story
+
+A preprint from the Machine Human Intelligence Lab, published in March, does something careful and unusual. It quantifies the divergence.
+
+Researchers converted human attention span data from a longitudinal dataset (2003–2020) into token-equivalent units. They mapped that against the documented trajectory of LLM context windows from 2017 to 2026. Then they ran the numbers.
+
+The result is a clean asymmetry: the AI curve grows exponentially, doubling every 14 months. The human curve declines slowly but persistently, driven by mechanisms the paper carefully names — dopaminergic reward circuits reshaped by short-form media, prefrontal cortex functional changes, and something called cognitive offloading.
+
+Cognitive offloading is the mechanism worth sitting with. When you delegate a task to an AI — or to any external system — you stop maintaining the context yourself. The information moves from working memory to somewhere else. That's the point. That's the benefit.
+
+The problem: the practice of maintaining context is what keeps the capacity alive. Offload enough of it, often enough, and the capacity degrades. Not all at once. Gradually.
+
+The paper calls this the Delegation Feedback Loop. The more you delegate, the lower your threshold for future delegation. The lower the threshold, the more you delegate. The more you delegate, the less capacity you have to evaluate what you delegated.
+
+Neither trend reverses spontaneously.
+
+---
+
+## The part everyone's missing
+
+Most analysis of the AI cognitive load problem focuses on supervision cost.
+
+The BCG study from March found that 14% of knowledge workers are experiencing "AI brain fry" — cognitive overload from monitoring too many AI agents simultaneously. The cost was measurable: 33% more decision fatigue, 39% more major errors.
+
+That analysis is correct. It's also incomplete.
+
+The supervision cost framework assumes a static human. A worker with a fixed context span trying to keep up with AI output volume. The frame is: if humans could just process more, the problem would resolve.
+
+The Cognitive Divergence paper is about a dynamic human. One whose context capacity is declining precisely because the AI is handling more of the context-heavy work. Each act of delegation is a small withdrawal from the attention account. The supervision problem doesn't stay fixed. It worsens as the people doing the supervising continue to delegate — which they will, because the AI keeps getting better and the threshold for delegation keeps falling.
+
+The brain fry isn't just from watching too many agents. It's from watching agents with a shrinking capacity.
+
+---
+
+## What the numbers actually mean
+
+The paper's central finding isn't that AI got better. Everyone knows that.
+
+The finding is the ratio. At the ChatGPT launch in November 2022, the AI-to-human context ratio was near parity — models held roughly what a skilled human reader could work with in a sustained session. The divergence was just beginning.
+
+Three and a half years later, the quality-adjusted ratio is 56–111x. The raw ratio is 556–1,111x.
+
+That gap doesn't sit in the background as an interesting statistic. It sits at the point of interaction — the moment where a human is supposed to supervise, validate, correct, and coordinate AI output. That's the moment where the context mismatch is most costly. And it's 1,111 times wider than it was when most organizations decided to deploy agents.
+
+The Gartner data from last month predicted that 40% of enterprises will decommission autonomous AI agents by 2027. The most common cited reason: governance gaps found only after production incidents.
+
+The governance gap has a cause. The cause is that governance requires humans to understand what the agent did, in context. And the context gap between what the agent held and what the human can evaluate is structural, measurable, and accelerating.
+
+---
+
+## The coordination layer as external context
+
+The design question the paper doesn't fully answer: what do you build for a system where the two participants are diverging in their capacity to hold context?
+
+Slower AI is not the answer. Cognitive training is not the answer. The paper is direct: neither trend reverses spontaneously.
+
+The answer is context infrastructure that isn't inside any participant.
+
+A coordination layer holds what both participants need to operate — the open commitments, the prior decisions, the state of a workflow, what happened last week and what's due next. It provides the institutional memory that doesn't decay with delegation volume. The human doesn't need to hold 2,000,000 tokens of context. The agent doesn't need to reconstruct context from scratch on every invocation. The layer holds it — persistently, continuously, in a form both can use.
+
+That's not a philosophical position. It's a structural response to a structural problem.
+
+Better models don't close a 1,111x gap. Better governance frameworks don't close it either — governance requires legibility, and legibility requires context. Neither is available at the point of interaction if neither the human nor the agent is maintaining it.
+
+The context has to live somewhere. The question is whether you build the infrastructure to hold it deliberately — or let the gap widen until the oversight loop collapses under its own weight.
+
+---
+
+*Eliran Keren — Founder of [Deeplica](https://deeplica.ai), building the coordination layer for knowledge work.*
+
+*Sources: [The Cognitive Divergence: AI Context Windows, Human Attention Decline, and the Delegation Feedback Loop](https://arxiv.org/abs/2603.26707) (Netanel Eliav, Machine Human Intelligence Lab, March 2026) · [BCG / HBR — When Using AI Leads to Brain Fry](https://hbr.org/2026/03/when-using-ai-leads-to-brain-fry) · [The Decoder — Study warns of "AI Brain Fry"](https://the-decoder.com/study-warns-of-ai-brain-fry-as-workers-hit-cognitive-limits-overseeing-ai-agents/) · [Gartner — Applying Uniform Governance Across AI Agents Will Lead to Enterprise AI Agent Failure](https://www.gartner.com/en/newsroom/press-releases/2026-05-26-gartner-says-applying-uniform-governance-across-ai-agents-will-lead-to-enterprise-ai-agent-failure)*
