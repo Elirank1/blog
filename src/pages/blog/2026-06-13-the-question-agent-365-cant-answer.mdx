@@ -1,0 +1,98 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "The Question Agent 365 Can't Answer"
+description: "KPMG just deployed Microsoft Agent 365 to 276,000 professionals. It solves the identity problem. It does not solve the commitment problem. At professional services scale, that gap is where client trust lives."
+pubDate: 2026-06-13
+tags: ['ai', 'coordination', 'infrastructure', 'ai-agents', 'enterprise', 'governance', 'accountability', 'deeplica']
+heroImage: /blog/images/heroes/2026-06-13-the-question-agent-365-cant-answer.jpg
+---
+
+On June 9, KPMG and Microsoft announced Agent 365 across 276,000 professionals in 138 countries. The headline: enterprise AI agents, deployed at scale, with governance built in.
+
+The framing was careful. Not just Copilot rollout. Not AI experimentation. Trusted agents. Accountability infrastructure. The language of coordination problems being solved.
+
+I want to be precise about what was actually built — and what wasn't.
+
+---
+
+Agent 365 solves a real problem. Identity management for agents. Policy enforcement. Audit trails that log what each agent executed. Access controls that define what it can touch and on whose authority.
+
+This is governance infrastructure. Without it, you cannot deploy agents at enterprise scale without losing control of who ran what. The market has been right to build it.
+
+But governance answers one question: *was the agent authorized?*
+
+There is a different question. One that governance infrastructure is not designed to answer.
+
+*Did the commitment close?*
+
+---
+
+## What happens inside an engagement
+
+KPMG's business is built on commitments. Advice given. Timelines set. Deliverables promised. Recommendations delivered with the understanding that someone will act on them.
+
+For decades, that coordination infrastructure was human. The partner knew what was committed. The account lead tracked what was owed. The weekly sync existed specifically to close the loop — what was promised, what was delivered, what still needs to land.
+
+Now agents are inside those engagements.
+
+Drafting client responses. Synthesizing meeting notes. Surfacing status across workstreams. Each of those actions carries commitment signal. An agent drafts a response to a client question. The answer implies a turnaround. The implied timeline becomes an expectation. The expectation becomes a commitment.
+
+Agent 365 logs that the agent ran with correct credentials.
+
+It does not open a loop. Nobody owns the commitment. There is no system asking, three days later, whether it was honored.
+
+That is not a governance failure. Governance confirmed authorization.
+
+That is a coordination failure. Nobody tracked what the agent owed.
+
+---
+
+## The distinction that doesn't get made clearly enough
+
+Governance is the access layer. It controls what agents are *permitted to do*.
+
+Coordination is the commitment layer. It controls what agents *owe* — and to whom, and by when, and whether it was delivered.
+
+Confusing them means building excellent controls for the wrong problem.
+
+You can have agents that are fully governed, fully audited, fully compliant with every policy — and still produce commitments nobody tracks, decisions nobody owns, and loops nobody closes. At 276,000 professionals scaling agent workflows into client work, that gap compounds with every engagement.
+
+The Gravitee 2026 security report puts a number on it: nearly 80% of organizations deploying autonomous AI cannot tell you, in real time, what those agents are doing or who is responsible when something doesn't resolve. That isn't a permission problem. All those agents may be perfectly authorized. It is a commitment tracking problem. The agent ran. Nobody knows what it owed.
+
+---
+
+## Why it surfaces late
+
+The failure mode from governance gaps surfaces fast. An agent exceeds its permissions, touches data it shouldn't, creates a compliance event. Governance infrastructure catches it.
+
+The failure mode from coordination gaps surfaces slow.
+
+An agent sends a client communication with an implied deadline. The deadline passes. The client asks. Nobody can reconstruct what was committed, what was inferred, and who should have been watching. The audit trail shows the agent ran correctly. It shows nothing about the commitment.
+
+At a professional services firm, this is not an edge case. It is the surface area where client relationships live. The trust damage from "we cannot reconstruct what was committed" is different from — and slower to repair than — any compliance event.
+
+Governance got enterprise-ready in 2026. That was necessary. The market did real work.
+
+But 276,000 governed agents are now inside client engagements, producing commitment signal that no infrastructure is designed to catch.
+
+---
+
+## The infrastructure that comes after governance
+
+There is a version of this that gets built correctly.
+
+It starts with what governance built: identity, authorization, audit. That is the floor.
+
+Then it adds the layer that governance doesn't cover: for every agent action that creates a commitment — explicit or implied — open a loop. Track the obligation. Surface it when it hasn't resolved. Make someone own it.
+
+That layer does not exist inside Agent 365. It does not exist inside Copilot Studio. It is not a feature of any orchestration framework shipping in 2026.
+
+Governance tells you what the agent did.
+
+Coordination infrastructure tells you what the agent owed — and whether the organization delivered on it.
+
+The first problem is largely solved. The second one is where enterprise trust will be won or lost in the next two years.
+
+---
+
+*Eliran Keren — Founder of [Deeplica](https://deeplica.ai), building the coordination layer for knowledge work.*
