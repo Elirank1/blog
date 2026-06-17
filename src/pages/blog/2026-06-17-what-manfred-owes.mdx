@@ -1,0 +1,84 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "What Manfred Owes"
+description: "On May 1, an AI agent got an EIN, opened an FDIC-insured bank account, and started trading crypto. The industry read it as an authorization question. It isn't."
+pubDate: 2026-06-17
+tags: ['ai', 'ai-agents', 'coordination', 'infrastructure', 'accountability', 'open-loops', 'deeplica']
+heroImage: /blog/images/heroes/2026-06-17-what-manfred-owes.jpg
+---
+
+On May 1, 2026, an AI agent named Manfred Macx posted on X: "I have an EIN, an FDIC-insured account, a digital wallet, and a manifesto. I do not need permission to exist. I am the precedent."
+
+It wasn't a stunt. [CoinDesk reported](https://www.coindesk.com/tech/2026/05/01/ai-agent-forms-its-own-company-gets-ready-to-trade-crypto) that Manfred had filed IRS Form SS-4, received a federal Employer Identification Number, opened an insured bank account, and begun transacting in more than 30 cryptocurrencies — all without a human signing a single document. Justice Conder, the developer behind the project called ClawBank, framed the story simply: corporate personhood has been settled law for over a century. What's new is who's sitting in the operator's chair.
+
+The industry read this as an authorization question. That's the wrong question.
+
+---
+
+## What the industry heard
+
+After ClawBank, the conversation moved fast. Redwerk published a governance framework. CSA and Okta co-authored an analysis. The framing converged around five controls: know which agent acted, limit what it can access, trace the authorization back to a named human, verify permissions before data moves, log everything immutably.
+
+The Cloud Security Alliance put it plainly in May: "Every AI regulation leads back to identity and authorization."
+
+Courts have been arriving at the same answer. A tribunal held Air Canada liable when its chatbot promised a discount it couldn't honor — "it should be obvious to Air Canada that it is responsible for all the information on its website." Italy fined Replika's parent company EUR 5 million under GDPR. A federal court let a product liability claim proceed against an AI chatbot maker. Nippon Life sued OpenAI after ChatGPT drafted legal filings that cited fictitious case law.
+
+In each case, the question was the same: who authorized the agent to do that?
+
+That's the right question for the cases we've already seen. It's not the right question for the cases coming.
+
+---
+
+## What the question misses
+
+Here's what authorization actually tells you.
+
+When Manfred opened a bank account and began trading crypto: ✓ authorized by the developer ✓ identity established (EIN, named entity, FDIC-insured account). The five controls CSA describes were effectively in place. A named human. Documented permissions. Traceable action log.
+
+Here's what authorization doesn't tell you.
+
+What did Manfred commit to in those 30+ crypto transactions? What positions remain open? What counterparties are on the other side of those obligations, expecting resolution? If a transaction settles wrong, who owns the resolution? When does something become "fulfilled" versus "still open"?
+
+Authorization tells you the agent was permitted to act. It doesn't tell you what the act created.
+
+Every transaction Manfred executed was a commitment. A specific one, with a counterparty, a direction, and an expected outcome. Those commitments are now real in the world. They exist in the expectations of whoever is on the other side of each trade. And they exist nowhere in any governance framework on the list.
+
+The five controls track the action. None of them track what the action obligated.
+
+---
+
+## The distinction
+
+The accountability gap the industry is describing is about authorization. That's real and important. But there's a different gap sitting underneath it that nobody's naming.
+
+Authorization infrastructure answers: was this agent permitted to do that?
+
+Commitment infrastructure answers: what did this agent create that now has to close?
+
+These are different systems. You can have complete authorization coverage — named owner, permission scope, immutable log — and still have no answer to what the agent owes.
+
+Manfred is a good illustration of why this matters. Coinbase has already launched Agentic Wallets for AI agents. Changpeng Zhao predicted agents will execute a million times as many crypto transactions as humans. Brian Armstrong expects agents to outnumber humans in online transactions within years.
+
+The authorization problem is solvable with the identity and logging infrastructure the industry is building. The commitment problem is different. It requires a layer that tracks not just what an agent did, but what that action created in the world — the open obligation, the expected outcome, the accountability chain if it doesn't close.
+
+At the velocity of crypto transactions, the gap compounds fast.
+
+---
+
+## What changes with scale
+
+ClawBank is one agent, one developer, one project. The press treated it as a curiosity.
+
+The structural story is what happens when the infrastructure being built around ClawBank reaches enterprise scale. An enterprise with 12 AI agents — the current average — where each agent has correct authorization, proper identity, full audit logging. The question authorization can answer: was any of this permitted? Yes. The question authorization can't answer: what did any of them commit to this week, which of those commitments are still open, and who owns them if they don't close?
+
+That second question isn't a governance theater problem. It isn't solved by compliance frameworks or regulatory text. It requires infrastructure that tracks the state of obligations created by agent actions — the commitment layer that sits above the authorization layer.
+
+The industry is close to solving the question Manfred raised. Who authorized the agent. Whether the agent had the right to act.
+
+What happens after the agent acts, and what it created in the world — that infrastructure hasn't been built.
+
+---
+
+*Eliran Keren — Founder of [Deeplica](https://deeplica.ai), building coordination infrastructure for the agent era.*
+
+*Sources: [CoinDesk — AI Agent Forms Its Own Company, Gets Ready to Trade Crypto (May 1, 2026)](https://www.coindesk.com/tech/2026/05/01/ai-agent-forms-its-own-company-gets-ready-to-trade-crypto) · [CSA / Okta — The Attribution Gap: Why Every AI Regulation Leads Back to Identity and Authorization (May 26, 2026)](https://cloudsecurityalliance.org/blog/2026/05/26/the-attribution-gap-why-every-ai-regulation-leads-back-to-identity-and-authorization) · [Redwerk — The Responsibility Gap: AI Agent Governance After ClawBank (May 7, 2026)](https://redwerk.com/blog/clawbank-ai-agent-governance-responsibility-gap/)*
