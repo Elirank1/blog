@@ -1,0 +1,90 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "You Can't SLA What You Can't Trace"
+description: "GitHub logged nine incidents in May. Microsoft is routing traffic through AWS. Copilot has no SLA. The industry is calling this a capacity problem. It isn't."
+pubDate: 2026-06-20
+tags: ['ai', 'ai-agents', 'accountability', 'coordination', 'infrastructure', 'microsoft', 'github', 'deeplica']
+heroImage: /blog/images/heroes/2026-06-20-you-cant-sla-what-you-cant-trace.jpg
+---
+
+GitHub ran 275 million commits last week.
+
+That's 14 times what it ran in 2025. The increase isn't human developers writing more code. It's AI coding agents — Copilot, third-party integrations, automated pipelines — committing, testing, and deploying at machine speed.
+
+Nine service-degrading incidents in May. Microsoft routing GitHub traffic through Amazon Web Services. Microsoft 365 Copilot down for seven hours on June 11 — authentication broken, no AI features, enterprises waiting. And when those enterprises looked for coverage: Copilot uptime is not in the Microsoft 365 SLA.
+
+The industry is diagnosing this as a capacity problem. Add servers. Build redundancy. Renegotiate the SLA terms.
+
+That's the wrong fix for the right symptom.
+
+---
+
+## The question nobody is asking
+
+Which of those 275 million commits was the fulfillment of a customer commitment?
+
+Which created obligations downstream — code reviews pending, merges blocked, deployment pipelines waiting on a human decision that nobody knows is waiting?
+
+Which are part of an open loop aging in a system nobody is monitoring?
+
+Nobody knows. Not Microsoft. Not the enterprises paying for Copilot. Not the engineers who set up the agents. The agents acted within scope, followed protocol, moved through integrations correctly — and left behind a trail of state that nobody logged.
+
+Nine incidents in May weren't just infrastructure failures. They were the first large-scale demonstration of what happens when agents operate at machine speed without a layer that tracks what they're committing to.
+
+---
+
+## What SLAs actually measure
+
+A service level agreement measures availability. It answers: was the tool up?
+
+It does not answer: what did the tool do while it was up? What did those actions commit to? What's still open?
+
+Microsoft 365 Copilot has no SLA because nobody at Microsoft could define what a "successful" Copilot session means in terms that can be measured and guaranteed. Not because the lawyers didn't try. Because the underlying layer — the one that would need to answer those questions — doesn't exist.
+
+You can't SLA something you can't trace.
+
+The June 11 outage was seven hours. Painful. But the harder problem is everything that ran correctly before the outage — all the agent actions that executed successfully, made commitments on behalf of users, and left those commitments untracked when the system went down.
+
+---
+
+## 2.1 billion compute minutes
+
+Agents are now generating 2.1 billion GitHub Actions compute minutes per week. Those aren't just compute cycles. They're the execution traces of decisions agents made: test this branch, block this merge, trigger this deployment, send this notification.
+
+Each action carries an implicit commitment. A test that passes commits to: this code is ready for the next stage. A deployment that triggers commits to: this version replaces the previous one. A notification that fires commits to: someone should act on this.
+
+Gartner's May estimate: 40% of enterprises will demote or decommission autonomous AI agents by 2027 because of production incidents they couldn't diagnose. Not because the agents failed. Because nobody could trace what the agents were in the middle of when things went sideways.
+
+The agents will get blamed. The gap was in the infrastructure.
+
+---
+
+## The conversation happening in the wrong room
+
+Every enterprise CTO is now talking about AI reliability. That conversation is happening in legal and procurement: renegotiate the SLA, add an uptime clause, build in service credits.
+
+The conversation that needs to happen is in infrastructure: what layer tracks what our agents committed to, so that when the next outage hits — and there will be a next one — we can answer the question that actually matters?
+
+Not: "Was the service up?"
+
+But: "What was it in the middle of, and who's responsible for finishing it?"
+
+A securities lawsuit was filed against Microsoft on June 12 for misleading investors about Azure capacity and Copilot adoption. The suit will probably settle. But it flags something real: the gap between what enterprises are being promised about AI capability and what exists beneath those promises.
+
+The capacity fix will ship. The accountability gap will still be open.
+
+---
+
+## This is what agent scale actually means
+
+The surprise in GitHub's numbers isn't the volume. It's what the volume reveals.
+
+At one billion commits per year — roughly 2025 levels — human developers can still track commitments informally. The team knows what's open. The project manager has a list. The context is still human-sized.
+
+At 14 billion commits per year — 2026 pace — the context is not human-sized. Nobody has a list. The commitments are distributed across thousands of agents operating in parallel, across integrations and pipelines that hand work back and forth without any persistent record of what was promised.
+
+This isn't a GitHub problem. GitHub is just the place where the math became undeniable.
+
+Every enterprise running multi-agent workflows in 2026 is building up the same backlog of untracked commitments. The question is only when it surfaces — and what form the bill takes when it does.
+
+Nine incidents and a lawsuit is one form. There are others.
