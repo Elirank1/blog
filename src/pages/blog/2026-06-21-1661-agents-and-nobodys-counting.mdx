@@ -1,0 +1,104 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "1,661 Agents and Nobody's Counting"
+description: "IBM surveyed 2,000 executives. Two-thirds are accountable for AI systems they don't control. Enterprises expect to run 1,661 agents by 2027. Half are already ungoverned. In six weeks, EU enforcement opens."
+pubDate: 2026-06-21
+tags: ['ai', 'ai-agents', 'accountability', 'coordination', 'infrastructure', 'governance', 'eu-ai-act', 'deeplica']
+heroImage: /blog/images/heroes/2026-06-21-1661-agents-and-nobodys-counting.jpg
+---
+
+IBM surveyed 2,000 executives in early 2026.
+
+Two-thirds of CIOs and CTOs said they are personally accountable for AI systems they don't fully control.
+
+Read that again. Accountability without control. Not "we're working on it." Not "we have a roadmap." Accountability, right now, for systems whose actions cannot be traced.
+
+---
+
+## The number that makes it concrete
+
+Enterprises expect to manage an average of 1,661 AI agents by 2027. Up 38% from today. Only 11% say they feel fully prepared to govern at that scale.
+
+1,661 is a useful number. Not because it's exact — it's a projection — but because it makes the math visible.
+
+At 12 agents per enterprise today (Salesforce's 2026 Connectivity Benchmark), governance still feels manageable. You know what the agents are. Roughly. You have a list somewhere. The context is still human-sized.
+
+At 1,661, that list is gone. The agents are specialized, distributed, and running in parallel across teams, workflows, and integrations. Most organizations that ran honest agent inventories in early 2026 found more agents than expected, deployed across more teams than expected, with more permissions than expected.
+
+And half of them are already ungoverned.
+
+---
+
+## What "ungoverned" actually means
+
+Salesforce's survey of 1,050 IT leaders found: 50% of deployed AI agents run in isolated silos. No coordination with other agents. No shared context. No audit trail. 27% of the APIs connecting them to company systems have no access controls and no compliance checks.
+
+"Ungoverned" sounds like a process problem. A policy gap. Something you fix with a framework document.
+
+It isn't.
+
+Ungoverned means: the agent acted, and nobody logged what it committed to. A customer communication sent with an implicit promise. A record updated on the assumption a human would review it. A downstream workflow triggered with no record of why.
+
+At 12 agents, those commitments surface. The team catches them. The informal coordination still works.
+
+At 1,661, they don't. Untracked commitments accumulate at machine speed, across integrations nobody mapped, with no layer recording whether they were fulfilled.
+
+That's not a governance gap. That's a structural absence.
+
+---
+
+## The wrong fix for the right pressure
+
+The CIO accountability problem is generating a predictable response: governance frameworks, policy documents, tiered access models, agent registries.
+
+These are all correct at the policy layer. None of them solve the infrastructure problem.
+
+A policy says: agents operating in high-risk domains must have human oversight. The operational question that policy can't answer: when an agent in a "governed" workflow completes a task, what record exists of what it committed to, on whose authority, and whether the commitment was fulfilled?
+
+In most deployments, the answer is: none. The agent logged its action. The downstream system recorded the output. Nothing in between captured the commitment state — what was promised, to whom, under what conditions, and whether it was closed.
+
+A registry tells you the agent exists. It doesn't tell you what the agent is in the middle of.
+
+The governance layer and the coordination layer are not the same thing. Enterprises are building the first. The second doesn't exist.
+
+---
+
+## Six weeks
+
+On August 2, 2026, the EU AI Act's full enforcement window opens.
+
+For high-risk AI systems — which now include many agentic applications in financial services, healthcare, and regulated industries — the Act requires something specific: the ability to demonstrate that your AI systems' actions were authorized, logged, and attributable. That when something goes wrong, you can produce the record.
+
+Non-compliance carries penalties up to 7% of global annual revenue.
+
+Most enterprises with deployed agents cannot produce that record. Not because they didn't want to. Because the infrastructure to create it wasn't part of the deployment. The governance conversation came after the agents were live, which means the traceability layer was always retrofitted — or never built.
+
+The regulation doesn't create a new technical requirement. It prices the absence of one.
+
+---
+
+## What two-thirds of CIOs are actually sitting with
+
+There's a specific shape to the accountability problem IBM's number reveals.
+
+The CIO who is "accountable for AI systems they don't fully control" isn't failing to govern. They're being asked to be responsible for a system property — traceability, accountability chains, commitment state — that the infrastructure beneath them was never built to provide.
+
+You can't be accountable for what can't be traced. The accountability isn't missing. The infrastructure is.
+
+In August, that distinction stops being philosophical. The regulator asks for the record. The insurance carrier asks for the log. The board asks who was responsible when the agent's commitment went unfulfilled.
+
+"We had a governance policy" is not going to be a sufficient answer.
+
+---
+
+## The gap between 12 and 1,661
+
+IBM's projection is 1,661 agents per enterprise by 2027. Salesforce's benchmark shows 12 today.
+
+The gap between 12 and 1,661 is where the coordination infrastructure problem becomes legible. Most enterprises are somewhere in the middle — enough agents to have lost the informal tracking, not enough to have forced formal infrastructure.
+
+That middle is where commitments are made and not logged. Where accountability is asserted but can't be demonstrated. Where the August enforcement window finds its exposure.
+
+The accountability is real. The infrastructure to back it up wasn't built.
+
+That's the number nobody is running.
