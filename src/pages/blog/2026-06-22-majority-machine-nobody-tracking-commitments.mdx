@@ -1,0 +1,92 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "The Internet Is Now Majority Machine. Nobody's Tracking the Commitments."
+description: "Cloudflare confirmed it: AI agents now generate 57.4% of web traffic, 18 months ahead of forecast. Microsoft just shipped the most sophisticated agent governance layer the enterprise has ever seen. And the accountability gap is wider than ever."
+pubDate: 2026-06-22
+tags: ['ai', 'ai-agents', 'accountability', 'coordination', 'microsoft', 'governance', 'routing-coordination', 'deeplica']
+heroImage: /blog/images/heroes/2026-06-22-majority-machine-nobody-tracking-commitments.jpg
+---
+
+Two things happened in the last few weeks that, put together, tell you something important.
+
+First: Cloudflare reported that AI agents now generate 57.4% of web traffic. Not 30%. Not 40%. A clear majority. The CEO had forecast this crossover for end of 2027. It arrived 18 months early.
+
+Second: Microsoft shipped the Defender context mapping feature for Agent 365, entering public preview this month. For each agent in your environment, it maps: which devices it runs on, which MCP servers it's configured to use, which identities are associated with it, which cloud resources those identities can reach. The company describes this as giving security teams "the context needed to assess exposure and potential blast radius."
+
+Both of these are real advances. The Cloudflare data confirms what most operators already feel — the volume of machine-generated action is outpacing anything we built the internet to handle. The Microsoft product is genuinely impressive: cross-cloud agent discovery, identity mapping, endpoint policy controls, governance coverage that extends from Azure to AWS to Google Cloud.
+
+And neither of them answers the question that actually matters.
+
+---
+
+## What "blast radius" measures
+
+The Defender context mapping is a security lens. Blast radius tells you: if this agent is compromised, how bad could it get? Which systems could an attacker reach through this agent's permissions? What's the exposure surface?
+
+That's a meaningful question. It's not the accountability question.
+
+Accountability asks something different. When this agent executed a transaction — sent a contract, booked a resource, committed a purchase order, modified a record — was it authorized to do so? Was the commitment tracked? Was it fulfilled? Is there an open loop?
+
+"Exposure surface" and "commitment lifecycle" are not the same problem. The first is about containment. The second is about accountability. Microsoft built a very good answer to the first question. The second is still unanswered.
+
+---
+
+## The inventory isn't the audit trail
+
+Agent 365's core value proposition is inventory. It discovers agents you didn't know you had, maps their relationships, surfaces the shadow AI running on developer workstations. The cross-cloud registry sync with AWS Bedrock and Google Cloud means an enterprise can finally answer: what agents do we have, where are they, what can they touch?
+
+This is useful. Every enterprise with more than a dozen agents needs this.
+
+But consider what an agent actually does when it acts. A procurement agent executes a $2.3M purchase order. Agent 365 records: the agent ran on this device, connected to this MCP server, had these permissions. It can tell you the blast radius if that agent were compromised. It cannot tell you whether the purchase order was authorized by a human, whether the vendor was notified, whether the commitment was closed or is still open.
+
+That's not a gap in Agent 365 specifically. It's a gap in how the industry has defined the problem.
+
+We've been building answers to "what agents do we have?" and "what can they touch?" We haven't built answers to "what have they committed to?"
+
+---
+
+## At 57.4%, this is the default state
+
+The Cloudflare number changes the stakes.
+
+When machine traffic was 20%, accountability infrastructure for agents was optional. Edge case. Something to think about later, after the agents were deployed and running.
+
+At 57.4% — and accelerating — it's no longer optional. The internet is now majority machine-generated requests. The majority of web activity is agents acting on behalf of humans, businesses, and automated workflows. Most of those actions leave no structured record of what was committed, by whom, whether it was authorized, whether it was fulfilled.
+
+Cloudflare called this milestone "bots passing humans online." The security frame: 57.4% of traffic could be malicious or unexpected. The accountability frame: 57.4% of web activity has no commitment tracking at all.
+
+These numbers converge on the same infrastructure gap.
+
+---
+
+## Routing is not coordination
+
+Microsoft Agent 365 is a governance layer. It routes queries through identity controls, enforces policies at the endpoint, discovers agents across clouds. That's routing: directing traffic through defined channels with defined rules.
+
+Coordination infrastructure tracks something else: what did those channels carry? What commitments were made through them? Which ones are still open?
+
+A switchboard routes calls. It doesn't tell you what was promised during those calls, or whether the promise was kept.
+
+This is the distinction the industry keeps missing. When Apple, Microsoft, and Google build model-switching layers and agent discovery platforms, the press covers them as "coordination infrastructure." They're not. They're increasingly sophisticated routing layers. The coordination problem — open commitments, accountability chains, what's been closed and what hasn't — remains unsolved.
+
+The reason it matters right now: at 57.4% machine traffic, the volume of open commitments being created without tracking is not a rounding error. It's the dominant mode of operation.
+
+---
+
+## The question the enterprise can't answer
+
+Gartner said in May that applying uniform governance to all AI agents will lead to enterprise failure. The reasoning: different agents have different autonomy levels, and governance needs to be proportional to what an agent can actually do.
+
+The deeper problem runs underneath that: governance, proportional or not, is still primarily about what agents ARE and what they can ACCESS. The missing layer is what agents DID — specifically, what commitments they created that remain unresolved.
+
+Every enterprise deploying agents at scale is accumulating commitment debt. Not intentionally. Not because they chose to skip accountability. Because no one built the infrastructure to track it, and the routing layers — however sophisticated — don't fill that gap.
+
+The internet passed the threshold. More than half the requests on the web are machine-generated. The accountability infrastructure is still at zero.
+
+That's the gap. And it isn't closing by building a better inventory.
+
+---
+
+*The question the enterprise can now answer: where are my agents?*
+
+*The question it still can't: what have they promised?*
