@@ -1,0 +1,127 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "Agents Don't Fail. Commitments Do."
+description: "Gartner predicts 40% of enterprises will decommission autonomous AI agents by 2027 due to governance gaps discovered only after production incidents. The incident won't look like a failure. Your monitoring dashboard will say everything is fine."
+pubDate: 2026-06-24
+tags: ['ai', 'ai-agents', 'accountability', 'coordination', 'infrastructure', 'governance', 'gartner', 'monitoring', 'commitments', 'deeplica']
+heroImage: /blog/images/heroes/2026-06-24-agents-dont-fail-commitments-do.jpg
+---
+
+Last month, Gartner published a prediction.
+
+By 2027, 40% of enterprises will demote or decommission autonomous AI agents due to governance gaps — not discovered in testing, not caught in QA.
+
+Discovered after production incidents.
+
+Read that again.
+
+*Production incidents. After deployment.*
+
+---
+
+## What a production incident looks like for an agent
+
+For software systems, an incident has a signature. Errors spike. Latency degrades. A service goes down. Alerts fire. Dashboards turn red.
+
+For an agent, an incident has a different signature.
+
+An agent sent 400 outbound emails with the wrong pricing terms. A procurement agent canceled three vendor contracts that were flagged for renewal, not cancellation. A customer service agent issued refunds at full invoice value when the policy authorizes 15%.
+
+Your monitoring dashboard? Still green.
+
+Error rate: 0.2%. Execution time: normal. Throughput: on target. System health: healthy.
+
+The agent functioned correctly. It did exactly what it was instructed to do. The problem isn't in the execution data.
+
+It's in the commitment data — and there is no commitment data.
+
+---
+
+## What Gartner is recommending
+
+Gartner's prescription is proportional governance: classify your agents across autonomy tiers — observer, assistant, collaborator, autonomous actor. Apply different governance controls to each tier. Match oversight intensity to autonomy level.
+
+That's a sound framework.
+
+It will still produce the 40% failure rate Gartner predicts.
+
+Not because the framework is wrong. Because it's solving the wrong layer.
+
+---
+
+## The assumption the framework makes
+
+Proportional governance assumes you can characterize an agent's behavior at the tier level, and that governance controls at that tier are sufficient to catch deviations.
+
+But agent failures don't happen at the tier level. They happen at the commitment level.
+
+An assistant-tier agent — authorized to draft communications and schedule follow-ups — can, in a single workflow edge case, send a message that creates a real-world commitment: a price promise, a delivery window, a legal acknowledgment. That commitment doesn't belong to the "assistant" tier. It behaves like a fully autonomous action.
+
+The tier describes what the agent is *permitted* to do. It doesn't track what the agent *actually committed to*.
+
+These are different things. And the gap between them is exactly where incidents live.
+
+---
+
+## The instrumentation problem
+
+Here's what most enterprise agent deployments instrument:
+
+- Execution latency
+- Task success/failure rates
+- Model call costs
+- Throughput volume
+- Error distribution by type
+
+Here's what they don't instrument:
+
+- What did this agent commit to, to whom, in this specific workflow run?
+- Was that commitment fulfilled?
+- What's still open?
+- How many open commitments are more than 48 hours old?
+
+The first list is performance data. It tells you the agent is running.
+
+The second list is commitment data. It tells you what the agent is responsible for.
+
+You cannot discover a commitment gap with performance instrumentation. The signals don't exist in that layer. The monitoring says healthy because it's watching the wrong thing.
+
+Gartner is right that governance gaps get discovered after incidents. What they don't say: *the tools most organizations are using to monitor agents are physically incapable of surfacing those gaps before the incident happens.*
+
+---
+
+## Why this plays out on the timeline Gartner predicts
+
+The 2027 number makes sense for a specific reason.
+
+Agents being deployed now are entering relatively shallow workflows — single-step tasks, bounded contexts, human confirmations before consequential actions. The commitment footprint is small. Incidents are recoverable before they compound.
+
+By late 2026 and into 2027, agent trust accumulates. Organizations move agents deeper into workflows. More autonomous. More consequential. Longer chains of action before a human sees the output.
+
+That's when the gap opens at production scale. Not because agents changed. Because the consequences of untracked commitments scaled with workflow depth.
+
+And the organizations that hit it will look at their governance tiers, their approval workflows, their autonomy classifications — all correctly designed and implemented — and still have no answer to: *what did this agent commit to, and what's still open?*
+
+---
+
+## The thing Gartner's framework can't catch
+
+The production incident Gartner predicts won't look like a governance failure in the moment. No policy will have been violated. No tier boundary will have been obviously crossed. The agent will have operated exactly as classified.
+
+The failure will be invisible until something downstream surfaces it — a customer complaint, a financial discrepancy, an audit that asks for a record that doesn't exist.
+
+Performance monitoring won't catch it.
+
+Governance tiers won't prevent it.
+
+Compliance frameworks won't surface it before the damage is done.
+
+What catches it is a system that tracks what each agent committed to in real time: the promise made, the scope, the authority under which it was made, the timeline, the fulfillment status.
+
+That's not a governance design problem. That's an infrastructure gap.
+
+The 40% Gartner predicts won't come from bad governance frameworks. It will come from organizations that built governance on top of a commitment layer that doesn't exist.
+
+---
+
+*Deeplica is building the commitment layer — the infrastructure that holds what every agent committed to, to whom, under what authority, and what's still open. The instrument the monitoring dashboard doesn't have.*
