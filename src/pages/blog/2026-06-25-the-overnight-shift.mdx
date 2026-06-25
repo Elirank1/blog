@@ -1,0 +1,112 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "The Overnight Shift"
+description: "The Atlantic says AI is creating an infinite workweek. BCG has the data: 14% of knowledge workers report 'AI brain fry' from agent oversight. The diagnosis is right. The cause is wrong. Workers aren't burning out from doing too much work. They're burning out because they've been assigned to do the job of infrastructure that doesn't exist."
+pubDate: 2026-06-25
+tags: ['ai', 'ai-agents', 'cognitive-overload', 'open-loops', 'coordination', 'infrastructure', 'deeplica']
+heroImage: /blog/images/heroes/2026-06-25-the-overnight-shift.jpg
+---
+
+The Atlantic published a piece this week about the "infinite workweek."
+
+It's worth reading. BCG and UC Riverside surveyed 1,488 U.S. workers and found 14% report "AI brain fry" — their term for the mental fatigue that comes from overseeing AI agents. Among developers, that number is 18%. Workers managing three or more agents simultaneously need 14% more mental effort and experience 12% more fatigue than workers managing fewer.
+
+Developer Steve Yegge, quoted in the piece, describes his experience: *"A dozen browser tabs open in my head, all fighting for attention."*
+
+BCG managing director Matthew Kropp compares checking on agent outputs to pulling slot machines. Variable reward. Compulsive attention cycling. Marc Andreessen, cited near the end of the piece, says "the opportunity cost of going to sleep is too high. If you go to sleep, you won't be with your 20 AI coding agents."
+
+The Atlantic's framing: this is a labor problem. The new infinite workweek. Agents don't stop when you do.
+
+That framing is understandable. It's also exactly wrong.
+
+---
+
+## What Steve Yegge is actually doing
+
+He's not babysitting.
+
+Babysitting is supervision. You watch something. It does things. You redirect it when it goes sideways.
+
+What Yegge is describing is state management. He has a dozen agents running. Each one has made commitments — tasks it started, actions it initiated, things it promised to complete. Some of those commitments are done. Some are in progress. Some are waiting. Some have silently failed and are now blocking something else.
+
+The "dozen browser tabs open in my head" isn't cognitive load from watching too many things. It's cognitive load from being the only place where the state of all those commitments is recorded. His working memory is the coordination layer. Not because that's a good design. Because there's no other layer.
+
+Remove the infrastructure gap and the tabs close. The agent ran overnight. Here's what it committed to. Here's what it completed. Here are the three things still open that need your attention. You can sleep. You just couldn't see any of that this morning.
+
+---
+
+## The real reason you can't sleep
+
+Andreessen's quote is useful, but it describes a symptom and misnames the cause.
+
+The opportunity cost of sleep isn't high because agents are always working. The opportunity cost of sleep is high because every action your agents take overnight creates open commitments that no system holds — and those commitments wait in a queue that only exists once you open your laptop.
+
+The agents don't stop. The open loops don't stop. But the only thing tracking what those loops are, what state they're in, and what needs closing is you. When you're asleep, that tracking pauses. When you wake up, you're immediately behind.
+
+That's not an infinite workweek. That's what happens when human attention is the only available memory for a machine process that runs continuously.
+
+Fix the memory. You can actually sleep.
+
+---
+
+## Why the "slot machine" comparison matters
+
+Kropp's slot machine analogy is accurate in one specific way: variable reward keeps you checking because you don't know what you'll find.
+
+But the anxiety driving that behavior isn't the dopamine circuit. It's something more rational.
+
+You don't know what your agents committed to while you weren't watching. You don't know what they completed. You don't know what's still open, or what's blocked, or what cascaded into something you'll have to clean up. Every check is also a check for damage — commitments made on your behalf that created downstream obligations you don't know about yet.
+
+Compulsive checking is the rational response to that environment. Not because agent output is unpredictable, but because there's nowhere to look when you're not checking. If there were, you'd look there. Once. Then you'd have the state. Then you'd know what to do.
+
+The problem isn't the variable reward. The problem is the variable reward is the only information channel available.
+
+---
+
+## Why this isn't a supervision problem
+
+The BCG study frames AI brain fry as a result of "excessive use of, interaction with, and/or oversight of AI tools beyond one's cognitive capacity."
+
+That framing points at the worker. Too much oversight. Too many tools. Cognitive capacity exceeded.
+
+The recommended interventions follow logically: pace yourself, take breaks, use fewer tools, establish clearer boundaries with agent activity.
+
+These recommendations will not work. Not because they're wrong about individual behavior, but because they misidentify the failure mode.
+
+The workers most affected are carrying cognitive load that should be held by infrastructure. They're not doing too much oversight. They're doing the job of a system that hasn't been built yet — tracking open commitments, maintaining state across agents, knowing what's done and what isn't. That job has no natural boundary. It expands as agents multiply. It never fully completes.
+
+No amount of mindfulness closes that gap. The gap closes when the infrastructure exists to hold what it's supposed to hold.
+
+---
+
+## What the Atlantic piece is describing
+
+The infinite workweek is real. The data is real. The burnout is real.
+
+But the mechanism isn't "agents work all night so humans feel pressure to work all night too."
+
+The mechanism is: agents work all night and generate open loops — commitments, actions, states — that accumulate while you sleep. When you wake up, those loops exist nowhere except in the operational reality of your agents' outputs, which you have to reconstruct manually to understand. That reconstruction is what's eating your morning. And your evening. And your weekend.
+
+It's not infinite work. It's infinite context reconstruction.
+
+The workers who are burning out aren't supervising too much. They're doing manual state management at scale, continuously, with no tooling support, as a side effect of every agent they deploy.
+
+More agents = more open loops = more reconstruction overhead. The "brain fry" scales linearly with agent count because the cognitive overhead scales linearly with agent count. That's not a feature of knowledge work. That's a feature of infrastructure that isn't there.
+
+---
+
+## What changes when the infrastructure exists
+
+Agents run overnight. They generate outputs. They close some loops. They create new ones.
+
+When you wake up, the coordination layer has a record: what committed, what completed, what's open, what needs your attention. You get a summary. You handle the actual decision points. You move on.
+
+The overnight shift still happened. Your agents still worked while you slept. The difference is that the work they did is legible — because somewhere, something held what they committed to.
+
+That's the unlock. Not fewer agents. Not better pacing. Not mindfulness.
+
+Infrastructure that holds state so humans don't have to.
+
+---
+
+*Deeplica is building the coordination layer for the agent era — the system that holds what agents committed to, whether those commitments were fulfilled, and what's still open. So the overnight shift doesn't stay with you until morning.*
