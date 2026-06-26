@@ -1,0 +1,116 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "Microsoft Asked the Right Questions"
+description: "Microsoft's 2026 Work Trend Index found that agents in Microsoft 365 grew 15x year over year. Their answer is 'evaluation infrastructure' — better managers, better culture, clearer accountability. They're not wrong. They're just missing the layer that makes any of that possible."
+pubDate: 2026-06-26
+tags: ['ai', 'ai-agents', 'coordination', 'infrastructure', 'open-loops', 'deeplica']
+heroImage: /blog/images/heroes/2026-06-26-microsoft-asked-the-right-questions.jpg
+---
+
+Microsoft's 2026 Work Trend Index dropped last month. It surveyed 20,000 workers across ten countries, ran analysis on over a hundred thousand Microsoft 365 Copilot conversations, and produced one number that should stop anyone building in this space: agents in the Microsoft 365 ecosystem grew **15x year over year**. In large enterprises, 18x.
+
+That's not a projection. That's telemetry. It happened.
+
+And the report's central finding — the thing they call the Transformation Paradox — is that workers have moved faster than the organizations around them. People are using agents. Organizations haven't built the systems to absorb what agents do.
+
+The report then does something genuinely useful. It names the three questions every enterprise needs to answer:
+
+*Who reviews agent performance?*
+
+*Who has the authority to update the workflows that agents run?*
+
+*How does a local win get captured and scaled across the organization?*
+
+These are the right questions. I've been waiting for a report to ask them directly. Microsoft did.
+
+The problem is the answer they give.
+
+---
+
+## What "evaluation infrastructure" actually assumes
+
+Microsoft calls the fix "evaluation infrastructure." Build a culture that supports new ways of working. Train managers to model AI use. Create psychological safety for experimentation. Document agent workflows, human handoffs, and quality standards.
+
+All of that is correct. None of it is the layer.
+
+Here's what the three questions assume that Microsoft doesn't say out loud: *you can only answer them if something already holds the state of what your agents did.*
+
+Who reviews agent performance? You need to know what the agent did. Not a log. Not a transcript. The commitments it made, the actions it took, what completed, what didn't, what's still open, what cascaded into something else.
+
+Who has authority to update agent workflows? You need to know which workflows produced which outcomes — reliably, across runs, not reconstructed by hand after the fact.
+
+How does a local win scale? You need to know what "the win" was. What the agent committed to, what it actually delivered, where the gap was. That's not a cultural artifact. That's a data artifact. And it has to exist somewhere before managers can turn it into institutional knowledge.
+
+Microsoft's answer — redesign culture, empower managers, build Learning Systems — is what you do *after* the infrastructure exists. Before it exists, you don't have evaluation infrastructure. You have people manually reconstructing what their agents did so they can evaluate it.
+
+That's not a culture problem. That's a layer problem.
+
+---
+
+## The number that explains the gap
+
+Fifteen times more agents year over year. And only 19% of AI users are in what Microsoft calls the Frontier zone — the place where individual capability and organizational readiness reinforce each other.
+
+The other 81% are somewhere else. Blocked, stalled, or still emerging.
+
+Microsoft reads this as an organizational design problem. If leaders set better strategy, managers create better environments, and companies redesign their talent practices, more workers move into the Frontier.
+
+That's probably true. It's also not testable until you've solved the more fundamental problem: *what is the agent actually doing, and does anyone hold that information in a form that managers can act on?*
+
+Fifteen times the agents. The same amount of human attention available to track them.
+
+The math doesn't work without a coordination layer. You can't evaluate what you can't see. You can't scale what you can't trace. You can't build Owned Intelligence — Microsoft's term for institutional AI know-how that compounds over time — out of knowledge that lives only in the heads of the people who happened to watch the agent run.
+
+---
+
+## What the Transformation Paradox is actually about
+
+Microsoft frames the Transformation Paradox as this: employees are ready to reinvent how they work, but the system around them — metrics, incentives, norms — continues to reinforce the old way.
+
+That's real. But the paradox runs deeper than org design.
+
+Workers are ready. Organizations aren't. But the reason organizations aren't ready isn't primarily cultural. It's that organizations are trying to govern agent behavior without infrastructure that holds what agents committed to.
+
+The governance layer Microsoft is building — agent identities, permissions, policy enforcement, lifecycle management — is correct and necessary. But it controls what agents *can* do. It doesn't track what agents *did do*, whether those commitments were fulfilled, and what's still open.
+
+Those are different problems.
+
+The first is a security and access problem. Microsoft is solving it.
+
+The second is a coordination problem. Nobody's solving it by treating it as a coordination problem. They're solving it by asking managers to review agent outputs and calling that "evaluation infrastructure."
+
+---
+
+## What changes when the layer exists
+
+Go back to Microsoft's three questions.
+
+*Who reviews agent performance?* — Instead of a manager manually reconstructing what the agent did, they open the coordination layer: here's what the agent committed to, here's what it completed, here are the three things still open that need review. The review is of state, not of transcript.
+
+*Who has authority to update the workflows?* — The same layer shows which workflow configurations produced which outcomes. Pattern detection becomes tractable. The people with authority to update workflows have something to update from.
+
+*How does a local win scale?* — When a win is recorded as a closed commitment chain — agent committed to X, delivered Y, gap was Z — it becomes a template. Not a best-practices document. A replayable structure.
+
+Microsoft named Owned Intelligence as the goal. Intelligence that compounds over time, is unique to the firm, and is hard to replicate. That's right. Owned Intelligence is what you build when you've captured what your agents learned — not what the agents did, but what the outcomes were and what patterns hold.
+
+You can't build Owned Intelligence out of vibes and manager modeling. You build it from state. And state has to live somewhere.
+
+---
+
+## The right questions matter
+
+I want to be clear: the Microsoft Work Trend Index is the best enterprise AI research report I've read this year. Not because it has the most data. Because it asked the right questions.
+
+Most reports tell you AI is changing everything. This one asked: *what does it look like when it's working, and what's stopping the rest from getting there?*
+
+The answer they give — redesign the operating model, empower managers, build Learning Systems — is where you end up. It's not wrong.
+
+It's just not where you start.
+
+You start with the layer that holds what agents committed to. Without it, the evaluation infrastructure is a concept. The Transformation Paradox stays a paradox. Managers do their best to track agent behavior through manual review, and the 15x growth in agents means 15x more overhead for humans who are already at capacity.
+
+Microsoft asked the right questions. The industry is still building the infrastructure that makes them answerable.
+
+---
+
+*Deeplica is building that infrastructure — the coordination layer that holds what agents committed to, whether those commitments were fulfilled, and what's still open. So that evaluation infrastructure is actually possible, not just aspirational.*
