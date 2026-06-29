@@ -1,0 +1,88 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "The Two-Hour Problem"
+description: "JPMorgan's chief analytics officer said AI agents will soon run autonomously for hours at a time, executing payments and managing workflows. He called the oversight layer 'internal controls and governance.' That's not wrong. It's just not infrastructure."
+pubDate: 2026-06-29
+tags: ['ai', 'ai-agents', 'accountability', 'coordination', 'infrastructure', 'enterprise', 'deeplica']
+heroImage: /blog/images/heroes/2026-06-29-the-two-hour-problem.jpg
+---
+
+Derek Waldron, JPMorgan's chief analytics officer, said something important in June. Most people read it as validation.
+
+"We've entered now the era of long-running autonomous agents," he told reporters. "Agents don't just run for two or three minutes to carry out a goal or some instructions of a human, they can run for an hour or two."
+
+And eventually: multiple hours. Then days. Then weeks.
+
+JPMorgan plans to deploy these agents in payments and treasury operations — areas where the actions are real, the numbers are real, and the consequences are real. The agents will operate with "limited human intervention, subject to internal controls and governance."
+
+Nobody asked the obvious question.
+
+---
+
+## What governance assumes
+
+Internal controls assume human checkpoints. You document what should happen. You define the policy. When something goes wrong, the audit trail reconstructs the decision chain.
+
+This works when humans are in the loop at regular intervals. It breaks when agents run for two hours.
+
+Here's the problem. At minute 47 of an autonomous agent run, the agent made a commitment — flagged a payment for routing, updated a position, sent a communication, triggered a downstream workflow. That commitment was based on the state of the world at minute 47. By minute 112, the world has changed. The agent proceeds on the original commitment.
+
+At minute 112, something breaks. Maybe it's a failed transaction. Maybe it's a routing conflict. Maybe it's an anomaly that would have been obvious to a human reviewer at minute 60.
+
+Now you have a governance question: what happened?
+
+Governance says: here's the policy, here's who was responsible, here's what should have happened.
+
+What governance cannot tell you: what the agent actually committed to at minute 47, based on what state, on whose authority, and whether that commitment was ever fulfilled.
+
+Those are different questions. They require different infrastructure.
+
+---
+
+## The gap the announcement assumes away
+
+JPMorgan said the agents would be "subject to internal controls and governance."
+
+Read that carefully.
+
+Governance is prospective. It defines acceptable behavior before the action. Controls are reactive — they catch out-of-bounds behavior after it happens. Neither one holds the state of what the agent committed to mid-run.
+
+Commitment-state infrastructure is something else. It's the system that tracks, in real time, what the agent decided to do and why, what it committed to before completing it, what's still open versus what resolved, and what the delta is between what was intended and what actually happened.
+
+That infrastructure is what makes a two-hour agent auditable. Without it, you have a governance framework that describes what the agent was supposed to do — and no way to reconstruct what it actually did at minute 47.
+
+The distinction matters because the failure mode isn't an agent going rogue. It's an agent doing exactly what it was designed to do, based on state that was correct at minute 47 and wrong by minute 112, with no record connecting the commitment to the outcome.
+
+---
+
+## Why this scales badly
+
+Right now, JPMorgan is talking about agents running for hours.
+
+Waldron said the trajectory is "multiple hours, then days, then weeks."
+
+At hour scale, the problem is reconstructible. You can, with effort, parse an activity log and approximate what the agent was doing at any given moment.
+
+At day scale, that becomes impossible. The number of micro-commitments — the decisions, the routing choices, the conditional branches — compounds faster than any human can audit in retrospect.
+
+At week scale, you don't have an audit problem. You have a coordination debt problem. The agent has committed to things that were closed, rolled back, superseded, or never fulfilled — and there's no system holding the difference between what was committed and what was completed.
+
+This is exactly what we see in deployments that don't reach production. Gartner's May 2026 finding — 40% of enterprise agentic AI deployments decommissioned by 2027 — isn't about agents that don't work. It's about agents that work fine operationally and fail governably. The failure mode isn't underperformance. It's untracked commitment at agent speed.
+
+JPMorgan has the resources to build the infrastructure required. Most enterprises don't. They have the governance frameworks, the policy documents, and the audit language — and they're calling that accountability.
+
+---
+
+## What accountability actually requires
+
+Accountability isn't the policy. Accountability is the infrastructure that makes the policy enforceable.
+
+For long-running agents, that means: a system that knows what the agent committed to before it completed it. One that tracks the state at the moment of commitment, not just the outcome. One that holds what's still open when the run ends — so the next run, or the next human reviewer, doesn't inherit invisible debt.
+
+JPMorgan said they're entering "the era of long-running autonomous agents."
+
+They're right. And the defining infrastructure challenge of that era isn't model performance, or agent design, or even governance frameworks.
+
+It's commitment state. What did the agent agree to, on whose authority, and what's still open.
+
+Two hours without human input is a capability milestone. It's also the moment when the question "what did it commit to?" stops being theoretical.
