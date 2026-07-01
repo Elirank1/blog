@@ -1,0 +1,98 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "The Law Got It Right"
+description: "In 32 days, the EU AI Act's high-risk provisions become enforceable. Article 26 doesn't require a governance policy. It requires logs. Most enterprises have the first. Almost none have the second."
+pubDate: 2026-07-01
+tags: ['ai', 'ai-agents', 'accountability', 'coordination', 'infrastructure', 'enterprise', 'deeplica']
+heroImage: /blog/images/heroes/2026-07-01-the-law-got-it-right.jpg
+---
+
+80% of organizations deploying autonomous AI agents cannot tell you, in real time, what those systems are doing or who's responsible for them.
+
+That's from the State of AI Agent Security 2026 report, published last month. It's not a fringe finding. It's an average.
+
+In 32 days, it becomes a legal problem.
+
+---
+
+## What August 2 actually requires
+
+The EU AI Act's high-risk system provisions go live on August 2, 2026. Every compliance team at a company with EU exposure has spent months preparing. They've written policies. Defined oversight roles. Updated documentation. Built review processes.
+
+Article 26 asked for something different.
+
+Here's the exact language: deployers must be accountable for the AI systems they use "regardless of who built it." That means knowing "which agent accessed which system, under what permissions, and when" — and being able to produce that log to a regulator on request.
+
+High-risk AI systems must "technically allow automatic logging of events over the system's lifetime."
+
+Not: have a governance framework.
+
+Not: have an oversight policy.
+
+Log the events. Technically. Automatically. Over the lifetime of the system.
+
+---
+
+## The distinction the compliance industry is missing
+
+A governance policy describes what should happen.
+
+A log records what did happen — which agent, what it accessed, under whose authority, at what moment, and what it committed to before completing the action.
+
+These are not the same thing. And after August 2, one of them is legally required.
+
+The 80% figure above represents organizations that have the first without the second. They can tell you their agent is authorized to access the payments system. They cannot tell you what the agent did at 14:47:23 on June 12, what state it was operating in, and whether the commitment it made at that moment was ever fulfilled.
+
+A governance framework doesn't reconstruct that. A log does.
+
+---
+
+## The part that gets more interesting
+
+Recitals 99 and 100 of the EU AI Act address multi-agent architectures directly. This surprised me when I read it.
+
+In a chain of AI agents — where Agent A triggers Agent B triggers Agent C — the compliance boundary extends to every agent that performs a high-risk function. Not just the one you can point to. The whole chain.
+
+The regulation understood something most enterprise deployments haven't internalized: the chain is the unit of accountability. Not the individual agent.
+
+You might have one agent on your compliance checklist. The law is asking about the chain it belongs to.
+
+Think about what that means in practice. Most enterprise deployments don't have a single agent executing a workflow. They have a pipeline of agents — some built by the platform, some by IT, some by individual teams. They hand off context. They trigger each other. They share decisions.
+
+When something goes wrong in that chain, the question isn't "which agent failed?" It's "what did the chain commit to, and where did the commitment break?"
+
+You can't answer that with a log of individual agents. You need a log of the chain.
+
+---
+
+## Why you can't build this in 32 days
+
+Logging infrastructure isn't documentation. It's not a process change. It's a technical system that has to be woven into every agent interaction, capturing state at every commit point, in real time, across the full chain.
+
+You can update a policy in a week. You can rename an oversight role in an afternoon.
+
+You cannot retrofit event logging into a multi-agent deployment in a month if the architecture wasn't designed to emit those logs. The infrastructure either exists or it doesn't. And the regulation is asking for the lifetime of events — not a snapshot from August 2 forward.
+
+The 80% who can't answer "what is my agent doing right now" face a harder version of this problem: they can't tell you what their agent did last month, either.
+
+---
+
+## What I find notable about this
+
+Regulatory frameworks usually lag behind technology. They describe what's already deployed, using language that's slightly out of date.
+
+The EU AI Act got this one right.
+
+"Automatic logging of events." "Which agent, what system, what permissions, when." Multi-agent chain accountability in Recitals 99 and 100.
+
+That's not compliance boilerplate. That's a technical description of commitment-state infrastructure — the layer that holds what every agent in a chain agreed to do, on whose authority, and whether it actually happened.
+
+The regulation didn't invent the requirement. It codified the gap that already existed.
+
+The gap between "we have governance" and "we have logs" has been there since the first multi-agent pipeline went to production. August 2 just makes it legally consequential.
+
+---
+
+A policy says your agents should be accountable. A log proves they were.
+
+In 32 days, regulators will be asking for the log.
