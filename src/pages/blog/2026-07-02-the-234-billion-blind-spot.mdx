@@ -1,0 +1,78 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "The $234 Billion Blind Spot"
+description: "Gartner just published the number that will dominate every enterprise software boardroom for the next six months. They found the arbitrage. They didn't find the liability beneath it."
+pubDate: 2026-07-02
+tags: ['ai', 'ai-agents', 'coordination', 'accountability', 'infrastructure', 'enterprise', 'deeplica']
+heroImage: /blog/images/heroes/2026-07-02-the-234-billion-blind-spot.jpg
+---
+
+On July 1, Gartner published a number that will be in every enterprise software boardroom conversation for the next six months.
+
+$234 billion. That's how much SaaS spending they say is at risk from agentic AI by 2030.
+
+Their term for it: "agentic arbitrage." When AI agents complete tasks directly across enterprise systems, users stop touching the software. When users stop touching the software, the revenue model breaks.
+
+Gartner's framing is right. But it's pointing at the wrong risk.
+
+---
+
+## What they found
+
+The mechanism Gartner describes is real.
+
+Levi Strauss & Co. built specialized AI agents across HR, finance, IT, and retail operations. Now they're building a Super Agent to connect all of them into a single interface. The UX disappears. The software doesn't. But the user never touches it again.
+
+This is happening everywhere. Gartner says 40% of enterprise applications will have integrated task-specific agents by the end of 2026, up from less than 5% a year ago. The race to build the "super agent" layer is underway.
+
+The industry is calling this coordination.
+
+It's not.
+
+---
+
+## The distinction nobody's making
+
+A router directs tasks to the right system. A coordination layer tracks what happened in each system — what the agent committed to, under whose authority, when, and whether that commitment was fulfilled.
+
+Levi's Super Agent connects HR, Finance, IT, and Retail. When that agent routes a payroll adjustment through Finance, it executes an action in a system.
+
+That's routing.
+
+The question coordination has to answer: What did the agent commit to at 14:47:23 on June 12? Was it fulfilled? If Finance shows one state and Payroll shows another — who traces the chain?
+
+You cannot answer that with a routing layer. You need a commitment log.
+
+---
+
+## The actual $234 billion risk
+
+The $234 billion at risk isn't from agents making UX invisible.
+
+It's from agents taking real actions — financial, operational, communicative — across multiple systems, without any infrastructure tracking what they committed to.
+
+Right now, 92% of organizations lack full visibility into what their AI agents are doing across systems. 86% don't enforce access policies for AI-to-AI interactions. 45% still use shared API keys for agent-to-agent authentication.
+
+This means: when Levi's Super Agent fails — and some version of it will — the question "what exactly happened in each system, in what order, and who authorized it" cannot be answered.
+
+That's not the UX-bypass risk. That's a new class of liability operating at machine speed.
+
+---
+
+## What this means if you're building the layer
+
+Every vendor rushing to build super agents that connect enterprise software is building a routing layer. That is genuinely valuable. The integration work is real and the UX simplification is real.
+
+But they're not building coordination. They're building faster action without a commitment trace.
+
+The $234 billion number will attract enormous capital into the space. Most of it will flow toward the routing problem: make agents connect to more systems, execute more actions, handle more edge cases.
+
+The coordination problem will be left as infrastructure debt. And that debt compounds every time an agent acts.
+
+---
+
+There's a version of this industry where we build the routing layer, call it coordination for three years, then have the accountability crisis that forces us to retrofit the infrastructure that should have existed from the start.
+
+We've seen that pattern before. In every infrastructure stack, the accountability layer gets built last.
+
+The $234 billion is real. The question is whether the liability that comes with it gets built into the layer — or onto it, after the fact.
