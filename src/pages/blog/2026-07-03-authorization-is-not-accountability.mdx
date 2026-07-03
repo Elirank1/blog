@@ -1,0 +1,84 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "Authorization Is Not Accountability"
+description: "Senator Warner's AI AGENT Act gets the problem right. Agents must be linked to human identity, operate within documented scope, and act with revocable consent. That's the identity layer. What the bill can't fix is one level below it."
+pubDate: 2026-07-03
+tags: ['ai', 'ai-agents', 'accountability', 'coordination', 'infrastructure', 'enterprise', 'deeplica']
+heroImage: /blog/images/heroes/2026-07-03-authorization-is-not-accountability.jpg
+---
+
+The bill dropped four days ago. Senator Mark Warner's discussion draft of the Artificial Intelligence Access, Gatekeeper Exchange, and Nondiscriminatory Transfer Act — the AI AGENT Act — runs to 23 pages and makes a specific demand: every AI agent acting on behalf of a user must be linked to that human's identity, must operate within documented authorization, and must include built-in controls the user can revoke.
+
+This is the right framing. It's also incomplete.
+
+---
+
+## What the bill actually requires
+
+The AI AGENT Act defines an AI agent as software that acts on a user's behalf "in a transparent, documented, limited, and revocable way."
+
+The core requirements:
+
+— Link each agent to its human operator's identity.  
+— Document the authorized scope: what systems, what actions, under what conditions.  
+— Give users the ability to grant or revoke access in real time.
+
+That's not governance theater. That's a technical requirement for identity infrastructure. Agent identity linked to human identity. Authorization that's machine-readable. Revocability that works at the moment the user triggers it.
+
+This is better than most enterprise deployments have today. 45% of organizations still use shared API keys for agent-to-agent authentication — which means when something goes wrong, they can't tell you which agent acted, let alone under whose authority.
+
+The bill named the right problem.
+
+---
+
+## The layer beneath it
+
+But here's what identity and authorization can't answer.
+
+An agent is authorized to access the payroll system. It has a verified identity linked to a human operator. Its scope is documented and revocable.
+
+At 14:47:23 on June 12, it executes an action. It makes a commitment: this payment will be processed, this record will be updated, this state will change.
+
+Three days later, the books show a different state. The record wasn't updated. The payment was half-processed. The state changed, but not the way the agent committed to.
+
+The question isn't "was the agent authorized?"
+
+It was. The identity check passes.
+
+The question is: what did the agent commit to? Was that commitment fulfilled? Who is responsible for the gap?
+
+You cannot answer that with identity records. You need a commitment log.
+
+---
+
+## What's actually missing
+
+Authorization tells you: this agent was permitted to act here.
+
+Commitment tracking tells you: this agent promised to do X, at this moment, on this authority — and here is whether X was fulfilled.
+
+These are different things. One is a prerequisite. The other is accountability.
+
+The AI AGENT Act, if it becomes law, will create a floor. Agents will have verified identities. Their scope will be documented. Users will be able to revoke access. The platforms that field them will be accountable to the FTC for those properties.
+
+That's the floor. The infrastructure that turns authorization into accountability is a separate layer — one the bill doesn't mandate because it can't. Legislation can require that agents be linked to identity. It can't specify how the commitment state of a multi-agent chain gets tracked, stored, and queried when something goes wrong.
+
+That part has to be built.
+
+---
+
+## Why this matters now
+
+The bill is a discussion draft. It will take time to become law, if it does at all.
+
+But the framing it uses will travel regardless of its legislative fate. When the Senate's language for AI agent governance is "transparent, documented, limited, and revocable" — those words will enter compliance conversations, procurement checklists, enterprise standards.
+
+"Documented" is doing a lot of work in that phrase. It means identity records. It means authorization logs.
+
+It doesn't yet mean commitment state. It doesn't mean: what did this agent promise to do, and what happened after?
+
+When the first large-scale accountability failure hits — and it will, because 88% of organizations have already reported AI agent security incidents — the question won't be "was the agent authorized?" It will be "what did it commit to, and who's responsible for the gap?"
+
+That question doesn't have an infrastructure answer yet.
+
+It will.
