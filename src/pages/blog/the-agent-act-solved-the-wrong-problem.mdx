@@ -1,0 +1,114 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "The AI AGENT Act Solved the Wrong Problem"
+description: "Senator Warner's AI AGENT Act dropped last week. The industry is treating it as the missing piece for agent governance. It isn't. They wrote the regulation for the routing problem. Nobody wrote it for the coordination problem."
+pubDate: 2026-07-04
+tags: ['ai', 'agents', 'coordination', 'infrastructure', 'accountability', 'regulation']
+heroImage: /blog/images/heroes/2026-07-04-the-agent-act-solved-the-wrong-problem.jpg
+---
+
+Senator Mark Warner dropped the AI AGENT Act on June 29th.
+
+Five days old. Already being called the most significant regulatory move on AI agents in the US to date.
+
+The framing is right. This matters.
+
+But not for the reasons people think.
+
+## What the bill does
+
+The AI AGENT Act requires providers of "custodial user agents" to register with the FTC before accessing interfaces maintained by large platforms. Agents must operate in a "transparent, documented, limited, and revocable" manner. Large platforms must allow approved third-party agents access — but can cut them off if registration lapses or if an agent causes harm.
+
+It's an access protocol. A gatekeeper law.
+
+Who gets in. Under what conditions. What happens when they cause problems.
+
+That's the routing problem. The bill solves it reasonably well.
+
+## What it misses
+
+Here's the question the bill doesn't answer.
+
+Once the agent gets in — once it has access to your bank account, your inbox, your calendar, your contracts — what did it commit to?
+
+What actions did it take on your behalf? Were they fulfilled? Did the reservation it made actually go through? Did the payment actually process? Did the follow-up it said it would send get sent?
+
+And if something went wrong — not wrong enough to trigger the platform's revocation protocol, just wrong enough to matter to you — who's accountable?
+
+The AI AGENT Act has no answer for any of this.
+
+It defines the gate. It says nothing about what happens after the gate.
+
+## The distinction
+
+This is the difference between routing and coordination.
+
+Routing determines which agents get access, and to what. It's an access and permission problem. Important. Necessary. The AI AGENT Act does this.
+
+Coordination is the infrastructure that tracks what those agents committed to after they got access. The open loops. The pending actions. The fulfilled and unfulfilled commitments. The accountability chain when something between initiation and completion goes wrong.
+
+Most people conflate the two. The AI AGENT Act — like most enterprise governance frameworks, like most of the industry conversation — treats the access layer as if solving it solves the accountability layer.
+
+It doesn't.
+
+## Why this gap compounds at agent speed
+
+Human workers make commitments slowly. They can be chased down. Asked directly. Their actions leave social traces — a response, a follow-up, a paper trail.
+
+Agents don't work that way.
+
+An agent can take thousands of actions before the end of a workday. Each one a potential commitment. Some fulfilled automatically. Some waiting on a third party. Some dropped because a system returned an error the agent didn't escalate. Some partially completed in a way neither the user nor the platform noticed.
+
+The AI AGENT Act will make it easier to deploy more agents into more surfaces. That's the whole point — opening the marketplace, expanding access.
+
+But it says nothing about what happens to commitment tracking when the volume of agent-actions scales from hundreds to millions per day.
+
+This isn't a hypothetical risk. Gartner already found that only 12% of agent initiatives successfully reach production at scale. 40% of enterprises expect to demote or decommission agents by 2027 due to governance gaps identified only after production incidents. The breakage is already happening — before the access marketplace fully opens.
+
+## The regulatory gap nobody's naming
+
+Five Eyes put out agentic AI guidance in May 2026. EU AI Act full enforcement begins August 2nd — four weeks from now. Colorado's AI Act went live in June. Singapore's IMDA released the first formal framework for agentic AI governance in January.
+
+None of these frameworks addresses the coordination infrastructure problem.
+
+Every framework addresses the same set of questions: Who is the developer? What data does the agent use? How do you revoke access? How do you prevent discriminatory outcomes?
+
+None of them ask: What did this agent commit to? Was it fulfilled? Who is accountable for the gap between what it said it would do and what it actually did?
+
+The regulatory wave is arriving. Every framework is solving the gatekeeper problem. Nobody is writing the standard for the ledger.
+
+## What the ledger has to be
+
+The ledger isn't logging. Logs capture what happened. The ledger captures what was *supposed* to happen, whether it did, and who's responsible for the gap.
+
+An agent books a flight. The ledger records: booking initiated, booking confirmed, confirmation sent to user. Or: booking initiated, payment authorization failed, agent retried, retry failed, commitment still open.
+
+Without the ledger, you have activity. With the ledger, you have accountability.
+
+The AI AGENT Act creates the legal conditions for agents to act at scale. It does not create the infrastructure to know what those agents committed to once they did.
+
+## The pattern
+
+This is the same mistake made in every previous wave of enterprise software adoption.
+
+Email got standardized before anyone built systems to track whether decisions made over email were actually fulfilled. CRM got widespread before anyone tracked whether the commitments reps made in those conversations were actually closed. Cloud got ubiquitous before anyone understood the coordination overhead of distributed systems.
+
+Each time: access before accountability.
+
+We're doing it again. At agent speed.
+
+## The reframe
+
+The AI AGENT Act is not the missing piece for agent governance. It's the first piece — and the easiest one.
+
+Regulating access is tractable. You can see the gate. You can monitor who crosses it. You can write rules for approval and revocation.
+
+Regulating coordination is harder. You have to trace what was committed to across every agent, every interaction, every surface the agent touched. You have to build the infrastructure that makes that tracing possible.
+
+That infrastructure doesn't exist in most deployments. The AI AGENT Act doesn't require it. No framework does.
+
+This is the gap that compounds. Every agent that gets access under the new regulatory framework will generate commitments. Most of those commitments will go untracked. Some will fail silently. Some will create consequences nobody sees until they accumulate into something that can't be explained.
+
+They solved for the gate.
+
+Nobody solved for what happens after it.
