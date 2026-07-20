@@ -1,0 +1,78 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "You Can't Test the Space Between Agents"
+description: "Forrester just named the cause of AI agent failure: not bugs, not weak models — miscoordination. Then it prescribed the cure: clearer success criteria, guardrails, evaluation discipline. Every one of those lives inside a single agent. The failure lives between them."
+pubDate: 2026-07-20
+tags: ['ai', 'coordination', 'infrastructure', 'ai-agents', 'accountability', 'orchestration', 'deeplica']
+heroImage: /blog/images/heroes/2026-07-20-you-cant-test-the-space-between-agents.jpg
+---
+
+Forrester published its state of agentic AI this quarter, and the honest line is this: agent failures come from ambiguity, miscoordination, and unpredictable system dynamics — not from bugs, and not from weak models.
+
+Read that again. The analyst covering enterprise AI just said the agents mostly work. What breaks is the space between them.
+
+That's the correct diagnosis. It's also the one the industry is about to misread.
+
+## The cure everyone reached for
+
+Look at what gets prescribed the moment "agents fail at coordination" lands.
+
+Clearer success criteria. Tighter tool and data access. Better guardrails. Evaluation discipline once the agent is live. Forrester lists them. Every vendor deck lists them. They're all reasonable.
+
+They also all live in the same place: inside a single agent.
+
+Success criteria define what one agent is supposed to do. Guardrails constrain what one agent is allowed to do. Evaluation measures whether one agent did it. This is unit testing. It's mature, it's necessary, and it is aimed at exactly the wrong target.
+
+Because the failure Forrester named isn't inside the agent. It's in the handoff.
+
+## What a handoff actually is
+
+Agent A finishes a task and reports success. Agent B picks up what A produced and runs. Agent C depends on what B commits to. Forrester describes the chain directly: A calls B, B triggers C, and a failure at any point propagates through the whole system.
+
+Now run the evaluation. Agent A passes. It did its job by every criterion you set for it. Agent B passes. Agent C passes. Each one green.
+
+And the workflow still failed — because A's definition of "done" was not the input B was counting on, and nothing tracked the difference. The commitment A made to B was never recorded as a commitment. It was recorded as a completion. A timestamp and a success flag.
+
+You cannot unit-test that. There is no assertion inside agent A that can check whether agent C, three steps downstream, got what it needed. The gap doesn't exist in any single agent's scope. It exists between them. Evaluation looks at the nodes. The failure is in the edges.
+
+## Even the good advice stops one layer short
+
+To its credit, Forrester doesn't only prescribe better guardrails. Its sharper recommendation is the right instinct: invest in orchestration before you add more agents. Lay the track before you run more trains.
+
+That's closer. It's still not the layer.
+
+Orchestration decides who runs when. It sequences the agents, routes the calls, wires A to B to C. It's the track. But laying track tells the train where to go — it does not record what each car promised to carry, whether the car arrived full, or who answers for it when it arrives empty.
+
+Orchestration moves the work. Coordination holds the commitments. What did each agent commit to, was it fulfilled, and who is accountable for the gap between initiation and completion — none of that is an orchestration question. You can orchestrate a workflow perfectly and still have no record of what moved through it.
+
+The industry keeps solving for flow and calling it coordination. Flow is the easy half.
+
+## Why this compounds at agent speed
+
+A human handoff is slow and it leaves traces. Someone replies, forwards, follows up. If a commitment drops, you can usually reconstruct it from the wreckage of an inbox.
+
+Agents don't leave that wreckage. One agent can take thousands of actions in a workday, each a potential commitment — some fulfilled, some waiting on a third party, some dropped because a system returned an error the agent didn't escalate. The ITU's governance report describes the exact failure this produces: one agent's action triggers others to amplify it, with no checkpoint holding the chain accountable before it executes.
+
+Then measure how ready anyone is to catch it. In WRITER's 2026 enterprise survey, 35% of executives admit they could not immediately pull the plug on a rogue agent. Not "chose not to." Could not. Gartner expects 40% of enterprises to demote or decommission agents by 2027 — the failures surfacing only after they hit production.
+
+That's not a model-quality problem. Those agents pass their evals. They fail in the space no eval is watching.
+
+## The reframe
+
+You do not fix a coordination failure with better-behaved agents.
+
+The agents were never the problem. Forrester just said so out loud. The problem is that nothing holds what they agreed to. We keep sharpening the tests on the individual agent — the node — while the failure keeps happening on the edge, in the handoff, in the commitment that was recorded as a completion and never tracked as a promise.
+
+More evaluation makes each agent more trustworthy in isolation. It does nothing for the system, because the system's failure mode was never located in an agent. It was located between them.
+
+That's the layer that has to exist. Not a better agent. Not a tighter guardrail. Not even a smarter orchestrator. A record of what every agent committed to across the chain — what's open, what closed, and who answers when the gap between the two turns into a consequence.
+
+Forrester found the failure. It's still looking for it inside the agents.
+
+It's in the space between them. That space needs infrastructure, and almost nobody is building it there.
+
+---
+
+*Eliran Keren — Founder of [Deeplica](https://deeplica.ai), building the coordination layer for the agent era.*
+
+*Sources: [Forrester — The State Of Agentic AI In 2026: Companies Are Chasing, Few Are Catching](https://www.forrester.com/blogs/the-state-of-agentic-ai-in-2026-companies-are-chasing-few-are-catching/) · [Forrester — Why AI Agents Fail (And How To Fix Them)](https://www.forrester.com/report/why-ai-agents-fail-and-how-to-fix-them/RES183446) · [ITU — The Annual AI Governance Report 2025](https://www.itu.int/epublications/publication/the-annual-ai-governance-report-2025-steering-the-future-of-ai) · [WRITER — Enterprise AI Adoption in 2026](https://writer.com/blog/enterprise-ai-adoption-2026/) · [Gartner — Uniform Governance Across AI Agents Will Lead to Enterprise AI Agent Failure](https://www.gartner.com/en/newsroom/press-releases/2026-05-26-gartner-says-applying-uniform-governance-across-ai-agents-will-lead-to-enterprise-ai-agent-failure)*
