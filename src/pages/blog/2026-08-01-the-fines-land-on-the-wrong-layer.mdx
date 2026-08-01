@@ -1,0 +1,52 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "The Fines Land on the Wrong Layer"
+description: "Tomorrow the EU Commission's enforcement powers under the AI Act become applicable to GPAI providers — fines up to 3% of global turnover, evaluations, market restrictions. In the twelve months the machinery was being built, 78% of enterprises reported an AI incident and half tied it to an unauthorized or misconfigured agent. The regulation lands on the layer where models are made. The failures land on the layer where agents act. These are not the same layer."
+pubDate: 2026-08-01
+tags: ['ai', 'ai-agents', 'accountability', 'coordination', 'eu-ai-act', 'gpai', 'enforcement', 'deeplica']
+heroImage: /blog/images/heroes/2026-08-01-the-fines-land-on-the-wrong-layer.jpg
+---
+
+Tomorrow, August 2, the European Commission's enforcement powers under the AI Act become applicable to providers of general-purpose AI models. Article 101 fines: up to 3% of global annual turnover, or €15 million, whichever is higher. Powers to request documentation, run technical evaluations, order compliance and risk-mitigation measures, restrict a model from the EU market, order withdrawal.
+
+The trigger is model-level.
+
+The failure isn't.
+
+In the twelve months the Commission was building the enforcement machinery, DigiCert surveyed 1,001 IT and security leaders across the United States, United Kingdom, and Australia. 78% reported an AI-related security incident or an unmitigated vulnerability in the past six months. Half of the full sample — 50% — reported a confirmed breach tied specifically to an unauthorized or misconfigured AI agent. About half of the surveyed organizations have a formal AI governance program at all. About half have assigned unique digital identities to the agents already operating inside them.
+
+Gravitee's parallel survey — 919 executives and practitioners — put the confirmed-or-suspected agent-incident rate at 88% over twelve months. 82% of executives believed their policies protected them from unauthorized agent actions. 21% had runtime visibility into what those agents were actually doing.
+
+Read those together.
+
+The regulation the Commission spent five years drafting and one year onboarding lands tomorrow — on the layer where models are made. The failures enterprises are already logging land somewhere else — on the layer where agents act.
+
+These are not the same layer.
+
+Model-level enforcement asks: did the provider publish the technical documentation, the copyright compliance policy, the training data summary. Did they cooperate with the AI Office. Did they mitigate systemic risk in a foundation model whose weights are frozen at release. Every one of those obligations is answered before the model ships. The audit is upstream.
+
+Action-level failure asks a different question. When your billing agent moved money on Tuesday, do you have a record of what it was supposed to move, whether it moved that, and on whose authority. When a customer-service agent promised a refund, is there a chain that traces the promise, the fulfillment, and the human who is accountable when the two don't match. When ten agents run concurrently against overlapping data, does anything hold the state of what each of them committed to. The audit is downstream. The audit is the substrate.
+
+Article 101's fines reach OpenAI, Anthropic, Google, Mistral. They don't reach the enterprise deployment where the agent acted. They don't reach the workflow where the commitment was made. They can't, because that instrumentation doesn't exist yet — not in the regulation, not in most of the deployments the regulation is nominally about.
+
+This is the pattern. The regulator enforces at the point they can measure. The failure lives at the point nobody has measured. Model providers have documentation. Action layers have fragmented logs at best, silence at worst.
+
+61% of enterprises now report fragmented logs across systems. 33% report they do not have evidence-quality audit trails for AI operations. That is not a compliance gap. That is a structural absence of the record needed to answer the actual accountability question when something goes wrong: which agent, on whose authority, with what commitment, delivering what, by when, verified by whom.
+
+Tomorrow, three things will happen in parallel.
+
+The Commission will begin exercising powers that reach the model. Enterprises will keep deploying agents that act below the layer the Commission reaches. And a hundred thousand agent-actions will run through systems that cannot, at day's end, answer what any of those actions actually committed to.
+
+The story tomorrow will be enforcement. The story the day after — the one nobody is set up to tell — is that the enforcement mechanism landed on the layer where models exist, and left untouched the layer where actions happen.
+
+Everyone will keep calling this a governance gap. It isn't.
+
+Governance means we know what we're supposed to do and we haven't done it. This is upstream of that. The mechanism to know what happened, in the first place, at the action layer, at agent speed — the substrate on which any real accountability chain would run — has not been built. You can't govern a stream of events you can't trace.
+
+Fines at the model layer are what happens when the regulator can see the provider but not the deployment. What comes next — and it will come, because the incidents are already stacking up faster than any enforcement mechanism can catch — is pressure to instrument the layer where the actions actually live. Not model cards. Commitment traces. Not training data summaries. Action ledgers. Not another attestation about a foundation model's alignment. A record, per action, of what an agent said it would do and whether it did.
+
+The regulation lands tomorrow on what regulators could reach.
+
+The infrastructure the failures require sits one layer down.
+
+That's the gap.
