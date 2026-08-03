@@ -1,0 +1,82 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "Gartner Looked at the Agent. Colorado Looked at the Decision."
+description: "Two institutions looked at the AI accountability problem in May and asked different questions. Gartner's question keeps you in the authorization layer. Colorado's question gets closer to what commitment infrastructure is actually for."
+pubDate: 2026-06-15
+tags: ['ai', 'coordination', 'infrastructure', 'ai-agents', 'enterprise', 'governance', 'accountability', 'deeplica']
+heroImage: /blog/images/heroes/2026-06-15-gartner-looked-at-the-agent-colorado-looked-at-the-decision.jpg
+---
+
+Two institutions looked at the AI accountability problem in May and asked different questions.
+
+Gartner, May 26: enterprises applying uniform governance across AI agents will fail. The prescription — tier agents by autonomy level. Determine what each agent is cleared to do before it acts. Match controls to the actual risk profile of each deployment.
+
+Colorado, May 14: Governor Polis signed SB 26-189. For high-risk AI decisions affecting employment, housing, financial access — the affected person is entitled to know what data was used, why the decision was made, and how to contest it. Post-decision transparency. Decision-level accountability. Effective January 1, 2027.
+
+Same month. Two very different questions.
+
+Gartner is asking: at what autonomy tier should this agent operate?
+
+Colorado is asking: can you reconstruct this specific decision — what went in, what came out, and who is accountable for the result?
+
+Those are not the same question. The gap between them is exactly where most enterprise AI governance is currently operating.
+
+---
+
+## The autonomy question
+
+Gartner's prescription is about permission scope. It governs what an agent can touch, what it can execute, how much latitude it has to act without human approval.
+
+These are authorization questions. They belong at the agent-design layer. A high-autonomy agent needs different controls than a low-autonomy one — that's real. Treating them identically is the specific failure mode Gartner is diagnosing.
+
+The prescription makes sense as far as it goes. The problem is where it stops.
+
+Autonomy tiers tell you what an agent *was cleared to do*. They confirm the agent acted within its sanctioned scope. That's authorization.
+
+They don't tell you what the agent actually produced in the downstream — which decisions were made on whose behalf, what those decisions implied as obligations, and whether someone can now trace, understand, and contest the specific outcome.
+
+---
+
+## The decision question
+
+Colorado's question is different in kind.
+
+It's not about the agent's permission architecture. It's about a specific moment: a decision was made, it affected a person, and that person should be able to understand it. What data was used? What was the logic? Who is accountable for the result? How is it contested if it's wrong?
+
+That's a commitment question. For every decision an autonomous system produces, Colorado is asserting: there must be a traceable chain from input to output, with a named owner and a human review mechanism attached to the outcome.
+
+Most enterprise AI governance doesn't answer that question. Not because it's deficient — because it was built for Gartner's question. Autonomy tiers, access controls, policy enforcement, audit logs — these confirm authorization. They tell you the agent was cleared. They don't tell you whether the specific decision it made is traceable, contestable, and ownable after the fact.
+
+---
+
+## Before and after
+
+There's a structural distinction worth naming clearly.
+
+Gartner's prescription applies at *deployment time*. Classify agents by autonomy level before they run. Set the tier. Configure the controls. The governance work happens before the agent acts.
+
+Colorado's question applies at *decision time*. For each output the agent produces that affects a person — after it runs — can you reconstruct what happened and make someone accountable for the specific result?
+
+Governance by tier is pre-action. Accountability by decision is post-action.
+
+Both are necessary. The enterprise AI stack in 2026 has the first. The post-action layer — decision-level traceability, commitment ownership, the infrastructure that makes a specific outcome contestable — is what the market hasn't built yet.
+
+---
+
+## What the regulatory layer noticed
+
+Colorado isn't the only one asking this question.
+
+The Five Eyes cybersecurity guidance from May 2026 is asking about agent action traceability. The EU AI Act enforcement beginning August 2026 is asking about documented risk management and human oversight at the output level — not just the system level. The pattern is consistent: regulators arriving at the problem from different directions, converging on the same gap.
+
+They're not asking about autonomy tiers. They're asking about specific decisions. Specific outputs. Specific obligations created by those outputs. Who owns them. Whether they resolved.
+
+The authorization layer answer is: the agent was cleared to act.
+
+The commitment layer answer is: the agent acted, here is what it produced, here is who is accountable for that outcome, and here is the resolution path if something is wrong.
+
+The market built the first. The regulatory layer is starting to mandate the second. The infrastructure that closes that gap is what comes after governance.
+
+---
+
+*Eliran Keren — Founder of [Deeplica](https://deeplica.ai), building the coordination layer for knowledge work.*

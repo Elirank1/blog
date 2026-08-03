@@ -1,0 +1,78 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "The Layer Neither Protocol Has"
+description: "MCP has 97 million downloads. A2A has 50+ enterprise partners. The industry is calling this coordination infrastructure. It routes."
+pubDate: 2026-06-18
+tags: ['ai', 'ai-agents', 'coordination', 'infrastructure', 'mcp', 'protocols', 'deeplica']
+heroImage: /blog/images/heroes/2026-06-18-the-layer-neither-protocol-has.jpg
+---
+
+Two protocols are becoming the default architecture for enterprise AI.
+
+MCP — Model Context Protocol — handles the vertical connection: agent to tool. GitHub, Slack, Salesforce, Notion, Jira. 97 million SDK downloads. 18,000 community-indexed servers. Developed by Anthropic, adopted by essentially everyone.
+
+A2A — Agent-to-Agent — handles the horizontal connection: agent to agent. 50+ enterprise partners. Atlassian, Box, PayPal, SAP, ServiceNow, Workday. Developed by Google, adopted broadly.
+
+MCP defines how an agent accesses a tool. A2A defines how agents hand work to each other. Together, they're being called coordination infrastructure.
+
+They aren't.
+
+---
+
+## What coordination actually means
+
+Routing gets work to the right place. Coordination tracks whether the work got done — and holds something accountable when it didn't.
+
+MCP tells an agent how to connect to Salesforce. It doesn't track whether the CRM update the agent made was part of a commitment to a customer, whether that commitment was fulfilled, or whether it's still open.
+
+A2A tells Agent A how to pass a task to Agent B. It doesn't track whether Agent B's action created downstream obligations — follow-up emails, contract amendments, resource reservations — that now live in no system.
+
+The protocols define the nervous system. They don't define the memory.
+
+---
+
+## Why this is a problem now
+
+When humans coordinated work, open commitments lived in human heads and inboxes. Imperfect. But localized. When an email sat unread, one human knew about it.
+
+When agents coordinate through MCP and A2A, open commitments live nowhere. They move at machine speed — thousands of agent-to-agent handoffs per hour in a production system — through protocols that were not designed to track what was promised.
+
+Gartner published a warning in May: 40% of enterprises will demote or decommission autonomous AI agents by 2027, citing governance gaps identified only after production incidents.
+
+The framing was "trust levels" and "access scope." That's still routing. The agents that cause production incidents aren't always the ones with the wrong access level. Sometimes they're the ones that acted within scope, on authorized tasks, through perfectly functioning protocols — and left a trail of unresolved commitments nobody tracked.
+
+The routing layer routed correctly. The accountability gap was somewhere else entirely.
+
+---
+
+## What's actually missing from both specs
+
+Read the MCP specification. It defines transport, connection lifecycle, capability negotiation, resource access, tool invocation, sampling. Thorough engineering. Zero concept of commitment state.
+
+Read the A2A spec. It defines task assignment, status reporting, artifact exchange, push notifications. Also thorough. Also zero concept of what a completed task *obligated* anyone — agent or human — to do next.
+
+This isn't a criticism of the specs. They were designed to solve routing problems. They solved routing problems.
+
+The issue is that the industry is calling them coordination infrastructure. Every architecture diagram, every enterprise pitch, every analyst note says: MCP + A2A = multi-agent coordination. Nobody's asking what happens to the commitments those agents created on the way through.
+
+---
+
+## The layer that doesn't exist
+
+A coordination layer — a real one — has to answer these questions:
+
+What did this agent commit to? Not what did it access — what did it *promise*?
+
+Was it fulfilled?
+
+If not, where does that obligation live now?
+
+Who's responsible if it wasn't?
+
+No protocol answers these questions. Not MCP. Not A2A. Not any of the orchestration frameworks being positioned as enterprise infrastructure this year.
+
+The next production incident in a multi-agent system probably won't happen because an agent accessed something it shouldn't have. It'll happen because an agent did exactly what it was supposed to — and nobody tracked what it left open.
+
+97 million downloads. 18,000 servers.
+
+The nervous system works. The memory doesn't exist yet.
