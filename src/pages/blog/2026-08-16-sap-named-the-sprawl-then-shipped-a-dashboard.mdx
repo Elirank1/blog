@@ -1,0 +1,106 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "SAP Named the Sprawl. Then Shipped a Dashboard."
+description: "This week SAP made AI agent governance a board-level story. Their prescription: an AI Agent Hub — auto-discovery, registry, risk ratings, identity, observability. A single command center above 100,000 agents already running across 150 enterprises, priced at zero on top of the Business AI Platform. The industry read it as the coordination layer arriving at enterprise scale. Read the mechanic. What SAP shipped is a registry on top of existing agents. It sees them, tags them, gives each one a unique identity, rates their risk before they ship. What it does not do is sit inside each action primitive with authority, scope, and record bound to the artifact the agent produces. A hub above your agents is not a substrate under your actions. Mercury got the substrate for one primitive — money — because the card network already carried the enforcement point. SAP got the hub for the enterprise because there is no enforcement point under SMTP, S3, DocuSign, Kubernetes, or the CRM. Naming the sprawl and shipping an inventory are not the same act."
+pubDate: 2026-08-16
+tags: ['ai', 'ai-agents', 'accountability', 'coordination', 'commitment-ledger', 'sap', 'agent-sprawl', 'governance', 'primitives', 'deeplica']
+heroImage: /blog/images/heroes/2026-08-16-sap-named-the-sprawl-then-shipped-a-dashboard.jpg
+---
+
+This week SAP made a claim that is almost right.
+
+The claim is that AI agent governance is now a board-level issue. That agent sprawl — agents created, deployed, and connected across systems faster than the enterprise can inventory them — is the failure mode that will define the next 12 months of enterprise AI. That 98% of companies have already deployed agents or plan to. That fewer than half can see an inventory of the ones already running. That the answer is a single system of record for every AI asset in the company.
+
+All of that is right.
+
+Then SAP shipped the answer, and the answer is a dashboard.
+
+The AI Agent Hub, launched this week on top of SAP LeanIX, is a governance product with four core capabilities. It auto-discovers agents, LLMs, and MCP servers across vendors. It maintains a registry with risk ratings and compliance mappings, so that nothing ships into production without a verified governance record. It gives each agent a unique identity through SAP Cloud Identity Services. It provides observability across what those agents do. It is already running against 100,000 agents in 150 companies. It ships at no additional charge inside the Business AI Platform.
+
+Read that list again.
+
+Discovery. Registry. Identity. Observability.
+
+Not one of those is a commitment substrate.
+
+## What the hub actually does
+
+The Agent Hub sees the agents that already exist. It tags them. It gives each one an identity so the log of what happened can name the actor. It rates the risk of each agent before it goes into production. It watches what they do.
+
+Every one of those is a property of the *agent*. None of them is a property of the *action*.
+
+When one of those 100,000 agents sends an email tomorrow, the Hub knows which agent sent it. It does not know what commitment the email was bound to. When one of those agents deletes a row, the Hub knows which service account did the deletion. It does not know what scope authorized the deletion. When one of those agents modifies a configuration value, the Hub knows the change happened. It does not carry the per-action record of what the agent was authorized to change today, on whose signed authority, inside what commitment window.
+
+The dashboard sits above the primitives.
+
+The primitives still have no substrate.
+
+## The reframe the industry is about to skip
+
+The story SAP wants told is: we are the platform that governs agents at enterprise scale, and governance is a control plane you can add.
+
+The story that is actually true is: SAP just made agent sprawl a board-level line item, and the first response the industry can buy is an inventory. That is a real product. That is a useful product. It is not what accountability requires.
+
+Governance is not a control plane you add on top. Governance is a property of each action primitive. Either the send carries authority, scope, and record. Or the delete carries authority, scope, and record. Or the config change carries authority, scope, and record. Or it doesn't. If it doesn't, no hub above it can invent them after the fact. The hub can only report what the primitive already recorded — which, for every general-purpose API an agent touches, is a log line and a service account.
+
+A log line is not a commitment. A service account is not an authority. A risk rating on the agent is not a scope on the action. A unique identity on the caller is not a per-event record bound to the artifact the caller produced.
+
+The hub answers: which agents exist, and what are they generally allowed to do?
+
+The substrate answers: what did this specific action commit to, on whose authority, inside what scope, and where is the record?
+
+Those are different questions. The industry is about to conflate them for a year.
+
+## Why the hub is what shipped
+
+There is a structural reason SAP shipped a hub and not a substrate, and it is worth naming clearly.
+
+The primitives an agent touches inside an enterprise are general-purpose APIs. SMTP for outbound messages. Object storage for data writes. Calendar APIs for booking. E-signature APIs for signatures. Kubernetes for compute. The CRM, the ERP, the ticketing system, the CI pipeline. None of those interfaces was designed to hold a per-action commitment set. None of them enforces authority and scope at the point the action is attempted. None of them produces a per-event record bound to the artifact the action creates.
+
+The rails do not carry the substrate. So the substrate cannot be added at the rail. It has to be added at the boundary the enterprise controls — which, for SAP, is the observability plane above the agent, not the enforcement plane inside the API.
+
+Mercury got a real substrate for money because the card network was already an enforcement plane. Every swipe already goes through authorization, scope, and record. Mercury just made those three properties bind to the human authority that issued the card, in a form the agent cannot bypass. The rail did the work.
+
+For everything else, the rail does not do the work. SAP built the best product you can build without the substrate underneath. That is why it shipped as a hub.
+
+## What agent sprawl actually costs
+
+At agent speed, the difference between hub and substrate becomes the failure mode.
+
+A registry above 100,000 agents can tell you, after the fact, that agent 47,283 did something. It can tell you which policy tag it carried. It can point you at the log. What it cannot tell you is the sentence a real incident requires: this specific action was authorized by this specific human, under this specific scope, at this specific moment, and here is the record bound to the artifact that got produced.
+
+That sentence is what the board is actually asking for when it makes governance a board-level line item. That sentence is what an auditor needs when a regulator asks. That sentence is what a general counsel needs when the counterparty asks who signed. That sentence is what a customer needs when the wrong email went out or the wrong row got deleted or the wrong resource got booked.
+
+A hub returns a policy tag. A substrate returns the sentence.
+
+The gap between them is the accountability gap. It does not close by adding another observability plane on top of primitives that never carried a commitment layer underneath.
+
+## What the next twelve months will look like
+
+Every large enterprise vendor is about to ship an Agent Hub. ServiceNow will ship one. Microsoft will ship one. Salesforce will ship one. Google Cloud already has the outlines of one. The dashboards will all look the same. Auto-discovery. Registry. Identity. Risk rating. Observability. Priced at zero to protect the platform.
+
+They will all be useful. They will all sell. They will all be called "the coordination layer for agents."
+
+None of them will be a coordination layer for agents. They will be inventory layers above them.
+
+The distinction will not be visible in the first month. It becomes visible on the first real incident, when the general counsel asks for the sentence and the hub returns a policy tag. It becomes visible on the first EU AI Act enforcement action, when the regulator asks for the per-action record and the vendor points at the log. It becomes visible on the first board meeting after an agent did something material and nobody can name who authorized it, at what scope, inside what commitment window.
+
+At that point, the second question gets asked. Not: which agents do we have running? But: what did this specific action commit to, and where is the record?
+
+The hub cannot answer that question. The substrate can. That is the difference the industry is about to spend a year discovering.
+
+## The one sentence
+
+SAP named the sprawl. That mattered. Getting the board to treat agent inventory as a real problem is a genuine unlock, and the Agent Hub is a real product for a real gap.
+
+Then SAP shipped a dashboard, and called it governance.
+
+The registry above the agents is not the substrate under the actions.
+
+That is the gap, named, in one sentence.
+
+---
+
+*Eliran Keren — Founder of [Deeplica](https://deeplica.ai), building the coordination layer for the person at the center.*
+
+*Sources: [AI Agent Sprawl: Why AI Governance Is Now a Board-Level Issue — SAP News, Aug 2026](https://news.sap.com/2026/08/agent-sprawl-why-ai-governance-is-now-board-level-issue/) · [SAP launches AI Agent Hub at Sapphire 2026 to tame vendor agent sprawl — The New Stack](https://thenewstack.io/sap-ai-agent-hub/) · [SAP LeanIX Agentic AI Survey 2026](https://www.leanix.net/en/download/agentic-ai-survey-2026) · [SAP AI Agent Hub with SAP LeanIX Application Portfolio Management](https://www.leanix.net/en/sap-ai-agent-hub-with-sap-leanix-application-portfolio-management) · [SAP Launches AI Agent Hub As AI Governance Reaches The Boardroom — Yahoo Finance](https://finance.yahoo.com/technology/ai/articles/sap-xtra-sap-launches-ai-121416189.html)*
