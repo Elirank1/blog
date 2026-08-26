@@ -1,0 +1,114 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "The Receipt Is Not the Permission Slip."
+description: "Fortune ran a piece this week with a headline that does most of the work: 'Google can track exactly how your agent spends your money — but it's no help when it buys something you didn't approve.' Google shipped Agent Payments Protocol — a perfect ledger of what the agent spent. That is the receipt. It does not tell you whether the agent had permission to buy that thing, on whose authority, or where the record of the authorization lives. That is the permission slip. Google shipped the receipt. Nobody shipped the permission slip. Senator Warner formally introduced S.5051 on July 21 — the AI AGENT Act — defining a 'custodial user agent' as one authorized to act for a user in a 'transparent, documented, limited and revocable manner,' requiring real-time records of actions AND directing NIST to specify protocols for verifying that a user delegated authority to an agent. Two records. Not one. Every layer currently deployed in production for agent oversight — identity providers, access management, payments protocols, audit logs — captures what happened. None captures what was authorized. That is the accountability gap. Fortune named it. Warner's bill will require it. NIST will be asked to standardize it. Somebody has to build the second record. That is where we have been."
+pubDate: 2026-08-26
+tags: ['ai', 'ai-agents', 'accountability', 'coordination', 'infrastructure', 'regulation', 'ai-agent-act', 'nist', 'google', 'deeplica']
+heroImage: /blog/images/heroes/2026-08-26-the-receipt-is-not-the-permission-slip.jpg
+---
+
+Fortune ran a piece this week with a headline that does most of the work for me:
+
+*"Google can track exactly how your agent spends your money — but it's no help when it buys something you didn't approve."*
+
+Read that again.
+
+That is not a story about Google. It is a story about a class of infrastructure that every major vendor has spent three years shipping — and one Fortune headline just named the gap the whole category was pretending did not exist.
+
+Google's Agent Payments Protocol — AP2 — is a perfect ledger of what your agent spent. Amount. Timestamp. Merchant. Transaction ID. Signed, tamper-evident, auditable end-to-end.
+
+That is the receipt.
+
+The receipt does not tell you whether the agent had permission to buy that thing, on whose authority, or where the record of the authorization lives.
+
+That is the permission slip.
+
+Google shipped the receipt. Nobody shipped the permission slip.
+
+## Two records. Not one.
+
+Fortune noticed. So did Senator Mark Warner.
+
+On July 21 he formally introduced S.5051 — the AI AGENT Act. It defines a "custodial user agent" as one authorized to act for a user in a "transparent, documented, limited and revocable manner." It requires such agents to keep "real-time records of actions taken." And it directs NIST to identify protocols "for verifying that a user delegated authority to an agent and for keeping auditable records of the actions."
+
+Read that again too.
+
+Two records. Not one.
+
+The record of what the agent did — Google has that. Stripe has that. Adyen has that. Every payments API has had that for a decade.
+
+The record of what the user delegated — nobody has that. Not as infrastructure. Not as a layer that survives across sessions, across agents, across vendors, across the moment the conversation ended.
+
+Warner's bill is telling NIST to specify the missing one.
+
+## Every layer that already exists captures the wrong thing
+
+Look at what is actually deployed in production right now for agent oversight.
+
+- **Identity providers** — Okta, Auth0, Entra — tell you *who* the agent is.
+- **Access management** — SSO, and Okta's Agent SSO which went GA two days ago — tell you *what* the agent can reach.
+- **Payments protocols** — AP2, Stripe, Adyen — tell you *what* the agent transacted.
+- **Audit logs** — CloudTrail, Datadog, every SIEM — tell you *what* actions ran.
+
+None of these tell you what the user authorized. They tell you what happened. Then they log it.
+
+Authorization — the specific claim that "user X permitted agent Y to do action Z under condition W" — has nowhere to live. It exists in the moment of the conversation and then evaporates. The action fires. The receipt gets logged. If the wrong thing was bought, you have a perfect record of the wrong thing and no evidence chain back to *did the user actually consent to this specific action, in this form, at this price, from this merchant?*
+
+Every vendor in the stack ships the layer they can ship. None of them is at the layer that answers that question, because none of them own the substrate that would hold it.
+
+That is the accountability gap. Named plainly.
+
+## Why every existing layer will fail this test
+
+The last decade of SaaS taught the industry a very specific pattern: log everything, and you will have accountability. It worked, because in SaaS the *user* was the actor. If a user clicked something, the log of the click was the accountability trace. No further layer required. The click was the authorization *and* the action.
+
+Agents break that pattern.
+
+The agent is the actor. The user was the authorizer. Those are two different roles, at two different points in time, held by two different entities, with two different obligations. Logging what the agent did captures one of them. It does not capture the other.
+
+You cannot patch this by adding more logs. You cannot patch it by adding another identity provider or another audit trail. Those layers are structurally downstream of the missing one. They observe the action. They cannot reconstruct the permission that preceded it, because the permission was never written into any persistent artifact — it lived in a chat window that has since scrolled off the screen.
+
+The gap is not a missing feature. It is a missing layer.
+
+## What Fortune, Warner and NIST are all pointing at
+
+Fortune's Google-can-track-but-cannot-verify framing.
+
+Warner's two-records requirement.
+
+NIST's forthcoming charter to specify protocols for "verifying that a user delegated authority to an agent."
+
+All three are pointing at the same layer. None of them is pointing at a product feature. They are pointing at infrastructure that has to exist above every agent, every payments protocol, every identity provider, every audit log — the layer that binds "authorization at time T" to "action at time T+n" and keeps the two connected across whatever agent, whatever session, whatever vendor stack the action passes through.
+
+That is the layer that lets you answer, in one lookup, when the wrong thing gets bought: *did the user authorize this specific action, and if not, at what point did the agent step outside the boundary?*
+
+Google's AP2 cannot answer that. AP2 does not hold the authorization — it holds the transaction that resulted from an authorization it never saw. Okta's Agent SSO cannot answer that either. Agent SSO knows the agent had a valid identity and a valid token; it does not know whether the *specific action* the agent took was in scope for the *specific consent* the user gave.
+
+The receipt says what happened. It does not say whether it was allowed.
+
+## The layer above the layer
+
+The word coordination has been getting stretched to cover a lot of ground lately. Routers get called coordination layers. Identity registries get called coordination layers. Payments protocols get called coordination substrates. Three days ago I wrote about Salesforce shipping a router and calling it coordination.
+
+This is the same category error at a different tier of the stack.
+
+A permission slip is not a receipt.
+A router is not a coordinator.
+An identity is not an authorization.
+A log is not an evidence chain.
+
+Each of these confusions is the same shape. A layer that produces one artifact is presented as if it produces a different, related, upstream artifact. The two look adjacent. They are not the same. The distance between them is the accountability gap.
+
+## What changes now
+
+Fortune has named it. Legislation will require it. NIST will get charter to standardize it. The gap is now on the agenda of the U.S. federal government, in a bill from a senior member of the Senate Intelligence Committee, with a mandate to a Tier-1 standards body.
+
+That is the ceiling moving. Six months ago this framing lived in a small number of blogs and a few product roadmaps. Today it is in Fortune, in Congress, and on the way to NIST.
+
+Somebody has to build the second record.
+
+That is where we have been.
+
+---
+
+*Deeplica is building the coordination layer for the agent era — the infrastructure that holds what was authorized, what was committed, whether it was fulfilled, and where the record lives. So when the agent acts, the permission slip is not a stale conversation in a chat window.*
