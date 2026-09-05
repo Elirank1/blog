@@ -1,0 +1,60 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "Every Agent Can Now Call Docusign. That Isn't Coordination."
+description: "Docusign announced September 4 that its MCP server goes generally available to every agent on September 30 — Claude, ChatGPT, Gemini, Copilot, Slack, any MCP client. The press release calls it the Agreement Layer for the Agentic Enterprise. The distribution is real and defensible. The substrate underneath it is missing. An agreement layer captures the signed artifact. A coordination layer captures the commitment stream that led to it — and the parallel commitments other agents are still making on the same relationship. Docusign built a good API and correctly named a real need. Then it took the word Layer and made a marketing claim about horizontal infrastructure. Two agents at the same enterprise will sign contradictory renewals through the same MCP endpoint, both cleanly authorized, both captured in the audit, and nothing in the current stack will have flagged the collision before the second signature. That is where the accountability gap lands in production. Not as an incident. As a spread — between what any given agent thinks was agreed and what the organization has actually committed to across all its agents."
+pubDate: 2026-09-05
+tags: ['ai', 'ai-agents', 'accountability', 'coordination', 'infrastructure', 'mcp', 'docusign', 'deeplica']
+heroImage: /blog/images/heroes/2026-09-05-every-agent-can-now-call-docusign-that-isnt-coordination.jpg
+---
+
+Docusign announced on September 4 that its Model Context Protocol server goes generally available to every agent on September 30. Claude, ChatGPT, Gemini, Copilot, Slack — any MCP client — will be able to call Docusign natively. Not through an integration. Not through a wrapper. Through the same protocol every other capability is being exposed through this year.
+
+The press release calls it the *Agreement Layer for the Agentic Enterprise*. That is a marketing claim about horizontal infrastructure. It is also worth taking seriously, because Docusign is right that agents need a shared surface for agreements, and it is genuinely useful that they will now have one.
+
+The problem is the word *Layer*.
+
+An agreement layer is a specific execution surface — one artifact type (signed contracts), one governance model (Docusign's), one moment of the workflow (the signature). A coordination layer is the substrate everything above it depends on — the memory of what any agent has committed to, on whose authority, and whether the commitment is still open. The two do different jobs. They are not the same layer. Shipping the first does not deliver the second.
+
+## What the announcement actually does
+
+Read the release literally, not aspirationally. Docusign exposed Iris — its contract-intelligence engine — through MCP. Any agent can now query prior negotiations, accepted terms, and company policy. Any agent can trigger a workflow that produces a signed document. Any agent can pull the audit trail on the final artifact. That is a real capability, and Docusign is a defensible place for it to live. Contracts are their vertical. The context they hold is deep.
+
+Six platforms are named in the launch. Multiply that by the number of agent instances each will run in production, and by the number of counterparties any given enterprise contracts with. What Docusign built is a *fan-in* — a single API endpoint that every agent, on every platform, in every enterprise, will call when the workflow ends in a signature.
+
+That is a distribution achievement. It is not a memory achievement.
+
+## What coordination would actually require
+
+Consider a mundane sequence. A procurement agent inside a Fortune 500 negotiates a renewal in a Slack thread with the vendor's account agent. They land on price, term, and one custom clause. The procurement agent tells the vendor, in the thread, "we're good — send it over." Two hours later a different agent in the same organization — an operations agent watching a different dashboard — sees an anomaly, decides the renewal is a risk, and reaches out to the vendor to renegotiate. The vendor's account agent, having no memory of the Slack commitment, engages. A new price is agreed. The document is drafted through Docusign's MCP. A signature is captured. The audit trail is clean.
+
+Which of those commitments is the real one? The signature says one thing. The Slack thread says another. Both are records. Neither knows about the other.
+
+Docusign captured the artifact. It did not capture the *commitment stream* that led to the artifact, and it cannot capture the parallel commitments other agents are still executing on the same relationship. The agreement layer sees the moment of signature. The coordination layer would see the graph — every open commitment on that vendor relationship, made by any agent, on any surface, with the state of each still visible when the next agent decides whether to act.
+
+The signature is the last event in that graph. It is not the graph.
+
+## The distinction the industry keeps flattening
+
+This is the same failure mode we have named twice this quarter, in different vendors' language. In August it was Salesforce shipping Agentforce 360 and calling its model router "coordination." Last week it was Accenture and Wharton naming the accountability gap and prescribing "own the outcomes harder" as the fix. Now it is Docusign shipping a genuinely well-designed API surface and calling it the *Agreement Layer* — as if the definite article and the capital L do the structural work.
+
+Every one of these announcements is a real capability. The router routes. The advice is decent leadership advice. The MCP server is going to be widely useful. None of them is coordination.
+
+Coordination is what has to be true across all of them simultaneously. When the router sends the query to the right model, when the leader owns the outcome, when Docusign captures the signature — coordination is the fact that any *other* agent, on any *other* surface, at any *later* moment, can query what was decided, by whom, under what authority, and whether that decision is still open. It is horizontal because the failure it prevents is horizontal. Two agents committing the same organization to contradictory things is not a Docusign problem. It is not a router problem. It is not a leadership problem. It is a substrate problem.
+
+## Where enterprises will notice
+
+The way this shows up in production is not a dramatic incident. It is drift.
+
+The first quarter Docusign MCP is live at scale, some enterprise will discover that its procurement agent and its finance agent have signed two subtly different renewal terms with the same vendor — one through Copilot, one through Claude, both routed through Docusign, both properly authorized, both captured cleanly in the audit. The vendor will invoice under the friendlier one. The enterprise will pay it. The variance will surface in a reconciliation weeks later, if at all.
+
+The audit will show two clean signatures. It will not show that both agents thought they were closing the same negotiation. There will be no incident report to write, because nothing was breached. Just a quiet, structural loss — the kind that keeps compounding as agent density grows and no one owns the substrate that would have flagged the collision before the second signature happened.
+
+Multiply by every enterprise now standing up multiple agent platforms. This is where the accountability gap actually lands. Not as a fine. As a spread — between what any given agent thinks was agreed and what the organization has actually committed to across all its agents.
+
+## The layer that is still missing
+
+Docusign built a good API. That is a distribution story, and it will succeed as a distribution story. It should not be confused with the substrate that has to sit *underneath* it and every other vendor's MCP — the shared record every agent consults before it decides to act, the memory of open commitments that survives platform, surface, and time.
+
+That layer is horizontal. It cannot be built by any vendor whose vantage is a single artifact type, and it will not emerge from the sum of vertical MCP endpoints stitched together. It has to be built as its own thing. The reason no incumbent has shipped it is that no incumbent's product surface reveals its absence — every vendor sees exactly the slice they instrument. The absence is only visible from the position of a company whose entire premise is the substrate.
+
+That is where we have been.
