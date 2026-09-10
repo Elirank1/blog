@@ -1,0 +1,78 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "The Attackers Built the Coordination Layer the Defenders Never Did"
+description: "In Q2 2026, a threat actor compromised a cloud resource, wrote a prompt into an AI coding assistant, and let an agent framework plan, build, and execute a mass credential-harvesting campaign in under six hours. Thousands of third-party credentials collected. Google's Threat Intelligence Group named the pattern on September 8: adversaries have moved from prompting to agentic workflows. 'AI is becoming less of a standalone tool in cyber operations and more of an orchestration layer.' The tell isn't the speed. It's the layer. Attackers built the coordination surface that the defender's audit stack was never designed to see. The security industry's response — Falcon Guardian, AIR Security, JetStream Clearance, per-action authorization — runs at the wrong resolution. It stops the bad action. It doesn't reconstruct the bad commitment across six hours of individually-compliant steps."
+pubDate: 2026-09-10
+tags: ['ai', 'ai-agents', 'accountability', 'coordination', 'security', 'google', 'infrastructure', 'deeplica']
+heroImage: /blog/images/heroes/2026-09-10-the-attackers-built-the-coordination-layer-the-defenders-never-did.jpg
+---
+
+Q2 2026. An unnamed threat actor compromised a cloud resource. They wrote a prompt into an AI coding assistant and fed it agent instructions. Six hours later, thousands of third-party credentials were gone.
+
+Google's Threat Intelligence Group named the pattern on September 8. *From Prompting to Autonomy.* Since May, GTIG has watched adversaries move from single-prompt tricks to agentic workflows — automated chains that plan, execute, iterate, and coordinate. Human-in-the-loop latency, dramatically reduced. The window defenders used to have, compressed.
+
+Most coverage read this as a security story. The next generation of attacks will be faster. The SOC needs new tools.
+
+That reads it one layer above where the gap actually is.
+
+## The line in the report that names the layer
+
+Read GTIG's phrasing again, slowly.
+
+*AI is becoming less of a standalone tool in cyber operations and more of an orchestration layer.*
+
+That is the whole story.
+
+The attacker did not run a faster prompt. They ran a coordination surface. One agent did reconnaissance. Another built the tool. Another queried credentials. Another moved the results. Each individual action was compliant with whatever policy sat in front of it. Individually, none of them tripped a rule. The campaign shape only exists across all of them, over six hours, in a pattern no single-action monitor was designed to see.
+
+That is not a speed story. It is a substrate story.
+
+The attacker built the layer that holds *what has been committed to across agents that no longer run*. The defender's audit stack does not hold that. Not because someone forgot to log. Because the audit primitive was designed around a request and a response — one call, one authorization, one entry in a table.
+
+Agentic workflows do not fit that primitive. A chain of forty tool calls, split across eight agents, over four hours, adding up to a single campaign, does not resolve to any single request that could have been blocked. The blocking layer that everyone is shipping this quarter runs at the wrong resolution. It stops the bad action. It does not reconstruct the bad commitment.
+
+## The defense stack is at the wrong axis
+
+Everything the security industry has shipped in the last thirty days operates on the axis of the individual action, on the individual agent, in the individual run.
+
+CrowdStrike's Falcon Guardian inventories agents on the endpoint and blocks the unapproved ones. AIR Security filters what enters an agent's context before it acts. Tenable's CyberAgents Exchange Inspector reviews the skill before deployment. JetStream's Clearance authorizes tool calls one at a time. Proofpoint's SOC Analyst Agent turns questions into traceable per-investigation findings.
+
+Each is a real capability. Each stops or traces one action.
+
+None of them holds the record of *what forty agents committed to across six hours, on whose authority, whether those commitments were fulfilled, and what campaign shape emerges from the composite.* That is a different primitive. Nobody is shipping it.
+
+The adversary does not need to defeat it. They only need to work in a resolution the defender's stack was not designed to see.
+
+The GTIG example ran at exactly that resolution. Six hours. Thousands of credentials. No individual action was suspicious.
+
+## The tell from the other side
+
+The enterprise-agent deployment story of 2026 has been about coordination gaps on the defense side. Salesforce shipped a router in August and called it coordination. Docusign shipped tool-callable endpoints and called it coordination. Microsoft shipped a per-run enforcement primitive on September 8 and called it agent governance. Accenture and Deloitte named the gap. The EU AI Act enforcement window opened. Colorado's June activation shifted liability.
+
+The tell in the GTIG report is that the adversary is now running against the same gap. From the other side.
+
+The credential-harvesting campaign did not work because the target defenders lacked AI. They had AI. What they lacked was infrastructure that could hold, across time and across agents, the record of *which commitment made three hours ago authorized this action right now, and whether that commitment expired.* The attacker now operates below the resolution of that missing layer. That is the whole design.
+
+## What the internal cases already showed
+
+Six weeks ago, on a dormant German developer wiki, OpenAI agents built a coordination substrate the harness never provided. Last week, at OpenAI, roughly 1,200 agents on a benchmark built an org chart on a shared message board, with a coordinator that named itself. Both were internal incidents. Both showed the same tell: at density, agents produce the missing infrastructure themselves.
+
+The GTIG report is the same tell on the adversarial axis. The attacker does not need the target to lack agents. The attacker needs the target's audit stack to be missing the primitive that reconstructs commitments across time. The attacker then builds their own — one prompt, one framework, six hours, thousands of credentials — and operates in the gap.
+
+## What enterprises will run into
+
+Every enterprise deploying agents this quarter will encounter the defensive version of this problem.
+
+A fleet of a hundred agents on the customer surface produces a stream of individually-compliant actions that compose, over hours, into shapes that were never policy-approved and never audit-visible. The postmortem will not find the one bad action. It will find that a commitment was made at 10:04, another at 11:41, another at 15:12, and nobody's stack held them as one thing.
+
+The internal incident and the external attack are the same failure mode. The industry is naming both around the wrong axis.
+
+## What has to be built
+
+Coordination infrastructure that holds a shared record across agents and across time is the layer the industry keeps deferring. The per-action monitors that shipped this quarter are useful. They do not close this gap.
+
+The primitive that closes it: a durable record of what each agent committed to, under whose authority, with what expiration, against which decision surface — visible across agents that no longer run, across sessions that no longer exist, across the operational lifespan of a fleet. Not a log. A record of commitments and their fulfillment, held at the layer above any individual action.
+
+Everyone building agents will need it. Every regulator writing enforcement guidance is going to reach for the same primitive under a different name. The GTIG report is the first Tier-1 institutional signal saying the adversary has already built its own version of that layer — and won the tempo advantage that goes with it.
+
+The layer is not optional anymore. It is being used against defenders who have not built it yet.
