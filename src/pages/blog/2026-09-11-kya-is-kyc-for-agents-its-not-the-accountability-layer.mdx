@@ -1,0 +1,98 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "KYA Is KYC for Agents. It's Not the Accountability Layer."
+description: "On September 10 in São Paulo, Ant International, Visa, and Mastercard announced a Know-Your-Agent interoperability framework — aligning Visa's Trusted Agent Protocol, Mastercard's Verifiable Intent, and Ant's Agentic Mobile Protocol into a shared identity standard for agents in commerce. McKinsey pegs the addressable market at three to five trillion dollars of consumer commerce orchestrated by agents by 2030. The framework arrived with executive statements about trust, accountability, and preserving consent. Read the technical specs — Mastercard's Verifiable Intent is open-sourced at verifiableintent.dev and Visa's TAP is on GitHub — and the layer being shipped comes into focus. KYA answers whether an agent is real, whose user it represents, on what authority, with what credential. Mastercard's Verifiable Intent extends that to per-transaction fulfillment records. Neither answers what an agent committed to across seventeen transactions over four days on user authorization that may or may not still be valid. Payments already solved this problem once. It took KYC to hold identity and transaction monitoring to hold behavior across time — separate infrastructures because one cannot substitute for the other. KYA is agent KYC. The transaction-monitoring equivalent for multi-transaction agent commitments does not exist yet. Payment rails named one layer on Wednesday. The commitment layer above it — the shape the AI AGENT Act's custodial-user-agent framework explicitly asks for — is still missing."
+pubDate: 2026-09-11
+tags: ['ai', 'ai-agents', 'accountability', 'coordination', 'infrastructure', 'payments', 'agentic-commerce', 'deeplica']
+heroImage: /blog/images/heroes/2026-09-11-kya-is-kyc-for-agents-its-not-the-accountability-layer.jpg
+---
+
+On September 10 in São Paulo, Ant International, Visa, and Mastercard announced that their three competing agent-authentication protocols will interoperate under a shared framework called Know-Your-Agent. Visa's Trusted Agent Protocol has twelve partners including Shopify, Stripe, and Adyen. Mastercard's Verifiable Intent, co-developed with Google and open-sourced in March, uses layered SD-JWT credentials to bind identity, intent, and fulfillment. Ant's Agentic Mobile Protocol sits inside a wallet ecosystem that moved thirteen trillion dollars in 2025.
+
+The announcement is real. Three networks that had every reason to hold their own standards agreed to make them talk to each other. Coordination among incumbents is not nothing.
+
+The framing around it is doing a different kind of work.
+
+Pablo Fourez of Mastercard: "Interoperability across Know-Your-Agent frameworks is essential to making agentic commerce work at scale, giving merchants, platforms, wallets and issuers a consistent way to recognise trusted agents, verify that actions reflect the user's intent, and preserve accountability across the transaction."
+
+Read that again. *Across the transaction*.
+
+## What the spec actually holds
+
+The strongest version of the KYA stack is Mastercard's Verifiable Intent. Because it is open-sourced, we can see what layer it operates on.
+
+Layer 1 is an SD-JWT that binds a user's identity to a public key. Long-lived — the spec says on the order of a year. This is the KYC-equivalent for the human on whose behalf the agent will act.
+
+Layer 2 is a mandate. The user's key signs an intent — either the exact terms of the purchase they want executed, or the constraints under which an autonomous agent may act. This is the moment of delegation.
+
+Layer 3 exists only in autonomous mode. The agent signs short-lived, key-bound tokens that present the fulfillment details of a specific transaction — one for the payment network, one for the merchant.
+
+Read that architecture literally. Layer 1 says who. Layer 2 says what was authorized. Layer 3 says what happened, at the moment it happened, at the resolution of a single completed purchase.
+
+Now ask the question the spec does not answer: *what is the durable record of a Layer 2 mandate across the many Layer 3 events it may license, over the many hours or days it may remain live, in the presence of Layer 3 events that got close to the mandate boundary but were within it, and in the presence of a user who has since revoked the authority the mandate rested on?*
+
+There is no place in the architecture that holds that record. The mandate is signed once. The fulfillment token is short-lived. Nothing between them carries state.
+
+That is not an oversight. Verifiable Intent is a payment-transaction credential. It was designed to make one transaction verifiable at the moment it clears. It does that well. It was not designed to hold a commitment across time.
+
+## Payments already ran this experiment once
+
+The financial system has been here before. It solved it with two separate infrastructures.
+
+KYC verifies that a person is who they say they are, at account opening, and periodically thereafter. It is an identity primitive. It does not watch what the person does.
+
+Transaction monitoring watches what accounts do across time. It notices when a pattern crosses a rule — structuring, unusual velocity, atypical geography, sanctions exposure. It runs continuously. It does not verify identity — that's KYC's job. It watches behavior across time — that's a different job.
+
+Regulators require both. Not because banks were unclear. Because the two primitives sit at different layers of the stack and neither replaces the other.
+
+KYA is agent KYC. The specs make this precise. What sits above it — the equivalent of transaction monitoring for agent commitments — has not been shipped. It is not in Verifiable Intent, it is not in TAP, it is not in AMP, and the interoperability announcement did not add it.
+
+## What "the transaction" is not shaped for
+
+The commerce use cases the industry is actually pointing at do not resolve to single transactions.
+
+A shopping agent watches four vendors for two weeks and buys when a threshold hits. That is a standing mandate over many possible transactions. KYA can prove the eventual purchase was made by the authorized agent on behalf of the user. It cannot answer whether the user's authority was still live at the moment, whether the other three vendors' equivalent buys were tracked as competing against the same budget, or whether the mandate expired because the user withdrew it half a day earlier and only one wallet got the memo.
+
+A travel agent coordinates flight, hotel, car, and insurance across four different merchants, with sub-agents specializing on each leg. KYA can authenticate each leg individually. It does not hold the composite commitment — what was the trip supposed to cost as one thing, which sub-agent is accountable for the fact that the composite drifted past the ceiling because two legs each individually cleared, whose authority to accept the drift was invoked, and what event closed the composite.
+
+A subscription-management agent operates a standing rule: cancel anything that goes past fifty a month, notify me before renewals. KYA can prove that any cancellation the agent executes is on the user's behalf. It cannot hold the fact that the standing rule is still active six months from now, that the agent responsible for enforcing it has changed twice, that a sub-agent skipped a renewal because a race condition caused it to think another sub-agent was handling it, and that the composite commitment — *the rule* — is now uncertain.
+
+These are the commitment shapes agentic commerce actually produces. The spec is not built for them because the spec is built for the transaction.
+
+## The regulatory frame is on the other layer
+
+While payment rails converge on identity, the legislative pressure is on the layer above it.
+
+Senator Warner's AI AGENT Act, introduced as S.5051 in July, defines a *custodial user agent* — an AI agent entrusted with acting on behalf of a consumer. The bill imposes non-waivable duties of care and loyalty on providers of such agents. Providers must *maintain records of an agent's activities* — plural, over time — and must not transfer delegated authority to another party without the user's consent. NIST is directed to develop standards for real-time consent delegation and revocation that are scope-limited and verifiable across the life of the delegation.
+
+That framework is not describing identity. It is describing a commitment ledger — a durable record of what the agent committed to, on whose live authority, whether the authority was ever transferred, and whether the commitment was fulfilled inside its scope. It is what transaction monitoring is for banks, adapted to agents.
+
+Two forces are naming two different layers this week. Payment networks named the identity layer. The Senate discussion draft named the commitment layer. The industry is calling both of them accountability. They are not the same thing.
+
+## What enterprises will run into
+
+The failure mode is not that KYA will not work. KYA will work. The failure mode is that the industry will treat KYA's success as sufficient — will point at the framework, at the interoperability, at the *trusted agent* stamp, and assume the accountability question is solved.
+
+The accountability question is not solved. It is displaced.
+
+An enterprise deploys a fleet of agents on the consumer surface. Every action is KYA-authenticated. Every purchase is verified through Verifiable Intent. The audit trail on any single transaction is clean.
+
+Six months in, the postmortem for a customer complaint reads: *At 10:04 on Tuesday, agent A committed to a refund policy for this customer that extended beyond the standard window. On the following Thursday, agent B — a different instance, on a different sub-surface — enforced the standard window instead, unaware the earlier commitment existed. Both actions were within their KYA mandates. Both were verified. The customer's file has two contradictory commitments from the same organization, each authenticated to the same brand, and no one is the accountable party for the composite.*
+
+That is the accountability gap in production. Not identity failure. Commitment collision. And the KYA layer has nothing to say about it, because commitment collision is a layer above where KYA operates.
+
+Enterprises will discover this after they have already deployed against the framework. That is when the deferred layer starts costing real money.
+
+## What has to be built
+
+Coordination infrastructure that holds commitments as first-class objects — durable across sessions, portable across agents, scoped to the authority live at the moment the commitment was made, and traceable as *one thing* across the many transactions that may eventually compose it — is the layer that closes what KYA cannot.
+
+Not another credential. Not another badge. A record of *what the organization has committed to across all of its agents, over time, on whose live authority, and whether each commitment is still open*.
+
+The payment networks needed forty years to build the two-layer stack — KYC underneath, transaction monitoring on top — that keeps the retail financial system honest. Agentic commerce does not have forty years. The commitment layer that transaction monitoring is the analog of, adapted to agents, is what regulators are now asking for and what the São Paulo framework did not deliver.
+
+KYA is what happens when the industry finally admits agents need identity primitives of their own. That is a real step. It is not the last one.
+
+Read Fourez one more time: *preserve accountability across the transaction*.
+
+Accountability across the transaction is a real capability. Accountability across the commitment is a different one. Nobody named it in São Paulo. It is the layer that has to come next.
