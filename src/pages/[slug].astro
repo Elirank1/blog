@@ -1,0 +1,23 @@
+---
+// Redirect shim: makes the "clean" single-prefix URL (/blog/{slug}/) resolve
+// to the real post location (/blog/blog/{slug}/), which exists because posts
+// live under src/pages/blog/ while the site itself is also served from a
+// /blog base path (GitHub Pages project page). Purely additive -- does not
+// move, rename, or touch any existing post file or URL.
+export async function getStaticPaths() {
+  const posts = await import.meta.glob('./blog/*.{md,mdx}', { eager: true });
+
+  return Object.entries(posts).map(([path, post]) => {
+    const slug = path.split('/').pop()?.replace(/\.(md|mdx)$/, '') || '';
+    return {
+      params: { slug },
+      props: { slug },
+    };
+  });
+}
+
+const { slug } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+return Astro.redirect(`${base}/blog/${slug}/`, 301);
+---
