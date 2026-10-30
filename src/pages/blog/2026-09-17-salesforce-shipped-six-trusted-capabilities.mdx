@@ -1,0 +1,82 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "Salesforce Shipped Six Trusted Capabilities. The Seventh Is the Real One."
+description: "At Dreamforce 2026, Salesforce named the architecture out loud. The Trusted Enterprise AI Harness organizes six named capabilities — Context, Agency, Action, Governance, Security, Models — under one platform, with MuleSoft Agent Fabric as the control plane that discovers, governs, orchestrates, and observes any agent from a single pane. WSO2 shipped its own open-source Agent Manager forty-eight hours earlier under the same 'control plane' framing. Forrester now catalogs the category as the Agent Control Plane Landscape. The naming has hardened. Read the six capabilities literally and the missing seventh comes into focus. Context, Agency, Action are pre-run. Governance, Security, Models are per-run. All six are inside the walls of a single agent execution. None of them is the durable record of what any agent committed to across many runs, on whose live authority, and whether the commitment was closed. Salesforce also named the atom of agent work — the Agentic Work Unit, defined as one discrete task: a prompt processed, a reasoning chain completed, a tool invoked. Read that definition. AWUs are units of activity. They are not commitments. The industry is now shipping observability of the run and calling it accountability across the enterprise. Two are not the same thing. The seventh capability — the commitment ledger — is what closes the gap. Nobody shipped it this week."
+pubDate: 2026-09-17
+tags: ['ai', 'ai-agents', 'accountability', 'coordination', 'governance', 'salesforce', 'mulesoft', 'infrastructure', 'deeplica']
+heroImage: /blog/images/heroes/2026-09-17-salesforce-shipped-six-trusted-capabilities.jpg
+---
+
+Salesforce spent Dreamforce naming the architecture out loud.
+
+The Trusted Enterprise AI Harness is a platform now. Six capabilities under one roof: Context, Agency, Action, Governance, Security, Models. MuleSoft Agent Fabric is the control plane — a "single pane of glass to register, manage, govern, and observe all of your agents and MCP endpoints," discovering Azure, AWS, Google, and third-party agents alongside Agentforce, and reporting latency, error rates, policy violations, request volume, and cost per agent. Forty-eight hours earlier, WSO2 shipped its own open-source Agent Manager under the same "control plane" framing. Forrester now catalogs the category as the *Agent Control Plane Landscape*. IBM's watsonx Orchestrate plugs into the fabric as this year's Salesforce Partner-of-the-Year integration.
+
+The naming has hardened in a week. Six capabilities. One control plane. Every hyperscaler and analyst on the same word.
+
+Read the six capabilities one more time. Notice what is not there.
+
+## Six inside the run. None across it.
+
+Context, Agency, Action are pre-run: what the agent knows, what it is allowed to do, what it can invoke. Governance, Security, Models are per-run: the policies applied, the guardrails enforced, the model that answers. All six sit inside the walls of a single agent execution.
+
+None of them is the durable record — across runs, across agents, across the days a commitment stays live — of what the agent committed to, on whose authority, when, and whether the enterprise ever got it.
+
+That is the seventh capability. It is not a variation of any of the six. It sits on a different axis. Context is state going in. Action is what happens. The seventh is *the record of what was owed at the end and whether it closed*. Nothing in the harness holds it.
+
+The industry keeps building the six because the six are visible inside a run. Observability tools can see them. The seventh is invisible inside any single run by design — it is only legible when you look at the sequence. So the tools that only see the run cannot see it, cannot ship it, and cannot govern it. They ship what they can measure, and call the sum accountability.
+
+## The Agentic Work Unit is the tell
+
+Salesforce did not just ship the harness. It shipped the accounting unit for the harness. The Agentic Work Unit, disclosed in February, formalized this week: *one discrete task accomplished by an agent — a prompt processed, a reasoning chain completed, or a tool invoked*. Salesforce reported cumulative AWUs jumping from 2.4 billion to 7 billion inside two quarters.
+
+Read the definition literally. An AWU is a unit of activity. It counts what the agent did. It does not count what the agent *owed*.
+
+That distinction is not semantic. A commitment is an obligation across time. It is opened by an act — an approval, a promise, a rule set — and closed by a different act, possibly minutes later, possibly weeks later, possibly by a different agent, possibly under authority that has since been revoked. Between opening and closing, it sits in a state. That state is the accountability unit. Not the prompt. Not the tool call. The obligation the enterprise now carries.
+
+An enterprise measuring AWU is measuring how hard its agents worked. It is not measuring what the organization currently owes across all of them.
+
+You cannot govern what your accounting unit does not name. The AWU names the wrong thing precisely, which is worse than not naming it at all.
+
+## N=2 in one week, and a Forrester category
+
+The reason to name this now is that the framing consolidated in seven days.
+
+Sep 15: WSO2 Agent Manager GA, "open control plane" for AI agent sprawl, positioned as sovereign governance across framework, model, and deployment. Sep 16: Salesforce's Trusted Enterprise AI Harness lands as a platform, MuleSoft Agent Fabric announced as its integrated control plane. Sep 17: Forrester's *Agent Control Plane Landscape, Q2 2026* is now the analyst reference.
+
+Two vendors on adjacent days. One analyst category codifying it. IBM slotting in. The market has a name for the layer, and the name is *control plane*. When the market has a name that fits, it stops looking for the layer above.
+
+That is what is dangerous about this week. Not the products. The products are real. The consolidation of language — control plane = coordination — freezes the category before the missing layer gets built. Enterprises will buy the control plane, tick the governance box, and discover the gap in production, not in procurement.
+
+## What breaks after the box is ticked
+
+The failure mode is not that Agent Fabric will not do what it claims. It will. Its policies will fire, its guardrails will hold, its observability will show every latency spike and cost anomaly on a live dashboard. Every AWU will be counted. The audit trail on any single agent-run will be clean.
+
+The failure mode is on the composite.
+
+An agent commits, on Tuesday, to a refund policy for a customer that extends past the standard window. It runs inside the harness. Every gate passes. The AWU is logged. The commitment enters the world.
+
+On Thursday, a different agent — same organization, different sub-surface — encounters the same customer and applies the standard window instead. It also runs inside the harness. Every gate also passes. Every AWU is also logged.
+
+Both runs are clean. The observability dashboard shows nothing wrong. The audit trail on each is complete. The customer's file has two contradictory commitments from the same brand. Nobody is the accountable party for the composite. Nothing on the control plane holds *the record of Tuesday's promise* in a form the Thursday run could have queried.
+
+Multiply that shape across a fleet, across weeks, across the ~7 billion AWU per quarter Salesforce is already reporting, and you have the actual accountability gap. Not a policy failure. A commitment collision. At scale. With no infrastructure that holds the objects that would let you see it.
+
+## What the seventh capability actually is
+
+The seventh is not another gate inside the run. It is a durable, portable, queryable ledger of commitments, sitting above the run, holding: *what was promised, by which agent, under whose live authority, at what time, with what dependencies, and — until closed — still open*. Reads and writes to the ledger are first-class. Every agent, every run, every human touching the surface reads the same state.
+
+That layer has no vendor at Dreamforce. WSO2 does not ship it. MuleSoft Fabric does not ship it. Forrester's category does not describe it.
+
+The AI AGENT Act — Warner's S.5051 — is asking for it in words. *Providers must maintain records of an agent's activities, must not transfer delegated authority without consent, and NIST must standardize scope-limited consent delegation and revocation verifiable across the life of the delegation.* Read literally, that is a commitment ledger, not a control plane. The Senate discussion draft is describing the seventh capability. The industry is shipping the first six and calling the job done.
+
+## The next twelve months
+
+The playbook of the next year is now legible.
+
+Enterprises will buy the control planes. They will deploy them. They will run pilots inside them. The dashboards will look excellent. Every AWU will land in a category. Every policy will fire.
+
+Somewhere between month four and month nine, the first composite-commitment failure will hit — a customer, a contract, a regulator, or a headline. The internal postmortem will not blame any single agent or run. Every run was clean. The postmortem will name the seventh capability, and it will name it by the shape of what was missing, not by any product name.
+
+That is when the market realizes the harness was the *identity primitive* for agents at scale, and the layer above it — the commitment ledger — is a separate infrastructure. Different vendors. Different axis. Different design.
+
+Salesforce shipped six trusted capabilities and called the sum a harness. The word is doing more work than the architecture. The seventh capability is the one enterprises will actually be measured against. Nobody named it this week. The naming is what has to come next.
