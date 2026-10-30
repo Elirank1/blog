@@ -9,26 +9,32 @@ const personJsonLd = {
   "url": "https://elirank1.github.io/blog/about",
   "sameAs": [
     "https://www.linkedin.com/in/elirankeren",
-    "https://github.com/Elirank1"
+    "https://github.com/Elirank1",
+    "https://deeplica.ai",
+    "https://corpiler.com"
   ],
   "worksFor": {
     "@type": "Organization",
-    "name": "Deeplica.AI",
-    "url": "https://deeplica.ai"
+    "name": "Deeplica Labs",
+    "url": "https://labs.deeplica.ai",
+    "subOrganization": [
+      { "@type": "Organization", "name": "Deeplica.AI", "url": "https://deeplica.ai" },
+      { "@type": "Organization", "name": "Corpiler", "url": "https://corpiler.com" }
+    ]
   },
   "knowsAbout": ["AI agents", "AI infrastructure", "coordination systems", "founder operations", "product strategy", "enterprise AI deployment"],
-  "description": "Founder of Deeplica, building AI-native coordination infrastructure for founders and operators, and writing in public about how companies are actually deploying AI."
+  "description": "Founder and CEO of Deeplica Labs, building Deeplica.AI and Corpiler, and writing in public about how companies are actually deploying AI."
 };
 ---
 
-<BaseLayout title="About | Eliran Keren" description="Founder of Deeplica, building the coordination layer for founders and operators, and writing in public about how companies are actually deploying AI.">
+<BaseLayout title="About | Eliran Keren" description="Founder and CEO of Deeplica Labs, building Deeplica.AI and Corpiler, and writing in public about how companies are actually deploying AI.">
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
 
   <article class="prose prose-lg dark:prose-invert max-w-none" id="about-content">
     <h1>About Me</h1>
 
     <p>
-      I'm Eliran Keren. I'm the founder and CEO of <a href="https://deeplica.ai" target="_blank">Deeplica</a>, where we build AI-native infrastructure for the coordination work that doesn't go away just because the tasks underneath it got automated — the open loops, the context-switching, the operational noise that eats a founder's day without producing anything.
+      I'm Eliran Keren. I'm the founder and CEO of <a href="https://labs.deeplica.ai" target="_blank">Deeplica Labs</a>, the research layer behind two products. <a href="https://deeplica.ai" target="_blank">Deeplica.AI</a> is a personal AI that handles the operational side of a founder's day — scheduling, email, the briefing before a call, the work that eats hours without anyone deciding anything. <a href="https://corpiler.com" target="_blank">Corpiler</a> does the equivalent at the company level: it rebuilds one business function at a time around AI, proves it on real work before anything expands, and keeps authority with the client the entire way through.
     </p>
 
     <p>
@@ -36,7 +42,7 @@ const personJsonLd = {
     </p>
 
     <p>
-      This blog is where I work that question through in public — not as founder-blog war stories, but as the same standard I'd hold anyone else's analysis to: what's confirmed, what's estimated, what's my own read rather than reported fact, and where I've been wrong. Some of this research feeds directly into <a href="https://corpiler.com/" target="_blank">Corpiler</a>, Deeplica's enterprise product — but the writing here comes first, and stands on its own regardless of what we're building.
+      This blog is where I work that question through in public — not as founder-blog war stories, but as the same standard I'd hold anyone else's analysis to: what's confirmed, what's estimated, what's my own read rather than reported fact, and where I've been wrong. The writing here comes first, and stands on its own regardless of what Labs is building at any given moment.
     </p>
 
     <h2>Life Outside Work</h2>
@@ -61,7 +67,7 @@ const personJsonLd = {
           Most AI products answer this by giving you a faster way to generate text or answer questions. That's useful, but it's the wrong frame — the bottleneck isn't speed, it's cognitive load. It's the invisible tax of holding too many things in your head at once.
         </p>
         <p>
-          Deeplica is built around a different idea: what if AI could take ownership of the operational noise itself — track commitments, close loops, maintain context across your tools — so you could focus on the work only you can do? That's what we're building. Not another chatbot. A coordination layer.
+          Deeplica.AI is built around a different idea: what if AI could take ownership of the operational noise itself — track commitments, close loops, maintain context across your tools — so you could focus on the work only you can do? Corpiler is the same idea applied to a company instead of a person: start with one function, prove it on real work in shadow mode before any authority moves, and expand scope only when the evidence supports it. Not another chatbot either way. A coordination layer, at two different scales.
         </p>
 
         <h2>Background</h2>
@@ -78,7 +84,9 @@ const personJsonLd = {
 
     <h2>Get in Touch</h2>
     <p>
-      <a href="https://deeplica.ai" target="_blank">Deeplica</a> ·
+      <a href="https://labs.deeplica.ai" target="_blank">Deeplica Labs</a> ·
+      <a href="https://deeplica.ai" target="_blank">Deeplica.AI</a> ·
+      <a href="https://corpiler.com" target="_blank">Corpiler</a> ·
       <a href="https://www.linkedin.com/in/elirankeren" target="_blank">LinkedIn</a> ·
       <a href="https://github.com/Elirank1" target="_blank">GitHub</a> ·
       <a href="mailto:eliran@deeplica.ai">eliran@deeplica.ai</a>
