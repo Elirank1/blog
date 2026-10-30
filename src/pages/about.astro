@@ -97,23 +97,35 @@ const personJsonLd = {
       <a href="https://github.com/Elirank1" target="_blank">GitHub</a> ·
       <a href="mailto:eliran@deeplica.ai">eliran@deeplica.ai</a>
     </p>
+
+    <p class="corpiler-note">
+      Some of the research on this blog feeds into <a href="https://corpiler.com/" target="_blank">Corpiler</a>, Deeplica's enterprise product.
+    </p>
   </article>
 </BaseLayout>
 
 <style>
-  [data-theme="dark"] #about-content {
+  :global([data-theme="dark"]) #about-content {
     color: #d1d5db;
   }
-  [data-theme="dark"] #about-content h1,
-  [data-theme="dark"] #about-content h2 {
+  :global([data-theme="dark"]) #about-content h1,
+  :global([data-theme="dark"]) #about-content h2 {
     color: #f9fafb;
   }
-  [data-theme="dark"] #about-content a {
-    color: var(--color-accent-dark);
+  :global([data-theme="dark"]) #about-content a {
+    color: var(--color-accent);
   }
-  [data-theme="dark"] #about-content em {
+  :global([data-theme="dark"]) #about-content em {
     color: #e5e7eb;
   }
+
+  .corpiler-note {
+    font-family: 'JetBrains Mono', 'SF Mono', Monaco, Consolas, monospace;
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-top: 1.5rem;
+  }
+  :global([data-theme="dark"]) .corpiler-note { color: #9ca3af; }
 
   .read-more-section {
     margin-top: 2rem;
@@ -133,8 +145,8 @@ const personJsonLd = {
     opacity: 0.8;
   }
 
-  [data-theme="dark"] .read-more-btn {
-    color: var(--color-accent-dark);
+  :global([data-theme="dark"]) .read-more-btn {
+    color: var(--color-accent);
   }
 
   .hidden {

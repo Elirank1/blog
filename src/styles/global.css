@@ -1,5 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
-/* Instrument Serif / IBM Plex Sans added for Corpiler-brand-derived diagrams and figure captions (editorial redesign, in progress) -- additive only, does not change existing body/display font usage above. */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+/* Editorial redesign (Part E), derived from Corpiler's own "Paper / Ink / Signal"
+   brand tokens (brand/03-color/corpiler-tokens.css, brand/04-type/TYPOGRAPHY.md) --
+   cohesion with Corpiler, not a copy of corpiler.com. MuseoModerno and Source Sans 3
+   are dropped site-wide in favor of Corpiler's own display/body pairing
+   (Instrument Serif / IBM Plex Sans); colors below are Corpiler's ink/paper/dot
+   tokens tuned for WCAG AA contrast on this blog's white/near-black backgrounds
+   (accent gold 6.88:1 on white, dark-mode dot-yellow 13.87:1 on near-black --
+   both re-verified against the old purple accent's 3.3:1). */
 
 @tailwind base;
 @tailwind components;
@@ -7,24 +14,24 @@
 
 @layer base {
   :root {
-    --color-accent: #967FDB;
-    --color-accent-hover: #7B62C9;
-    --color-accent-light: #EDE9FE;
-    --color-heading: #967FDB;
-    --color-body: #2B4150;
+    --color-accent: #6B5900;       /* derived from Corpiler --dot-edge #A88C00, darkened for AA body-text contrast */
+    --color-accent-hover: #171614; /* Corpiler --ink */
+    --color-accent-light: #F2E9C6; /* Corpiler --note */
+    --color-heading: #171614;      /* Corpiler --ink */
+    --color-body: #262420;         /* warm near-ink, replaces the old cool blue-grey */
   }
 
   [data-theme="dark"] {
-    --color-accent: #B8A4E8;
-    --color-accent-hover: #D0C1F0;
-    --color-accent-light: #1E1538;
-    --color-heading: #C4B5FD;
-    --color-body: #d1d5db;
+    --color-accent: #FDD604;       /* Corpiler --dot, unchanged between light/dark per the brand kit */
+    --color-accent-hover: #FFE766;
+    --color-accent-light: #33301C; /* Corpiler --note, dark-mode value */
+    --color-heading: #EFEBE1;      /* Corpiler --night-fg */
+    --color-body: #D9D4C8;         /* muted paper, for body-text hierarchy under headings */
   }
 
   html {
     scroll-behavior: smooth;
-    font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
   body {
@@ -35,12 +42,13 @@
   }
 
   [data-theme="dark"] body {
-    @apply bg-[#0F0F13];
+    @apply bg-[#0B0B0A];
     color: var(--color-body);
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'MuseoModerno', sans-serif;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-weight: 400;
     color: var(--color-heading);
   }
 
@@ -120,7 +128,7 @@
     border-color: #1f1f2e;
   }
   [data-theme="dark"] .prose blockquote {
-    border-left-color: #B8A4E8;
+    border-left-color: #FDD604;
     color: #9ca3af;
   }
 
@@ -144,4 +152,20 @@
     color: #6b7280;
     margin-top: 0.6rem;
   }
+  [data-theme="dark"] .essay-figure figcaption {
+    color: #9ca3af;
+  }
+}
+
+/* The actual, authoritative source for `.prose` colors/fonts is the
+   `typography` theme block in tailwind.config.mjs (that's where the old
+   deeplica-purple #967FDB was hardcoded as a literal `a: { color: ... }`
+   property, not just a CSS variable -- a literal property always wins over a
+   variable-based override, which is why an earlier attempt to fix this here
+   with --tw-prose-* variables alone didn't work for links, only headings).
+   This rule only covers h5/h6, which the config's typography block doesn't
+   set explicitly. */
+.prose :where(h5, h6):not(:where([class~="not-prose"] *)) {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-weight: 400;
 }

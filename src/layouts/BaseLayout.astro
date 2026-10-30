@@ -107,20 +107,22 @@ const ogImage = image ? new URL(image, siteUrl).href : new URL(`${base}/og-defau
 
     <style>
       /* Logo */
-      #logo { color: #111827; }
-      [data-theme="dark"] #logo { color: #f3f4f6; }
+      #logo { color: #171614; font-family: 'Instrument Serif', Georgia, serif; font-size: 1.35rem; }
+      [data-theme="dark"] #logo { color: #EFEBE1; }
 
       /* Nav links */
       .nav-link {
         color: #6b7280;
-        font-size: 0.875rem;
+        font-size: 0.8rem;
+        font-family: 'JetBrains Mono', 'SF Mono', Monaco, Consolas, monospace;
+        letter-spacing: 0.02em;
         font-weight: 500;
         transition: color 0.2s ease;
         text-decoration: none;
       }
-      .nav-link:hover { color: #111827; text-decoration: none; }
+      .nav-link:hover { color: #171614; text-decoration: none; }
       [data-theme="dark"] .nav-link { color: #9ca3af; }
-      [data-theme="dark"] .nav-link:hover { color: #f3f4f6; }
+      [data-theme="dark"] .nav-link:hover { color: #EFEBE1; }
 
       /* Theme toggle */
       [data-theme="dark"] .theme-btn:hover { background-color: #1f1f2e; }
@@ -130,14 +132,14 @@ const ogImage = image ? new URL(image, siteUrl).href : new URL(`${base}/og-defau
       [data-theme="dark"] #site-footer { border-color: #1f1f2e; }
 
       /* Footer */
-      #site-footer { color: #9ca3af; }
-      #site-footer a, .footer-link { color: #9ca3af; transition: color 0.2s ease; }
+      #site-footer { color: #6b7280; }
+      #site-footer a, .footer-link { color: #6b7280; transition: color 0.2s ease; }
       #site-footer a:hover, .footer-link:hover { color: #6b7280; text-decoration: none; }
-      [data-theme="dark"] #site-footer { color: #4b5563; }
+      [data-theme="dark"] #site-footer { color: #9ca3af; }
       [data-theme="dark"] #site-footer a,
-      [data-theme="dark"] .footer-link { color: #4b5563; }
+      [data-theme="dark"] .footer-link { color: #9ca3af; }
       [data-theme="dark"] #site-footer a:hover,
-      [data-theme="dark"] .footer-link:hover { color: #9ca3af; }
+      [data-theme="dark"] .footer-link:hover { color: #EFEBE1; }
 
       /* Theme toggle icon visibility */
       [data-theme="dark"] .sun { display: none; }
