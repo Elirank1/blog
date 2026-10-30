@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Three parts, one each" style="width:100%;height:auto;background:#EFEBE1;border:1px solid #D0CABD;border-radius:6px"><style>
+text{font-family:'JetBrains Mono',Menlo,monospace;fill:#5F5B52}
+.t-ink{fill:#171614}
+.cap{font-family:'IBM Plex Sans','IBM Plex Sans Hebrew',sans-serif}
+.tag{font-weight:700}
+.qm{font-family:'Instrument Serif',Georgia,serif;font-style:italic;fill:#5F5B52}
+.k{stroke:#171614;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.kf{stroke:#171614;fill:#EFEBE1;stroke-width:1.6;stroke-linejoin:round}
+.inkf{fill:#171614;stroke:#171614;stroke-width:1.6;stroke-linejoin:round}
+.inkf0{fill:#171614}
+.g{stroke:#B4AEA1;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.gd{stroke:#B4AEA1;fill:none;stroke-width:1.8;stroke-dasharray:6 7;stroke-linecap:round}
+.gd2{stroke:#B4AEA1;fill:none;stroke-width:1.2;stroke-dasharray:3 4}
+.hatch{stroke:#B4AEA1;stroke-width:1}
+.sq{fill:#E6E1D5}
+.note{fill:#F2E9C6;stroke:#B4AEA1;stroke-width:1.2}
+.yb{stroke:#A88C00;fill:none;stroke-width:7.5;stroke-linecap:round;stroke-linejoin:round}
+.y{stroke:#FDD604;fill:none;stroke-width:4.6;stroke-linecap:round;stroke-linejoin:round}
+.yd,.dot{fill:#FDD604;stroke:#A88C00;stroke-width:1.6}
+.gate,.sign{fill:#EFEBE1;stroke:#171614;stroke-width:1.6}
+.gate.unlit{fill:#E6E1D5;stroke:#B4AEA1}
+.sign-v{fill:#5F5B52}
+.eyebrow{font-family:'JetBrains Mono',Menlo,monospace;font-size:10px;letter-spacing:.4px;fill:#5F5B52}
+.cap-label{font-family:'IBM Plex Sans','IBM Plex Sans Hebrew',sans-serif;font-size:12px;fill:#171614}
+</style><title>Three parts, one each</title>
+<text x="32" y="36" class="eyebrow">03/06 · THREE PARTS, ONE EACH</text>
+<rect x="40" y="76" width="192" height="88" rx="6" class="kf"/>
+<text x="136" y="112" text-anchor="middle" class="cap-label tag">FRONTIER LABS</text>
+<text x="136" y="132" text-anchor="middle" class="cap-label">Technology + credibility</text>
+<rect x="408" y="76" width="192" height="88" rx="6" class="kf"/>
+<text x="504" y="112" text-anchor="middle" class="cap-label tag">PRIVATE EQUITY</text>
+<text x="504" y="132" text-anchor="middle" class="cap-label">Capital + access channel</text>
+<rect x="224" y="300" width="192" height="88" rx="6" class="kf"/>
+<text x="320" y="336" text-anchor="middle" class="cap-label tag">DEPLOYMENT OPS</text>
+<text x="320" y="356" text-anchor="middle" class="cap-label">FDEs who've done it before</text>
+<path d="M136 164V240H320V300" class="yb"/><path d="M136 164V240H320V300" class="y"/>
+<path d="M504 164V240H320V300" class="yb"/><path d="M504 164V240H320V300" class="y"/>
+<circle cx="320" cy="240" r="9" class="gate"/>
+<circle cx="136" cy="164" r="6" class="dot"/><circle cx="504" cy="164" r="6" class="dot"/><circle cx="320" cy="300" r="6" class="dot"/>
+<text x="32" y="440" class="cap-label" style="fill:#5F5B52">Each side supplies the one asset it has a real advantage in. Why that's the logic is my reading, not theirs.</text>
+</svg>

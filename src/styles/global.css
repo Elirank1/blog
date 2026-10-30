@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+/* Instrument Serif / IBM Plex Sans added for Corpiler-brand-derived diagrams and figure captions (editorial redesign, in progress) -- additive only, does not change existing body/display font usage above. */
 
 @tailwind base;
 @tailwind components;
@@ -121,5 +122,26 @@
   [data-theme="dark"] .prose blockquote {
     border-left-color: #B8A4E8;
     color: #9ca3af;
+  }
+
+  /* Essay figures: Corpiler-brand-derived original diagrams. Each SVG carries
+     its own paper background, so it reads as a deliberate framed insert in
+     both themes rather than a broken dark-mode asset. */
+  .essay-figure {
+    margin: 2.5rem 0;
+  }
+  .essay-figure svg {
+    display: block;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+  [data-theme="dark"] .essay-figure svg {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  }
+  .essay-figure figcaption {
+    font-family: 'JetBrains Mono', 'SF Mono', Monaco, Consolas, monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+    color: #6b7280;
+    margin-top: 0.6rem;
   }
 }

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Seven events, eight months" style="width:100%;height:auto;background:#EFEBE1;border:1px solid #D0CABD;border-radius:6px"><style>
+text{font-family:'JetBrains Mono',Menlo,monospace;fill:#5F5B52}
+.t-ink{fill:#171614}
+.cap{font-family:'IBM Plex Sans','IBM Plex Sans Hebrew',sans-serif}
+.tag{font-weight:700}
+.qm{font-family:'Instrument Serif',Georgia,serif;font-style:italic;fill:#5F5B52}
+.k{stroke:#171614;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.kf{stroke:#171614;fill:#EFEBE1;stroke-width:1.6;stroke-linejoin:round}
+.inkf{fill:#171614;stroke:#171614;stroke-width:1.6;stroke-linejoin:round}
+.inkf0{fill:#171614}
+.g{stroke:#B4AEA1;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.gd{stroke:#B4AEA1;fill:none;stroke-width:1.8;stroke-dasharray:6 7;stroke-linecap:round}
+.gd2{stroke:#B4AEA1;fill:none;stroke-width:1.2;stroke-dasharray:3 4}
+.hatch{stroke:#B4AEA1;stroke-width:1}
+.sq{fill:#E6E1D5}
+.note{fill:#F2E9C6;stroke:#B4AEA1;stroke-width:1.2}
+.yb{stroke:#A88C00;fill:none;stroke-width:7.5;stroke-linecap:round;stroke-linejoin:round}
+.y{stroke:#FDD604;fill:none;stroke-width:4.6;stroke-linecap:round;stroke-linejoin:round}
+.yd,.dot{fill:#FDD604;stroke:#A88C00;stroke-width:1.6}
+.gate,.sign{fill:#EFEBE1;stroke:#171614;stroke-width:1.6}
+.gate.unlit{fill:#E6E1D5;stroke:#B4AEA1}
+.sign-v{fill:#5F5B52}
+.eyebrow{font-family:'JetBrains Mono',Menlo,monospace;font-size:10px;letter-spacing:.4px;fill:#5F5B52}
+.cap-label{font-family:'IBM Plex Sans','IBM Plex Sans Hebrew',sans-serif;font-size:12px;fill:#171614}
+</style><title>Seven events, eight months</title><text x="40" y="36" class="eyebrow">02/06 · SEVEN EVENTS, EIGHT MONTHS</text>
+<path d="M40 220H600" class="g"/>
+<path d="M40.0 178V220" class="g"/>
+<circle cx="40.0" cy="220" r="6" class="dot"/>
+<text x="40.0" y="160" text-anchor="middle" class="cap-label">Claude Partner</text>
+<text x="40.0" y="174" text-anchor="middle" class="cap-label">Network</text>
+<text x="40.0" y="236" text-anchor="middle" class="eyebrow">MAR 12</text>
+<path d="M133.3 274V220" class="g"/>
+<circle cx="133.3" cy="220" r="6" class="dot"/>
+<text x="133.3" y="294" text-anchor="middle" class="cap-label">Anthropic +</text>
+<text x="133.3" y="308" text-anchor="middle" class="cap-label">PE consortium</text>
+<text x="133.3" y="206" text-anchor="middle" class="eyebrow">MAY 4</text>
+<path d="M226.7 178V220" class="g"/>
+<circle cx="226.7" cy="220" r="6" class="dot"/>
+<text x="226.7" y="160" text-anchor="middle" class="cap-label">OpenAI</text>
+<text x="226.7" y="174" text-anchor="middle" class="cap-label">Deployment Co.</text>
+<text x="226.7" y="236" text-anchor="middle" class="eyebrow">MAY 11</text>
+<path d="M320.0 274V220" class="g"/>
+<circle cx="320.0" cy="220" r="6" class="dot"/>
+<text x="320.0" y="294" text-anchor="middle" class="cap-label">Services</text>
+<text x="320.0" y="308" text-anchor="middle" class="cap-label">Track</text>
+<text x="320.0" y="206" text-anchor="middle" class="eyebrow">JUN 3</text>
+<path d="M413.3 178V220" class="g"/>
+<circle cx="413.3" cy="220" r="6" class="dot"/>
+<text x="413.3" y="160" text-anchor="middle" class="cap-label">Ode</text>
+<text x="413.3" y="174" text-anchor="middle" class="cap-label">launches</text>
+<text x="413.3" y="236" text-anchor="middle" class="eyebrow">JUL 15</text>
+<path d="M506.7 274V220" class="g"/>
+<circle cx="506.7" cy="220" r="6" class="dot"/>
+<text x="506.7" y="294" text-anchor="middle" class="cap-label">Frontier</text>
+<text x="506.7" y="308" text-anchor="middle" class="cap-label">Academy</text>
+<text x="506.7" y="206" text-anchor="middle" class="eyebrow">OCT 2</text>
+<path d="M600.0 178V220" class="gd2"/>
+<circle cx="600.0" cy="220" r="6" class="yd"/>
+<text x="600.0" y="160" text-anchor="middle" class="cap-label">Anthropic +</text>
+<text x="600.0" y="174" text-anchor="middle" class="cap-label">Hg, reported</text>
+<text x="600.0" y="236" text-anchor="middle" class="eyebrow">OCT 23</text>
+<text x="40" y="440" class="cap-label" style="fill:#5F5B52">Last point reported via secondary coverage, not confirmed by either company -- drawn as a lighter tick.</text></svg>
