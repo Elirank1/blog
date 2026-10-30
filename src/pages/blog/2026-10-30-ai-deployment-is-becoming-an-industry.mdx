@@ -1,57 +1,126 @@
 ---
 layout: ../../layouts/BlogPost.astro
-title: 'The First Wave Made Intelligence Accessible. The Next Is Making It Operational.'
-description: 'Anthropic, OpenAI and private equity are quietly building an AI deployment industry. The real question is whether deployment itself can become software-defined.'
+title: 'The AI Labs Are Building a Deployment Industry. What Happens When Deployment Itself Becomes Software?'
+description: 'Anthropic, OpenAI and private equity spent 2026 building a new industry around deploying AI inside real companies. A verified timeline, the economics of scaling deployment, and a thesis about what comes after it.'
 pubDate: 2026-10-30
-tags: ['enterprise-ai', 'ai-deployment', 'agentic-ai']
+updatedDate: 2026-11-01
+tags: ['enterprise-ai', 'ai-deployment', 'agentic-ai', 'private-equity', 'research']
 ---
 
-Something interesting is happening in AI. And I think we're looking at the beginning of an entirely new industry.
-
-In May, Anthropic partnered with Blackstone, Hellman & Friedman, Goldman Sachs and others to establish what later became Ode: a company focused on deploying frontier AI into real business operations.
-
-A week later, OpenAI announced its own Deployment Company, backed by major investment and consulting partners.
-
-And just last week, the Financial Times reported that Anthropic and Hg are planning another AI deployment venture in Europe.
-
-Three moves. Different structures. A remarkably similar direction.
+**60-second read.** Between May and October 2026, Anthropic and OpenAI each built — or backed — a company whose entire job is putting AI to work inside other companies. Private equity funded both. By October, Anthropic was reportedly planning a third one for Europe. None of this is about better models. It's an admission that a great model and a working deployment are two different products, and that the gap between them is big enough to be its own industry. The open question isn't whether that industry exists — it clearly does, with real capital and real org charts behind it. The open question is whether the industry wins this stays human-expert-shaped, the way it's built today, or whether the hardest part of that work — the judgment, not the code — eventually gets absorbed into software. That's my thesis, not a fact, and I lay out what would prove it wrong.
 
 ---
 
-The companies building the world's most advanced AI models are investing heavily in the people and organizations required to make those models useful inside businesses.
+## 1. The 2026 timeline
 
-I think this deserves more attention than it's getting.
+Here's what's actually been confirmed, in order, with what each one really was — not what the headlines implied.
 
-For the past few years, much of the AI conversation has focused on model capabilities, benchmarks, agents and automation. But deploying AI into an actual organization is a very different problem.
+**March 12** — Anthropic launches the **Claude Partner Network**: a free program for consultancies and system integrators that brings Claude work to enterprises, backed by an initial $100M for 2026 in training, technical support and co-marketing. This is infrastructure for an ecosystem of outside partners, not Anthropic doing the deployment itself.
 
-Someone still needs to understand how the business really operates. Not just its documented processes, but its unwritten rules, dependencies, exceptions, decision-making, economics and organizational constraints.
+**May 4** — Anthropic, Blackstone and Hellman & Friedman, with a consortium behind them (Goldman Sachs, General Atlantic, Leonard Green, Apollo, GIC, Sequoia), announce a new AI services company aimed at mid-sized companies that "lack the in-house resources to build and run deployments" — community banks, regional health systems, manufacturers. Anthropic's CFO, Krishna Rao, frames the reason plainly: *"Enterprise demand for Claude is significantly outpacing any single delivery model."* The company isn't named yet.
 
-Someone needs to determine what should change, what shouldn't, what can realistically be built, and how to prove that the change creates value.
+**May 11, seven days later** — OpenAI launches **the Deployment Company**: majority-owned by OpenAI, launching with more than $4 billion in initial investment and 19 founding partners led by TPG (Advent, Bain Capital and Brookfield co-leading; Goldman Sachs, SoftBank, Warburg Pincus and others behind them). It simultaneously announces the acquisition of **Tomoro**, an applied-AI consultancy, bringing roughly 150 working Forward Deployed Engineers — and real clients, including Tesco, Virgin Atlantic and Supercell — into the new company on day one rather than hiring from scratch.
 
-That work requires a rare combination of business judgment, engineering depth and organizational understanding. And it doesn't disappear just because the underlying models get smarter.
+**May 14** — TPG partner David Trujillo, in a Bloomberg Deals interview about the OpenAI deal, says the sentence that most precisely names the gap this whole industry exists to close: *"these models have progressed far beyond enterprise's ability to know how to use them just yet."* That's a capital partner, not a lab, saying the constraint isn't the model.
 
-My interpretation of these moves is that AI deployment is becoming an industry in its own right.
+**June 3** — Anthropic adds a **Services Track** inside the Partner Network: a tiered ladder (Select → Preferred → Global Premier) gated on certified headcount and *already-deployed* production customers, not training completions. By this point more than 40,000 firms had applied to the network and 10,000+ consultants were certified; Accenture alone committed to training 30,000 of its people. The phrase on the announcement is the whole argument in one line: *"a successful pilot is not the same as a system a business can run on."*
 
-The combination of frontier AI labs, private equity capital and specialized deployment teams is particularly interesting. The labs bring the technology. Private equity brings capital and access to operating companies. Deployment teams bridge the gap between technological capability and business outcomes.
+**July 15** — The May 4 company launches under its name: **Ode**. It's built directly on **Fractional AI**, an applied-AI firm Anthropic-and-partners had acquired that same May, whose founders — Chris Taylor and Eddie Siegel — stay on as CEO and CTO. Taylor: *"Companies everywhere see the potential for what AI can do for their businesses, the challenge is making it real."* Anthropic's Garvan Doyle, Head of Forward Deployed Engineering for the Americas: *"Ode was built to be that partner."*
 
-That's a powerful model.
+**October 2** — Anthropic commits **$100M to Claude Frontier Academy**, a training program with one number attached that's worth sitting with: **10,000 Frontier Deployed Engineers by the end of 2027**. Cohorts are already running in San Francisco, New York and London.
 
-But it also raises what I believe is the more interesting question: if AI deployment becomes a massive industry, how will the deployment process itself scale?
+**October 23** — The *Financial Times* reports — and at the time of writing, neither company has confirmed — that Anthropic and the European buyout firm **Hg** are planning a third deployment venture, this time based in London and Berlin. Accenture's share price reportedly dropped more than 4% the day the story broke, which tells you how the market is reading it even before it's official.
 
-Today, much of that process still depends on highly skilled people working closely with each organization. Hiring and training more experts is one way to scale. Building better tools for those experts is another.
+**October 28** — Analyst Guillermo Flor, writing independently, is the first to put a number on what one of these companies might actually cost to build: he reports roughly $1.5B in planned investment behind Ode specifically. That figure is his reporting, not a disclosed company number — Ode's own announcement gives no funding figure — so I'm citing it as his estimate, not as confirmed.
 
-But I suspect the next frontier goes deeper.
+That's eight events in under eight months, three of them forming new companies with billions of committed capital, from two labs that are supposedly competing on model quality. They're also, very visibly, competing on how fast they can stand up the exact same kind of company.
 
-Can the expertise involved in understanding an organization, identifying valuable opportunities, evaluating constraints, designing solutions and validating outcomes become increasingly systematic, reusable and eventually software-defined?
+*[Diagram 1 here: verified timeline — announced / launched / reported, March–October 2026]*
 
-Can knowledge gained from one deployment improve the next, without starting the entire discovery and engineering process over again?
+## 2. Why a great model isn't a working deployment
 
-And perhaps more importantly: can we rethink how organizations should operate in an AI-native world, rather than simply automate how they've always operated?
+It's worth being concrete about what the gap actually is, because "deployment is hard" is the kind of sentence that sounds true and explains nothing.
 
-I don't think these are solved problems. And I certainly wouldn't underestimate how difficult they are.
+Inside a real organization, the hard part was never writing the integration code. It's the list underneath that: data that's technically available but practically unusable without someone who knows which fields lie; processes that exist in three versions — the one in the handbook, the one people actually follow, and the one that only runs during the last week of the quarter; decision rights that were never written down because the two people who hold them have just always sorted it out between themselves; an evaluation bar nobody has agreed on, so "it works" means something different to the VP who approved the budget and the analyst who has to live with the output; security and compliance requirements that weren't designed with an AI system in mind and don't obviously map onto one; and the plain organizational fact that someone's job description changes if this works, which means someone has an incentive for it not to.
 
-But from what we're seeing in the market, the direction is becoming hard to ignore.
+None of that shows up in a benchmark. All of it shows up in week three of an actual engagement. A faster, cheaper, more capable model doesn't touch any of it — which is precisely why the labs, who have every reason to want you to believe the model is the hard part, are the ones building companies whose entire premise is that it isn't.
 
-The first wave made intelligence accessible. The next wave is making intelligence operational. And I suspect the wave after that will focus on making the process of transformation itself scalable.
+## 3. The industry's shape: three parts, one each
 
-That's the part of this market I've become increasingly fascinated by.
+What's forming isn't really "AI deployment companies." It's a specific three-part structure, and the parts are complementary in a way that's worth being precise about, because each one is solving a different constraint.
+
+**Frontier labs** bring the technology and, less obviously, the credibility — a Claude or OpenAI badge on a deployment firm is itself a sales asset, because it answers "why trust this model with our core process" before the question is asked.
+
+**Private equity** brings more than a check. It brings *distribution*: a portfolio of operating companies that are, in effect, a captive pipeline of first customers who don't need to be won through a sales cycle. It brings executive relationships at the CEO/CFO level that an AI startup doesn't have. And it brings an incentive structure built around *repeatable* operating improvement across many companies — which is exactly the muscle deployment-at-scale requires.
+
+**Deployment operators** — the FDEs, the Fractional AIs, the Tomoros — bring the one thing neither of the other two has: people who have actually sat inside an organization and made a specific AI system work against its specific mess. That's not a commodity skill yet. It's also, notably, the part being bought rather than built from scratch in two of the three deals above — both Ode and the OpenAI Deployment Company acquired an existing team with existing clients instead of hiring and training from zero.
+
+I want to be careful here: the strategic *motivations* behind this are my inference, not something any of these companies has stated outright. What's documented is the structure. What's inferred is why it's a *good* structure — and I think it's because each party is supplying the one asset it actually has an advantage in, instead of trying to build all three.
+
+*[Diagram 2 here: Frontier Labs × Capital/Distribution × Deployment Expertise]*
+
+## 4. What an FDE's job actually is
+
+"Forward Deployed Engineer" gets used loosely enough that it's worth unpacking into what the job is actually built from, because it is not "write the glue code that calls the API."
+
+**Discovery** is sitting with the people who do the work — not the people who manage the people who do the work — until you can describe the process more accurately than their own documentation does. **Judgment** is the unglamorous, hardest-to-automate part: deciding which of the twenty things you found is worth solving first, which require a human sign-off forever and which don't, and where the organization's stated priorities and its actual incentives disagree. **Feasibility** is the engineering: can this actually be built against these systems, this data, this latency and cost budget. **Proof** is building a version narrow enough to be trusted and running it next to the existing process until the evidence, not the pitch, says it's ready. **Operation** is what happens after launch — monitoring, handling the edge cases nobody anticipated, and deciding when something that looked fine in week one needs to be pulled back. **Learning** is whether anything from this engagement makes the next one faster, which — and this is the question the rest of this essay is really about — is currently mostly a function of whether the *same person* happens to work on both.
+
+The coding is real, but it's the easiest quarter of the job. The rest is judgment, and judgment is exactly the thing that's expensive to scale by hiring, which is why Anthropic is spending $100M to train 10,000 more people to do it rather than assuming the model alone gets there.
+
+*[Diagram 3 here: discovery → judgment → feasibility → proof → operation → learning]*
+
+## 5. The economics, honestly stated
+
+I'm not going to invent financial metrics for companies that haven't disclosed them — none of Ode, the OpenAI Deployment Company or Anthropic have published engagement-level economics. What I can lay out is the structure of the problem, because it explains why this industry's scaling question is genuinely unresolved rather than just unglamorous.
+
+A services business built around expert judgment scales roughly linearly: contribution margin per engagement is revenue minus expert hours minus implementation and ongoing maintenance effort, and growth mostly means hiring and training more experts — which is literally what the $100M Frontier Academy commitment is. A **software-compounding** model would instead look like contribution margin improving *per engagement* as the number of engagements grows, because an increasing share of the work — reusable components, known-good evaluation patterns, pre-vetted integration playbooks — gets handled by something that isn't a billable hour. I want to label this explicitly: the second curve is **hypothetical**, not something any of these companies has demonstrated publicly. The honest unresolved question is which share of FDE work (discovery and judgment, mostly) resists that compounding and which share (feasibility and some of proof) doesn't.
+
+Faster models help less here than it sounds like they should, because they cut the "write the code" portion of the job, which was never the bottleneck — not the "understand this specific organization" portion, which was.
+
+*[Diagram 4 here: linear expert-hours model vs. hypothetical software-compounding model — curves explicitly labeled illustrative]*
+
+## 6. The countertrend: deployment is already being productized, by other people
+
+It would be wrong — and it would make for a weaker essay — to write this as if nobody has noticed that deployment work itself can be partly automated. Several companies are already doing it, with real, shipping product, and they deserve to be engaged on the merits rather than waved past.
+
+**Wonderful** raised a $550M Series C in September at a $5B valuation specifically to build what it calls an AI OS — a shared layer for agents, workflows and governed execution. Critically, its own stated model is that forward-deployed engineers bring the *first* use case to production and then **transfer the work to the customer's own team**, rather than staying embedded indefinitely. CTO Roey Lalazar's framing — *"enterprises shouldn't have to replace everything they already have to become AI-native"* — is a direct bet against the embedded-expert-forever model.
+
+**Sierra's Ghostwriter** goes further into automating the *build* itself: it turns plain-language instructions and existing documents into working agent configurations, generates its own test simulations, diagnoses failures and proposes fixes, with a human reviewing before anything ships. That's a meaningful chunk of the "feasibility" and "proof" stages from section 4, done by software.
+
+**ServiceNow's AI Control Tower** is a more honest fit here as *adjacent* than as a direct competitor — it's a governance and observability layer for agents that already exist, not a tool for building or deploying them. It matters to this essay for a different reason: it's evidence that even the governance half of this problem is being built as software, fast, which raises rather than lowers my confidence that the deployment half eventually will be too.
+
+None of this means the FDE companies are already obsolete — discovery and judgment, the hardest parts from section 4, are exactly the parts none of these three products claim to automate. But it does mean the premise of this whole essay — that deployment stays expert-shaped — has working counter-evidence today, not just in theory.
+
+## 7. My two cents: from scaling people to compounding deployment intelligence
+
+Here's my actual thesis, stated as a thesis, not a fact: **the deployment companies forming right now are solving 2026's problem with 2026's tool — expert hours — and the more interesting question is whether the judgment those experts apply can itself become reusable, software-defined intelligence, not just the code they write.**
+
+It's worth being precise about what "reusable" would have to mean, because there's a lazy version of this idea and a real one. Reusing *code and templates* is already happening and isn't that interesting — every consultancy has a component library. Reusing *structured knowledge* — a taxonomy of the kinds of exceptions a given industry's processes tend to have — is further along and more valuable. Reusing *decision mechanisms* — the actual logic an experienced FDE uses to decide what to automate first and what to leave alone — is further still, and I haven't seen anyone demonstrate it convincingly. And **transferring judgment across organizations that don't share data** is the hard version, because the thing that makes an FDE good at company B often came from a pattern they first saw at company A, and company A's data cannot legally or ethically travel with that pattern.
+
+That last constraint is the whole game, and it's the part I don't think anyone has solved: how do you let expertise compound across clients without the clients' private information compounding along with it. A system that can't do that isn't reusable judgment — it's a slower version of hiring more experts with extra steps.
+
+## 8. The harder question underneath this one
+
+There's an assumption buried in almost everything written about this industry so far, including the sections above: that the thing being deployed is a faster version of the organization's *existing* workflow. I don't think that assumption should survive contact with the actual opportunity.
+
+If an FDE's real skill is understanding what an organization is actually trying to accomplish — underneath the process it happens to be running today — then the more valuable version of the job isn't "automate the approval chain as it exists." It's "given the outcome this team is accountable for, and the authority and constraints that are non-negotiable, what's the version of this workflow you'd design if you started today." That's a genuinely harder, more uncomfortable question to put in front of a client, and I don't think it's the default version of this work yet. I'd rather flag it than overclaim it: this is a direction, not something I've seen anyone prove out at scale, including us.
+
+## 9. What would actually prove — or break — this thesis
+
+I'd rather be falsifiable than persuasive here. Evidence that would make me more confident: expert intervention time per deployment going down across successive engagements, with decision quality held stable or improving, not just speed; cross-client pattern transfer that doesn't require rebuilding from scratch *and* doesn't move private data between clients; and reproducible evaluation — the same proof standard applied consistently, not a different bar for each client story.
+
+Evidence that would break it: **genericity collapse**, where anything reusable enough to transfer across clients turns out too generic to be useful for any one of them, which is the classic failure mode of every "reusable enterprise framework" that's ever been tried; and **hidden human intervention**, where the "software-compounding" story turns out to be humans quietly doing the judgment work off to the side while the product demo shows the automated part. Both of those are real risks, not strawmen, and I'd treat either one showing up as the thesis failing, not as a rough patch to explain away.
+
+## 10. What happens next
+
+A few honest scenarios, not a prediction dressed up as one. The services-at-scale version wins outright, and in five years "AI deployment" is simply a mature professional-services category the way system integration is today — plausible, and arguably the safe bet given how much capital just backed exactly that. The platform-native version wins, and companies like Wonderful's AI OS quietly absorb most of what an FDE currently does by hand, leaving a much smaller, much higher-judgment human layer on top. A standalone software-infrastructure layer emerges — something closer to what I'm personally exploring — that doesn't try to be the deployment company, but tries to be the thing that makes every deployment company's judgment compound instead of resetting with every new client. Or, most likely in my own reading of it, some combination: services for the hardest 20% of the work, software compounding the other 80%, and the boundary between those two moving every year.
+
+I don't think the frontier labs, the PE firms backing them, or the software companies racing to productize parts of this have settled that question yet either. Nobody's wrong so far. The industry is six months old.
+
+*[Diagram 5 here: reusable deployment intelligence — code/templates → structured knowledge → decision mechanisms → judgment transfer, with the data-isolation constraint marked]*
+
+---
+
+*I'm exploring some of these questions through [Corpiler](https://corpiler.com/), where we're working on the intelligence required to understand, design and operate AI-native organizations.*
+
+**Sources:** [Anthropic — enterprise AI services company, May 4](https://www.anthropic.com/news/enterprise-ai-services-company) · [OpenAI — the Deployment Company, May 11](https://openai.com/index/openai-launches-the-deployment-company/) · [Ode — official launch, July 15](https://www.ode.com/press/anthropic-blackstone-and-hellman-friedman-introduce-ode-with-anthropic-an-enterprise-ai-services-firm) · [TPG — David Trujillo on DeployCo](https://www.tpg.com/news-and-insights/bloomberg-deals-david-trujillo-on-tpgs-partnership-with-openai-to-launch-deployco) · [Anthropic — Claude Partner Network](https://www.anthropic.com/news/claude-partner-network) · [Anthropic — Services Track](https://www.anthropic.com/news/services-track-partner-hub) · [Anthropic — Claude Frontier Academy](https://www.anthropic.com/news/claude-frontier-academy) · Financial Times, Oct 23 (Anthropic/Hg, reported) · [Guillermo Flor — The Anthropic AI Consulting Playbook](https://www.theaiopportunities.com/p/the-anthropic-ai-consulting-playbook) · [Wonderful — $550M Series C](https://www.wonderful.ai/blog-articles/wonderful-raises-550m-series-c) · [Sierra — Ghostwriter](https://sierra.ai/product/ghostwriter) · ServiceNow — AI Control Tower expansion, May 5
