@@ -68,18 +68,18 @@ const base = import.meta.env.BASE_URL;
   /* Light mode */
   #page-title { color: var(--color-heading); }
   #page-sub { color: var(--color-body); }
-  .tag-chip { background-color: #EDE9FE; color: #967FDB; }
+  .tag-chip { background-color: #F2E9C6; color: #6B5900; font-family: 'JetBrains Mono', monospace; }
   .post-row { border-color: #f3f4f6; }
   .post-title { color: var(--color-body); }
   .post-desc { color: #6b7280; }
-  .post-meta { color: #9ca3af; }
+  .post-meta { color: #6b7280; }
 
   /* Dark mode */
-  [data-theme="dark"] #page-title { color: var(--color-heading); }
-  [data-theme="dark"] #page-sub { color: #6b7280; }
-  [data-theme="dark"] .tag-chip { background-color: #1E1538; color: #B8A4E8; }
-  [data-theme="dark"] .post-row { border-color: #1f1f2e; }
-  [data-theme="dark"] .post-title { color: #e5e7eb; }
-  [data-theme="dark"] .post-desc { color: #6b7280; }
-  [data-theme="dark"] .post-meta { color: #4b5563; }
+  :global([data-theme="dark"]) #page-title { color: var(--color-heading); }
+  :global([data-theme="dark"]) #page-sub { color: #9ca3af; }
+  :global([data-theme="dark"]) .tag-chip { background-color: #33301C; color: #FDD604; }
+  :global([data-theme="dark"]) .post-row { border-color: #1f1f2e; }
+  :global([data-theme="dark"]) .post-title { color: #e5e7eb; }
+  :global([data-theme="dark"]) .post-desc { color: #9ca3af; }
+  :global([data-theme="dark"]) .post-meta { color: #9ca3af; }
 </style>

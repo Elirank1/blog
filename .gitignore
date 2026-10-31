@@ -23,3 +23,7 @@ Thumbs.db
 
 # Vercel
 .vercel
+
+# Local QA/audit scratch (screenshots, axe-core scripts) -- not site source,
+# not meant to be committed; review artifacts are delivered to Eliran directly.
+diagrams/

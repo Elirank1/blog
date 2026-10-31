@@ -75,7 +75,7 @@ const sortedPosts = recentPosts
         );
       })}
     </div>
-    <a href={`${base}/blog`} class="inline-block mt-6 text-sm font-medium text-gray-500 hover:text-gray-700 transition-colors">
+    <a href={`${base}/blog`} class="inline-block mt-6 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors">
       View all posts →
     </a>
   </section>
@@ -88,15 +88,15 @@ const sortedPosts = recentPosts
   #recent-heading { color: var(--color-heading); }
   .post-title { color: var(--color-body); }
   .post-desc { color: #6b7280; }
-  .post-date { color: #9ca3af; }
+  .post-date { color: #6b7280; }
   .post-row { border-color: #f3f4f6; }
 
   /* Dark mode */
-  [data-theme="dark"] #hero-title { color: var(--color-heading); }
-  [data-theme="dark"] #hero-sub { color: #9ca3af; }
-  [data-theme="dark"] #recent-heading { color: var(--color-heading); }
-  [data-theme="dark"] .post-row { border-color: #1f1f2e; }
-  [data-theme="dark"] .post-title { color: #e5e7eb; }
-  [data-theme="dark"] .post-desc { color: #6b7280; }
-  [data-theme="dark"] .post-date { color: #4b5563; }
+  :global([data-theme="dark"]) #hero-title { color: var(--color-heading); }
+  :global([data-theme="dark"]) #hero-sub { color: #9ca3af; }
+  :global([data-theme="dark"]) #recent-heading { color: var(--color-heading); }
+  :global([data-theme="dark"]) .post-row { border-color: #1f1f2e; }
+  :global([data-theme="dark"]) .post-title { color: #e5e7eb; }
+  :global([data-theme="dark"]) .post-desc { color: #9ca3af; }
+  :global([data-theme="dark"]) .post-date { color: #9ca3af; }
 </style>

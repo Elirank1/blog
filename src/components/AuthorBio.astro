@@ -8,7 +8,7 @@ const base = import.meta.env.BASE_URL;
     <div>
       <p class="font-semibold mb-1 author-name">Eliran Keren</p>
       <p class="text-sm leading-relaxed mb-3 author-desc">
-        Founder & CEO of <a href="https://deeplica.ai" target="_blank" class="hover:underline">Deeplica</a> — building the coordination layer that runs the operational side of your life. I write about AI systems, founder workflows, and what happens when you let AI handle the work you shouldn't be doing.
+        Founder & CEO of <a href="https://deeplica.ai" target="_blank" class="bio-link">Deeplica</a> — building the coordination layer that runs the operational side of your life. I write about AI systems, founder workflows, and what happens when you let AI handle the work you shouldn't be doing.
       </p>
       <div class="flex gap-4 text-sm">
         <a href="https://www.linkedin.com/in/elirankeren" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn</a>
@@ -22,11 +22,22 @@ const base = import.meta.env.BASE_URL;
 <style is:global>
   .author-name { color: #111827; }
   .author-desc { color: #6b7280; }
-  .social-link { color: #9ca3af; transition: color 0.2s ease; text-decoration: none; }
-  .social-link:hover { color: #6b7280; text-decoration: none; }
+  .social-link { color: #6b7280; transition: color 0.2s ease; text-decoration: none; }
+  .social-link:hover { color: #171614; text-decoration: none; }
+
+  /* link-in-text-block (axe): this link sits inline inside grey body text, so
+     color alone (1.42:1 against the surrounding #6b7280) isn't enough to
+     distinguish it -- give it a persistent underline rather than hover-only. */
+  .bio-link {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+    text-underline-offset: 2px;
+  }
+  .bio-link:hover { color: var(--color-accent-hover); }
 
   [data-theme="dark"] .author-name { color: #f3f4f6; }
   [data-theme="dark"] .author-desc { color: #9ca3af; }
-  [data-theme="dark"] .social-link { color: #6b7280; }
-  [data-theme="dark"] .social-link:hover { color: #9ca3af; }
+  [data-theme="dark"] .social-link { color: #9ca3af; }
+  [data-theme="dark"] .social-link:hover { color: #EFEBE1; }
 </style>

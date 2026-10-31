@@ -9,44 +9,45 @@ const personJsonLd = {
   "url": "https://elirank1.github.io/blog/about",
   "sameAs": [
     "https://www.linkedin.com/in/elirankeren",
-    "https://github.com/Elirank1"
+    "https://github.com/Elirank1",
+    "https://deeplica.ai",
+    "https://corpiler.com"
   ],
   "worksFor": {
     "@type": "Organization",
-    "name": "Deeplica.AI",
-    "url": "https://deeplica.ai"
+    "name": "Deeplica Labs",
+    "url": "https://labs.deeplica.ai",
+    "subOrganization": [
+      { "@type": "Organization", "name": "Deeplica.AI", "url": "https://deeplica.ai" },
+      { "@type": "Organization", "name": "Corpiler", "url": "https://corpiler.com" }
+    ]
   },
-  "knowsAbout": ["AI agents", "AI infrastructure", "coordination systems", "founder operations", "product strategy"],
-  "description": "Founder of Deeplica — building AI-native coordination infrastructure for founders and operators."
+  "knowsAbout": ["AI agents", "AI infrastructure", "coordination systems", "founder operations", "product strategy", "enterprise AI deployment"],
+  "description": "Founder and CEO of Deeplica Labs, building Deeplica.AI and Corpiler, and writing in public about how companies are actually deploying AI."
 };
 ---
 
-<BaseLayout title="About | Eliran Keren" description="Founder of Deeplica — building the coordination layer for founders and operators.">
+<BaseLayout title="About | Eliran Keren" description="Founder and CEO of Deeplica Labs, building Deeplica.AI and Corpiler, and writing in public about how companies are actually deploying AI.">
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
 
   <article class="prose prose-lg dark:prose-invert max-w-none" id="about-content">
     <h1>About Me</h1>
 
     <p>
-      I'm Eliran. I'm the founder and CEO of <a href="https://deeplica.ai" target="_blank">Deeplica</a>, where we're building the coordination layer for humans who'd rather live than operate.
+      I'm Eliran Keren. I'm the founder and CEO of <a href="https://labs.deeplica.ai" target="_blank">Deeplica Labs</a>, the research layer behind two products. <a href="https://deeplica.ai" target="_blank">Deeplica.AI</a> is a personal AI that handles the operational side of a founder's day — scheduling, email, the briefing before a call, the work that eats hours without anyone deciding anything. <a href="https://corpiler.com" target="_blank">Corpiler</a> does the equivalent at the company level: it rebuilds one business function at a time around AI, proves it on real work before anything expands, and keeps authority with the client the entire way through.
     </p>
 
     <p>
-      I've spent the last decade at the intersection of technology and business — leading teams, shipping products, and figuring out how AI can take over the parts of work that slow us down. I keep coming back to the same question: <em>how do we make complex systems feel effortless?</em>
+      I've spent the last decade at the intersection of technology and business — product management, business development, and technical leadership across startups and scale-ups in Israel, building in everything from enterprise SaaS to consumer tech. The question that's followed me through all of it hasn't changed: <em>why does running something well so often come down to just keeping it from falling apart?</em>
     </p>
 
     <p>
-      Deeplica is the answer I've been working toward. We're creating AI-native infrastructure that handles the operational layer for founders and executives — so they can focus on the decisions that actually matter.
+      This blog is where I work that question through in public — not as founder-blog war stories, but as the same standard I'd hold anyone else's analysis to: what's confirmed, what's estimated, what's my own read rather than reported fact, and where I've been wrong. The writing here comes first, and stands on its own regardless of what Labs is building at any given moment.
     </p>
 
     <h2>Life Outside Work</h2>
     <p>
       I live in Tel Aviv with my wife and our three kids. When I'm not building, I'm usually exploring the city with the family, catching live music, or deep in a conversation about where AI is headed next.
-    </p>
-
-    <h2>What I Write About</h2>
-    <p>
-      This blog is where I share what I'm learning as a founder building with AI — the experiments, the breakthroughs, and the honest takes on what actually works. If you're building AI-driven workflows or rethinking how founders operate, you'll find something here.
     </p>
 
     <div class="read-more-section">
@@ -63,36 +64,29 @@ const personJsonLd = {
           Not the hard decisions. Not the creative work. The coordination. The open loops. The "did I reply to that?" The "what did we decide last Tuesday?" The constant context-switching that eats hours without producing anything.
         </p>
         <p>
-          Most AI products try to solve this by giving you a faster way to generate text or answer questions. That's useful, but it's the wrong frame. The bottleneck isn't speed. It's cognitive load. It's the invisible tax of holding too many things in your head at once.
+          Most AI products answer this by giving you a faster way to generate text or answer questions. That's useful, but it's the wrong frame — the bottleneck isn't speed, it's cognitive load. It's the invisible tax of holding too many things in your head at once.
         </p>
         <p>
-          Deeplica is built around a different idea: what if AI could actually take ownership of the operational noise — track commitments, close loops, maintain context across your tools — so you could focus on the work that only you can do?
-        </p>
-        <p>
-          That's what we're building. Not another chatbot. A coordination layer.
+          Deeplica.AI is built around a different idea: what if AI could take ownership of the operational noise itself — track commitments, close loops, maintain context across your tools — so you could focus on the work only you can do? Corpiler is the same idea applied to a company instead of a person: start with one function, prove it on real work in shadow mode before any authority moves, and expand scope only when the evidence supports it. Not another chatbot either way. A coordination layer, at two different scales.
         </p>
 
         <h2>Background</h2>
         <p>
-          I've been in tech for over a decade. I've built products, managed teams, closed deals, and learned (sometimes the hard way) what actually makes technology useful versus impressive-sounding. My background spans product management, business development, and technical leadership — but the thread through all of it is the same: making complex systems work for real people.
-        </p>
-        <p>
-          Before Deeplica, I worked across startups and scale-ups in Israel, building products in areas ranging from enterprise SaaS to consumer tech. I'm not a pure engineer and I'm not a pure business person — I sit at the intersection, which is where the most interesting product decisions happen.
+          I've been in tech for over a decade — building products, managing teams, closing deals, and learning what actually makes technology useful versus just impressive-sounding. My background spans product management, business development, and technical leadership, across startups and scale-ups in Israel building everything from enterprise SaaS to consumer tech. I'm not a pure engineer and I'm not a pure business person; I sit at the intersection, which is where the interesting product decisions tend to happen.
         </p>
 
-        <h2>What I Write About</h2>
+        <h2>Research &amp; Writing</h2>
         <p>
-          This blog is where I think in public. I write about what I'm learning as a founder building with AI — the product thinking, the operational experiments, the decisions that shape what Deeplica becomes. No marketing fluff. If something failed, I'll say it failed.
-        </p>
-        <p>
-          If you're building AI products, thinking about founder workflows, or just curious about what it actually looks like to build a company around personal AI — this is the place.
+          What I publish here tracks the structural shift in how companies actually deploy AI — the announcements, the economics, and the organizational constraints most coverage isn't pricing in. I try to source claims to something checkable, separate what's confirmed from what's my own analysis, and say so plainly when a piece of my own thinking turns out to be wrong. If you're building AI products, rethinking founder workflows, or just trying to see past the noise around how this industry is actually taking shape, you'll find something here.
         </p>
       </div>
     </div>
 
     <h2>Get in Touch</h2>
     <p>
-      <a href="https://deeplica.ai" target="_blank">Deeplica</a> ·
+      <a href="https://labs.deeplica.ai" target="_blank">Deeplica Labs</a> ·
+      <a href="https://deeplica.ai" target="_blank">Deeplica.AI</a> ·
+      <a href="https://corpiler.com" target="_blank">Corpiler</a> ·
       <a href="https://www.linkedin.com/in/elirankeren" target="_blank">LinkedIn</a> ·
       <a href="https://github.com/Elirank1" target="_blank">GitHub</a> ·
       <a href="mailto:eliran@deeplica.ai">eliran@deeplica.ai</a>
@@ -101,17 +95,17 @@ const personJsonLd = {
 </BaseLayout>
 
 <style>
-  [data-theme="dark"] #about-content {
+  :global([data-theme="dark"]) #about-content {
     color: #d1d5db;
   }
-  [data-theme="dark"] #about-content h1,
-  [data-theme="dark"] #about-content h2 {
+  :global([data-theme="dark"]) #about-content h1,
+  :global([data-theme="dark"]) #about-content h2 {
     color: #f9fafb;
   }
-  [data-theme="dark"] #about-content a {
-    color: var(--color-accent-dark);
+  :global([data-theme="dark"]) #about-content a {
+    color: var(--color-accent);
   }
-  [data-theme="dark"] #about-content em {
+  :global([data-theme="dark"]) #about-content em {
     color: #e5e7eb;
   }
 
@@ -133,8 +127,8 @@ const personJsonLd = {
     opacity: 0.8;
   }
 
-  [data-theme="dark"] .read-more-btn {
-    color: var(--color-accent-dark);
+  :global([data-theme="dark"]) .read-more-btn {
+    color: var(--color-accent);
   }
 
   .hidden {
